@@ -1,0 +1,25 @@
+#!/bin/sh
+[ ! -d /tmp/state ] && mkdir -p /tmp/state 2>/dev/null
+sed -i '/_orig_ifname/d' /etc/config/network
+{
+echo -n "["
+for i in $(ip address | awk -F ': ' '/eth[0-9]+/ {print $2}' | awk -F '@' {'print $1'} | awk '{ if ( length($0) <=7 ) print $0}' | xargs)
+do
+	h=$(echo '{"face":' )
+	d=$(ethtool $i)
+	face=$(uci show network | grep "$i" | head -n1 |awk -F '.'  '{print $2}' | awk -F '_'  '{print $1}')
+	m=$(ifconfig | grep "$i" | head -n1 | awk -F 'HWaddr ' '{print $2}')
+	e=$(echo "$d" | grep "Link detected" | awk -F: '{printf $2}' | sed 's/^[ \t]*//g')
+	[ $e = yes ] && l=1 || l=0
+	f=$(echo "$d" | grep "Speed" | awk -F: '{printf $2}' | sed 's/^[ \t]*//g' | tr -d "Unknown!")
+	[ -z "$f"  ] && {
+	[ $i == "eth0" ] && f=" 10Gb/s " || f=" 10Mb/s "
+	}
+	g=$(echo "$d" | grep "Duplex" | awk -F: '{printf $2}' | sed 's/^[ \t]*//g')
+	[ "$g" == "Full" ] && x=1 || x=0
+	echo -n "$h \"$face[$i]\", \"status\": $l, \"duplex\": $x, \"speed\": \"$f\", \"mac\": \"$m\"},"
+done
+echo -n "]" 
+} > /tmp/state/ethinfo
+
+cat /tmp/state/ethinfo

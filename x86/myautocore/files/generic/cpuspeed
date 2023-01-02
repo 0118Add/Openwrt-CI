@@ -1,0 +1,27 @@
+#!/bin/sh
+
+CPUINFO_PATH="/proc/cpuinfo"
+CPUFREQ_PATH="/sys/devices/system/cpu/cpufreq"
+
+if grep -q "bcm27xx" "/etc/openwrt_release"; then
+	cpu_freq="$( $(vcgencmd measure_clock arm | awk -F '=' '{print $2}') / 1000000  | awk -F '.' '{print $1}' ) )Mhz" 
+elif grep -q "bcm53xx" "/etc/openwrt_release"; then
+	cpu_freq="$(nvram get clkfreq | awk -F ',' '{print $1}')MHz"
+elif grep -q "mvebu" "/etc/openwrt_release"; then
+	cpu_freq="$(cat "$CPUINFO_PATH" | awk -F':' '/BogoMIPS/ {print $2}' | head -n1 | awk -F '.' '{print $1}' )MHz" 
+elif grep -q "ramips" "/etc/openwrt_release"; then
+	cpu_freq="$(cat "$CPUINFO_PATH" | awk -F':' '/BogoMIPS/ {print $2}' | head -n1 | awk -F '.' '{print $1}' )MHz" 
+elif grep -q "x86" "/etc/openwrt_release"; then
+	cpu_freq="$(cat "$CPUINFO_PATH" | awk -F':' '/MHz/ {print $2}' | head -n1 | awk -F '.' '{print $1}' )MHz" 
+elif ! grep -q "filogic" "/etc/openwrt_release"; then
+	cpu_freq="$(expr $(cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq) / 1000)MHz"
+	big_cpu_freq="$(expr $(cat /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_cur_freq 2>"/dev/null") / 1000 2>"/dev/null")"
+	[ -n "${big_cpu_freq}" ] && big_cpu_freq="${big_cpu_freq}MHz "
+fi
+
+
+if grep -Eq "ipq|mt7622" "/etc/openwrt_release" ; then
+	echo -n "${cpu_freq}"
+else
+	echo -n "${big_cpu_freq}${cpu_freq}"
+fi
