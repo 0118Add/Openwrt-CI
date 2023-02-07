@@ -77,6 +77,7 @@ svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package
 git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone https://github.com/sbwml/luci-app-alist.git package/alist
 svn co https://github.com/kiddin9/openwrt-packages/trunk/ddnsto package/ddnsto
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddnsto package/luci-app-ddnsto
 #git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
