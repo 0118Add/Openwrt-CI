@@ -78,8 +78,8 @@ git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone https://github.com/sbwml/luci-app-alist.git package/alist
-svn co https://github.com/kiddin9/openwrt-packages/trunk/ddnsto package/ddnsto
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddnsto package/luci-app-ddnsto
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/ddnsto package/ddnsto
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddnsto package/luci-app-ddnsto
 #git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
 #svn co https://github.com/0118Add/pass-ssrp/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/0118Add/pass-ssrp/trunk/luci-app-bypass package/luci-app-bypass
@@ -89,7 +89,7 @@ svn co https://github.com/0118Add/openwrt_packages/trunk/luci-theme-atmaterial_n
 #git clone https://github.com/kiddin9/luci-theme-edge.git package/luci-theme-edge
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
-#svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 #git clone https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
@@ -106,11 +106,11 @@ sed -i 's/Argon 主题设置/主题设置/g' package/luci-app-argon-config/po/zh
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
 #sed -i 's/TTYD 终端/命令行/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
-#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/msgstr "KMS 服务器"/msgstr "KMS激活"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/Frp 穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
-sed -i 's/解除网易云音乐播放限制/解锁网易音乐播放限制/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+sed -i 's/解除网易云音乐播放限制/解锁网易音乐/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
