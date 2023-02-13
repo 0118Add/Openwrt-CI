@@ -22,7 +22,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  FILE_NAME: openwrt immortalwrt5.4
+  FILE_NAME: openwrt immortalwrt 5.4
 
 jobs:
   build:
