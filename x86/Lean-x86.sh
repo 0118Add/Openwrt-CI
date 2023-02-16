@@ -85,6 +85,7 @@ git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #svn co https://github.com/0118Add/pass-ssrp/trunk/luci-app-bypass package/luci-app-bypass
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
+svn co https://github.com/0118Add/openwrt_packages/trunk/luci-theme-argon-dark-mod package/luci-theme-argon-dark-mod
 svn co https://github.com/0118Add/openwrt_packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #git clone https://github.com/kiddin9/luci-theme-edge.git package/luci-theme-edge
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
@@ -99,7 +100,7 @@ git clone https://github.com/0118Add/luci-app-unblockneteasemusic package/luci-a
 #svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+#git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 sed -i 's/Argon 主题设置/主题设置/g' package/luci-app-argon-config/po/zh-cn/argon-config.po
