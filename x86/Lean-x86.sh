@@ -25,7 +25,11 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 替换内核
-sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' target/linux/x86/Makefile
+
+# 内核替换 kernel xxx
+sed -i 's/LINUX_KERNEL_HASH-5.4.231 = 8dd0ea7f1db4c1e89d485255798e3c3dfb9be63c0f2af369912a1a37b75f36a8/LINUX_KERNEL_HASH-5.4.230 = a74fd32ccc1025b72f3ba7183208761f7c6190fb96e8f484f6d543a5a183e62f/g' ./include/kernel-5.4
+sed -i 's/LINUX_VERSION-5.4 = .231/LINUX_VERSION-5.4 = .230/g' ./include/kernel-5.4
 
 # 修改概览里时间显示为中文数字
 #sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
@@ -43,10 +47,6 @@ sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefil
 
 # 替换banner
 wget -O ./package/base-files/files/etc/banner https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/banner
-
-# 内核替换成 kernel 5.4.xxx
-#sed -i 's/LINUX_KERNEL_HASH-5.4.203 = fc933f5b13066cfa54aacb5e86747a167bad1d8d23972e4a03ab5ee36c29798a/LINUX_KERNEL_HASH-5.4.208 = f06ddf1abf0a87d9b2fbe876798fd92c15af312b3042469082e5994cc0ee0e44/g' ./include/kernel-5.4
-#sed -i 's/LINUX_VERSION-5.4 = .203/LINUX_VERSION-5.4 = .208/g' ./include/kernel-5.4
 
 # 修改默认主题
 #sed -i 's/luci-theme-bootstrap/luci-theme-infinityfreedom/g' feeds/luci/collections/luci/Makefile
