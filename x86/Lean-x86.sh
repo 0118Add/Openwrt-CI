@@ -85,7 +85,7 @@ git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #svn co https://github.com/0118Add/pass-ssrp/trunk/luci-app-bypass package/luci-app-bypass
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
-svn co https://github.com/0118Add/openwrt_packages/trunk/luci-theme-argon-dark-mod package/luci-theme-argon-dark-mod
+git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 svn co https://github.com/0118Add/openwrt_packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #git clone https://github.com/kiddin9/luci-theme-edge.git package/luci-theme-edge
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
