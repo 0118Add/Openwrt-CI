@@ -1,4 +1,4 @@
-name: Test-x86
+name: Build_x86_64
 
 on:
   repository_dispatch:
@@ -33,7 +33,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  FILE_NAME: OpenWrt x86
+  FILE_NAME: Openwrt x86
 
 jobs:
   build:
