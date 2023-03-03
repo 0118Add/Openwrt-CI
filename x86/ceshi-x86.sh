@@ -74,9 +74,9 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-aliyundrive-webdav
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
 
-#rm -rf package/kernel/mt76
-#git checkout b9408b6b3933d93ca40f62659903bf4636409d75 package/kernel/mt76
-
+rm -rf packages/kernel/antfs
+git checkout 895e6babc3ef1abfcd0e2d3510c7f145a466eb22 packages/kernel/antfs
+               
 # 添加额外软件包
 #git clone https://github.com/0118Add/build-actions.git package/myautocore
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
