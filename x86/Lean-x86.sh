@@ -28,8 +28,8 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
-sed -i 's/LINUX_KERNEL_HASH-5.4.231 = 8dd0ea7f1db4c1e89d485255798e3c3dfb9be63c0f2af369912a1a37b75f36a8/LINUX_KERNEL_HASH-5.4.230 = a74fd32ccc1025b72f3ba7183208761f7c6190fb96e8f484f6d543a5a183e62f/g' ./include/kernel-5.4
-sed -i 's/LINUX_VERSION-5.4 = .231/LINUX_VERSION-5.4 = .230/g' ./include/kernel-5.4
+#sed -i 's/LINUX_KERNEL_HASH-5.4.231 = 8dd0ea7f1db4c1e89d485255798e3c3dfb9be63c0f2af369912a1a37b75f36a8/LINUX_KERNEL_HASH-5.4.230 = a74fd32ccc1025b72f3ba7183208761f7c6190fb96e8f484f6d543a5a183e62f/g' ./include/kernel-5.4
+#sed -i 's/LINUX_VERSION-5.4 = .231/LINUX_VERSION-5.4 = .230/g' ./include/kernel-5.4
 #sed -i 's/LINUX_KERNEL_HASH-6.1.12 = d47aa675170904dcc93eeaa7c96db54d476a11c5d3e8cf3d3b96e364e2a0edea/LINUX_KERNEL_HASH-6.1 = 2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb/g' ./include/kernel-6.1
 #sed -i 's/LINUX_VERSION-6.1 = .12/LINUX_VERSION-6.1 = /g' ./include/kernel-6.1
 
@@ -72,13 +72,13 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
 
 # 添加额外软件包
-git clone https://github.com/0118Add/build-actions.git package/myautocore
+git clone https://github.com/0118Add/Autobuild.git package/myautocore
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 svn co https://github.com/kiddin9/openwrt-packages/trunk/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
-svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+#svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
 git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
