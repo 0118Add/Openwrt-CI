@@ -62,6 +62,7 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
+svn co https://github.com/openwrt/packages/branches/openwrt-22.03/kernel/antfs feeds/packages/kernel/antfs
 # 移除重复软件包
 rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
