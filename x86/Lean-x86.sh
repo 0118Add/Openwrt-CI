@@ -7,16 +7,11 @@
 #===============================================
 
 # 修改主机名字（不能纯数字或者使用中文）
-#sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
 #sed -i "s/OpenWrt /OPWRT/g" package/lean/default-settings/files/zzz-default-settings
 
 ##加入作者信息
 #sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-X86-$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings   
 #sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' BGG'/g" package/lean/default-settings/files/zzz-default-settings
-
-# 使用源码自带ShadowSocksR Plus+出国软件
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
-#sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -87,8 +82,6 @@ git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/ddnsto package/ddnsto
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddnsto package/luci-app-ddnsto
 #git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
-#svn co https://github.com/0118Add/pass-ssrp/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-#svn co https://github.com/0118Add/pass-ssrp/trunk/luci-app-bypass package/luci-app-bypass
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
