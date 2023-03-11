@@ -13,9 +13,10 @@ env:
 # REPO_URL: https://github.com/openwrt/openwrt
 # REPO_URL: https://github.com/Lienol/openwrt
 # REPO_URL: https://github.com/immortalwrt/immortalwrt
-# REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_URL: https://github.com/aakkll/lede
-  REPO_BRANCH: kernel6.1--5.15
+  REPO_URL: https://github.com/coolsnowwolf/lede
+# REPO_URL: https://github.com/aakkll/lede
+  REPO_BRANCH: master
+# REPO_BRANCH: kernel6.1--5.15
 # REPO_BRANCH: master --single-branch
 # REPO_BRANCH: lede-17.01 --single-branch
 # REPO_BRANCH: openwrt-18.06 --single-branch
