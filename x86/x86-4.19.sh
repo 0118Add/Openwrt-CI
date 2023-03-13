@@ -21,8 +21,8 @@ sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=''/g" package/base-files/files
 curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/emortal/autocore/files/generic/cpuinfo
 
 # 内核替换成 kernel 4.19(14).xxx
-sed -i 's/LINUX_KERNEL_HASH-4.19.246 = 00ad2f5a36c91221a2ade0078b93bf84b60d494bd1ef51eaccb5bdb6277dba3a/LINUX_KERNEL_HASH-4.19.276 = 2ecc80957f7adf9fdf7800b99c424703b88bf5462dafc5bc9344ad7b486314b9/g' ./include/kernel-version.mk
-sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .276/g' ./include/kernel-version.mk
+sed -i 's/LINUX_KERNEL_HASH-4.19.246 = 00ad2f5a36c91221a2ade0078b93bf84b60d494bd1ef51eaccb5bdb6277dba3a/LINUX_KERNEL_HASH-4.19.277 = f682d9a202e059763fb4ef32a0287e6b5a49305ac34fb3161021df0fcd94f58c/g' ./include/kernel-version.mk
+sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .277/g' ./include/kernel-version.mk
 #sed -i 's/LINUX_KERNEL_HASH-5.4.203 = fc933f5b13066cfa54aacb5e86747a167bad1d8d23972e4a03ab5ee36c29798a/LINUX_KERNEL_HASH-5.4.211 = bfb43241b72cd55797af68bea1cebe630d37664c0f9a99b6e9263a63a67e2dec/g' ./include/kernel-5.4
 #sed -i 's/LINUX_VERSION-5.4 = .203/LINUX_VERSION-5.4 = .211/g' ./include/kernel-5.4
 
