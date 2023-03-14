@@ -120,5 +120,8 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
+#赋予权限
+chmod 0755 feeds/packages/net/zerotier/files/etc/init.d/zerotier
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
