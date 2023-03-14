@@ -122,6 +122,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 
 #赋予权限
 chmod 0755 feeds/packages/net/zerotier/files/etc/init.d/zerotier
+chmod 0755 feeds/luci/applications/luci-app-frpc/root/etc/init.d/frp
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
