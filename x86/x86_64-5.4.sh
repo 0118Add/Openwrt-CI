@@ -44,6 +44,9 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/0118Add/openwrt_packages package/openwrt_packages
+svn co https://github.com/0118Add/openwrt_packages/trunk/luci-app-frpc package/luci-app-frpc
+svn co https://github.com/0118Add/openwrt_packages/trunk/zerotier package/zerotier
+svn co https://github.com/0118Add/openwrt_packages/trunk/luci-app-zerotier package/luci-app-zerotier
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 #svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
 git clone https://github.com/0118Add/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
@@ -123,9 +126,9 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 赋予权限
-chmod 0755 openwrt_packages/luci-app-zerotier/root/etc/init.d/zerotier
-chmod 0755 openwrt_packages/zerotier/files/etc/init.d/zerotier
-chmod 0755 openwrt_packages/luci-app-frpc/root/etc/init.d/frp
+chmod 0755 package/luci-app-zerotier/root/etc/init.d/zerotier
+chmod 0755 package/zerotier/files/etc/init.d/zerotier
+chmod 0755 package/luci-app-frpc/root/etc/init.d/frp
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
