@@ -30,8 +30,8 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
 
 # 内核替换成 kernel 5.xxx
-sed -i 's/LINUX_KERNEL_HASH-5.4.236 = ccc892faa96f2580bde683f1063c271dc196b5a462e9980912e4c188b7154951/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/g' ./include/kernel-5.4
-sed -i 's/LINUX_VERSION-5.4 = .236/LINUX_VERSION-5.4 = .238/g' ./include/kernel-5.4
+#sed -i 's/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/g' ./include/kernel-5.4
+#sed -i 's/LINUX_VERSION-5.4 = .238/LINUX_VERSION-5.4 = .238/g' ./include/kernel-5.4
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
