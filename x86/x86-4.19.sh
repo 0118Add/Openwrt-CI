@@ -40,7 +40,6 @@ rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-rm -rf feeds/packages/net/frp
 rm -rf feeds/packages/net/zerotier
 rm -rf feeds/luci/applications/luci-app-zerotier
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
