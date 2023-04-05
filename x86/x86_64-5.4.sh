@@ -59,7 +59,7 @@ git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
-svn co https://github.com/0118Add/openwrt-packages/trunk/frp package/frp
+svn co https://github.com/coolsnowwolf/packages/trunk/net/frp package/frp
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 svn co https://github.com/0118Add/openwrt-packages/trunk/zerotier package/zerotier
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
