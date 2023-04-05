@@ -31,9 +31,9 @@ sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .279/g' ./include/kerne
 
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
-rm -rf feeds/luci/themes/luci-theme-argon
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
