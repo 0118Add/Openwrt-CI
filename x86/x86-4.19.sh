@@ -34,7 +34,7 @@ sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .278/g' ./include/kerne
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-frpc
+#rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/luci/applications/luci-app-openclash
@@ -54,11 +54,11 @@ git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/pass
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-git clone https://github.com/sbwml/luci-app-alist.git package/alist
+#git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
-svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
+#svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 svn co https://github.com/0118Add/openwrt-packages/trunk/zerotier package/zerotier
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
