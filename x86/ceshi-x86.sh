@@ -15,7 +15,6 @@
 #sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' BGG'/g" package/lean/default-settings/files/zzz-default-settings
 
 # 使用源码自带ShadowSocksR Plus+出国软件
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 #sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 
 # 修改默认IP
@@ -25,7 +24,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 替换内核
-sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-5.4.232 = b0656a5e798b2dab5fb4c9da6398d388306ba2169848fc837a4133e85b430e93/LINUX_KERNEL_HASH-5.4.233 = 5a1e5754b4f2a4fe73b119d810ecda2ce07ecfb6f6cbbd16547c9ecd30b97627/g' ./include/kernel-5.4
@@ -78,7 +77,8 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 #git clone https://github.com/0118Add/build-actions.git package/myautocore
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
-git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+#git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/luci-app-dockerman
 svn co https://github.com/kiddin9/openwrt-packages/trunk/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
@@ -114,12 +114,12 @@ sed -i 's/Argon 主题设置/主题设置/g' feeds/luci/applications/luci-app-ar
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
 #sed -i 's/TTYD 终端/命令行/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
-sed -i 's/Hello World/HelloWorld/g' package/luci-app-vssr/luasrc/controller/vssr.lua
+sed -i 's/Hello World/Overwall/g' package/luci-app-vssr/luasrc/controller/vssr.lua
 sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/msgstr "KMS 服务器"/msgstr "KMS激活"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/Frp 穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
-sed -i 's/解除网易云音乐播放限制/解锁网易音乐/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
