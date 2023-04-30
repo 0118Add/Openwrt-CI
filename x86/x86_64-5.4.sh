@@ -34,6 +34,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -55,8 +56,8 @@ git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 git clone https://github.com/sbwml/luci-app-alist.git package/alist
-#git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 svn co https://github.com/0118Add/openwrt-packages/trunk/zerotier package/zerotier
@@ -64,6 +65,8 @@ svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-zerotier packa
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
+git clone https://github.com/gngpp/luci-app-design-config package/luci-app-design-config
 
 # 修改插件名字
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
