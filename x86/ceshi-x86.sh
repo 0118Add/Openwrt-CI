@@ -32,22 +32,22 @@ sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefil
 #sed -i 's/LINUX_KERNEL_HASH-6.1.14 = a27076011efec7ad11e9ed0644f512c34cab4c5ed5ba42cfe71c83fabebe810d/LINUX_KERNEL_HASH-6.1 = 2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb/g' ./include/kernel-6.1
 #sed -i 's/LINUX_VERSION-6.1 = .14/LINUX_VERSION-6.1 = /g' ./include/kernel-6.1
 
+# 修改系统文件
+#curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
+#curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
+curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/index_x86.htm > ./package/lean/autocore/files/x86/index.htm
+
 # 调整x86型号只显示CPU型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}/g' package/lean/autocore/files/x86/autocore
 
 # 修改概览里时间显示为中文数字
-sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
+#sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
 
 # 添加温度显示
 #sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # 添加amd温度显示
 #sed -i '742 a <tr><td width="33%"><%:CPU Temperature%></td><td><%=luci.sys.exec("sensors  | grep -E 'temp1'")%></td></tr>' /usr/lib/lua/luci/view/admin_status/index.htm
-
-# 修改系统文件
-#curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
-#curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
-#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
 
 # 替换index.htm文件
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/index_x86.htm
