@@ -35,10 +35,10 @@ sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=6.1/g' target/linux/x86/Makefil
 # 修改系统文件
 #curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
 #curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
-curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/index_x86.htm > ./package/lean/autocore/files/x86/index.htm
+#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/index_x86.htm > ./package/lean/autocore/files/x86/index.htm
 
 # 调整x86型号只显示CPU型号
-sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}/g' package/lean/autocore/files/x86/autocore
+#sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}/g' package/lean/autocore/files/x86/autocore
 
 # 修改概览里时间显示为中文数字
 #sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
@@ -68,7 +68,7 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # 移除重复软件包
-#rm -rf package/lean/autocore
+rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf feeds/luci/applications/luci-app-dockerman
@@ -77,7 +77,7 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
 
 # 添加额外软件包
-#git clone https://github.com/0118Add/build-actions.git package/myautocore
+git clone https://github.com/0118Add/X86_64-TEST.git package/myautocore
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
