@@ -56,7 +56,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 git clone https://github.com/sbwml/luci-app-alist.git package/alist
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
