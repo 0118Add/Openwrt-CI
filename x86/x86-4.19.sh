@@ -35,14 +35,14 @@ sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .279/g' ./include/kerne
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-app-argon-config
-#rm -rf feeds/luci/applications/luci-app-frpc
+rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-rm -rf feeds/packages/net/zerotier
-rm -rf feeds/luci/applications/luci-app-zerotier
+#rm -rf feeds/packages/net/zerotier
+#rm -rf feeds/luci/applications/luci-app-zerotier
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/0118Add/openwrt_packages package/openwrt_packages
@@ -52,27 +52,27 @@ git clone https://github.com/0118Add/luci-app-unblockneteasemusic.git package/lu
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
-git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
+#git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
-git clone https://github.com/gngpp/luci-app-design-config package/luci-app-design-config
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
-svn co https://github.com/0118Add/openwrt-packages/trunk/zerotier package/zerotier
-svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/zerotier package/zerotier
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
+git clone https://github.com/gngpp/luci-app-design-config package/luci-app-design-config
 
 # 修改插件名字
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Alist 文件列表/网络云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
-#sed -i 's/PassWall 2/PassWall/g' package/passwall2/luci-app-passwall2/po/zh-cn/passwall2.po
+#sed -i 's/Argon 主题设置/主题设置/g' package/luci-app-argon-config/po/zh-cn/argon-config.po
 sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
@@ -131,8 +131,8 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 赋予权限
-chmod 0755 package/luci-app-zerotier/root/etc/init.d/zerotier
-chmod 0755 package/zerotier/files/etc/init.d/zerotier
+#chmod 0755 package/luci-app-zerotier/root/etc/init.d/zerotier
+#chmod 0755 package/zerotier/files/etc/init.d/zerotier
 chmod 0755 package/luci-app-frpc/root/etc/init.d/frp
 
 ./scripts/feeds update -a
