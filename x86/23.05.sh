@@ -44,7 +44,7 @@ rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
-rm -rf feeds/luci/applications/luci-app-ssr-plus
+#rm -rf feeds/luci/applications/luci-app-ssr-plus
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
@@ -57,7 +57,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/l
 #svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+#svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
