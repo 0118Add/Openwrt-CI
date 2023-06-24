@@ -49,7 +49,7 @@ rm -rf feeds/luci/applications/luci-app-wireguard
 #rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
-#git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/luci-app-dockerman
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-wireguard package/luci-app-wireguard
