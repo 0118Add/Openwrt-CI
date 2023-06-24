@@ -58,7 +58,8 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-zerotier packa
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone -b luci https://github.com/xiaorouji/openwrt-passwall package/passwall
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
