@@ -40,7 +40,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #rm -rf feeds/third/luci-app-vlmcsd
 rm -rf feeds/third/luci-theme-argon
 #rm -rf feeds/luci/applications/luci-app-frpc
-rm -rf feeds/luci/applications/luci-app-ttyd
+#rm -rf feeds/luci/applications/luci-app-ttyd
 #rm -rf feeds/luci/applications/luci-app-wireguard
 #rm -rf feeds/luci/applications/luci-app-vssr
 #rm -rf feeds/luci/applications/luci-app-passwall
