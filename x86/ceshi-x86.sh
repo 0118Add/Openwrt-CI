@@ -83,11 +83,11 @@ git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 svn co https://github.com/kiddin9/openwrt-packages/trunk/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+# svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
 git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
-git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
+# git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/ddnsto package/ddnsto
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddnsto package/luci-app-ddnsto
@@ -142,9 +142,9 @@ sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/mod
 sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
 # 调整 bypass 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
+# sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
+# sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
+# sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
 
 # 调整 SSRP 到 GFW 菜单
 sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/*.lua
@@ -166,17 +166,17 @@ sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwal
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
 
 # 调整 Pass Wall 2 到 GFW 菜单
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/client/*.lua
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/server/*.lua
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/passwall2/*.lua
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/app_update/*.htm
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/auto_switch/*.htm
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/global/*.htm
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/log/*.htm
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/node_list/*.htm
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/rule/*.htm
-sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/server/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/controller/*.lua
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/client/*.lua
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/model/cbi/passwall2/server/*.lua
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/passwall2/*.lua
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/app_update/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/auto_switch/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/global/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/log/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/node_list/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/rule/*.htm
+# sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/view/passwall2/server/*.htm
 
 # 调整 Hello World 到 GFW 菜单
 sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/controller/*.lua
@@ -190,7 +190,7 @@ sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 修改权限
-chmod 0755 package/luci-app-bypass/root/etc/init.d/bypass
+# chmod 0755 package/luci-app-bypass/root/etc/init.d/bypass
 
 ./scripts/feeds update -i
 ./scripts/feeds install -a
