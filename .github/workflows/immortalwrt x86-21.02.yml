@@ -1,4 +1,4 @@
-name: ImmortalWrt x86-21.02
+name: immortalwrt x86-21.02
 
 on:
   repository_dispatch:
