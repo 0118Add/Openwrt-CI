@@ -1,4 +1,4 @@
-name: ImmortalWrt x86-18.06-k5.4
+name: immortalwrt x86-18.06-k5.4
 
 on:
   repository_dispatch:
