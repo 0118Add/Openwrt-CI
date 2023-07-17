@@ -38,8 +38,10 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
+rm -rf feeds/packages/net/ddns-go
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -59,7 +61,7 @@ git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/pass
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-#git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
+git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 
