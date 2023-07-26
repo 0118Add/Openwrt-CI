@@ -60,6 +60,7 @@ git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/pass
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #svn co https://github.com/sirpdboy/trunk/ddns-go package/ddns-go
 #svn co https://github.com/sirpdboy/trunk/luci-app-ddns-go package/luci-app-ddns-go
