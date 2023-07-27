@@ -69,7 +69,7 @@ return baseclass.extend({
 		if (systeminfo.localtime) {
 			var date = new Date(systeminfo.localtime * 1000);
 
-			datestr = '%04d-%02d-%02d %02d:%02d:%02d'.format(
+			datestr = '%04d年%02d月%02d日 %02d:%02d:%02d'.format(
 				date.getUTCFullYear(),
 				date.getUTCMonth() + 1,
 				date.getUTCDate(),
