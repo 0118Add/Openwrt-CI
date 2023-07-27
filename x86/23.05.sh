@@ -44,7 +44,7 @@ rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
-#rm -rf feeds/luci/applications/luci-app-ssr-plus
+rm -rf feeds/luci/applications/luci-app-wechatpush
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
