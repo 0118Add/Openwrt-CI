@@ -59,7 +59,7 @@ git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/pass
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-git clone https://github.com/sbwml/luci-app-alist.git package/alist
+svn co https://github.com/sbwml/luci-app-alist/trunk/luci-app-alist package/luci-app-alist
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
@@ -79,9 +79,9 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/openwrt_packages/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
 # 调整 Alist 文件列表 到 系统 菜单
-sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/controller/*.lua
-sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/model/cbi/alist/*.lua
-sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/view/alist/*.htm
+sed -i 's/nas/system/g' package/luci-app-alist/luasrc/controller/*.lua
+sed -i 's/nas/system/g' package/luci-app-alist/luasrc/model/cbi/alist/*.lua
+sed -i 's/nas/system/g' package/luci-app-alist/luasrc/view/alist/*.htm
 
 # 调整 Dockerman 到 服务 菜单
 #sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/luasrc/controller/*.lua
