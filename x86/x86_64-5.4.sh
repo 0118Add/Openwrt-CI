@@ -96,9 +96,9 @@ sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dock
 sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 Zerotier 到 服务 菜单
-sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/controller/*.lua
-sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
-sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/*.htm
+sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/controller/*.lua
+sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
+sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
 # 调整 bypass 到 GFW 菜单
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
@@ -136,8 +136,8 @@ sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwal
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 赋予权限
-#chmod 0755 feeds/luci/applications/luci-app-zerotier/root/etc/init.d/zerotier
-#chmod 0755 feeds/packages/net/zerotier/files/etc/init.d/zerotier
+chmod 0755 package/luci-app-zerotier/root/etc/init.d/zerotier
+chmod 0755 package/zerotier/files/etc/init.d/zerotier
 chmod 0755 package/luci-app-frpc/root/etc/init.d/frp
 
 ./scripts/feeds update -a
