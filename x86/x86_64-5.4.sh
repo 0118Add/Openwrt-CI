@@ -32,7 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-#rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-frpc
@@ -47,7 +47,7 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/0118Add/openwrt_packages package/openwrt_packages
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
-#svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
+svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
 git clone https://github.com/0118Add/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
@@ -88,11 +88,16 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/view/alist/*.htm
 
 # 调整 Dockerman 到 服务 菜单
-#sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/luasrc/controller/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/*.htm
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
+sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/luasrc/controller/*.lua
+sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/*.lua
+sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
+sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/*.htm
+sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
+
+# 调整 Zerotier 到 服务 菜单
+sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/controller/*.lua
+sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
+sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
 # 调整 bypass 到 GFW 菜单
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
