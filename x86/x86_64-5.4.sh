@@ -35,12 +35,12 @@ rm -rf feeds/luci/themes/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
-rm -rf feeds/luci/applications/luci-app-openclash
+#rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-zerotier
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+#git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/0118Add/openwrt_packages package/openwrt_packages
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
@@ -61,7 +61,7 @@ svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/l
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
-svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
+#svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone https://github.com/gngpp/luci-app-design-config package/luci-app-design-config
@@ -93,44 +93,44 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 Zerotier 到 服务 菜单
-sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/controller/*.lua
-sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
-sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/view/zerotier/*.htm
+#sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/controller/*.lua
+#sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
+#sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
 # 调整 bypass 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
+#sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
 
 # 调整 SSRP 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-ssr-plus/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
-sed -i 's/services/vpn/g' package/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+#sed -i 's/services/vpn/g' package/luci-app-ssr-plus/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 
 # 调整 Pass Wall 到 GFW 菜单
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/passwall/*.lua
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/auto_switch/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
-sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/passwall/*.lua
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/auto_switch/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
+#sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
 
 # 调整 Hello World 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
-sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/view/vssr/*.htm
+#sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/model/cbi/vssr/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-vssr/luasrc/view/vssr/*.htm
 
 # 调整 Open Clash 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 赋予权限
 chmod 0755 package/luci-app-zerotier/root/etc/init.d/zerotier
