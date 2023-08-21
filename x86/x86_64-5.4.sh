@@ -1,8 +1,5 @@
-#使用源码自带ShadowSocksR Plus+出国软件
-#sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
-
 # 替换内核
-sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/g' ./target/linux/x86/Makefile
+#sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/g' ./target/linux/x86/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
