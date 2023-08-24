@@ -30,7 +30,7 @@ sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .277/g' ./include/kerne
 #sed -i 's/bootstrap/opentopd/' feeds/luci/collections/luci/Makefile
 
 #添加额外软件包
-#rm -rf feeds/packages/lang/golang
+rm -rf feeds/packages/net/v2ray-geodata
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
@@ -57,6 +57,8 @@ git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-part
 svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
+git clone https://github.com/sbwml/luci-app-daed package/daed
+git clone https://github.com/sbwml/v2ray-geodata package/daed/v2ray-geodata
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
