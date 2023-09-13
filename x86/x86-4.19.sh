@@ -50,7 +50,7 @@ git clone https://github.com/0118Add/openwrt_packages package/openwrt_packages
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/sing-box package/sing-box
