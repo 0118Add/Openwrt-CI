@@ -55,9 +55,8 @@ svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/l
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-svn co https://github.com/fw876/helloworld/trunk/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
