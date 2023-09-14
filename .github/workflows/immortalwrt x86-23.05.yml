@@ -49,9 +49,6 @@ jobs:
     - name: Initialization Environment
       env:
         DEBIAN_FRONTEND: noninteractive
-    - name: Build System Setup
-      env:
-        DEBIAN_FRONTEND: noninteractive
       run: |
         sudo sh -c 'echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-17 main" >> /etc/apt/sources.list'
         sudo sh -c 'echo "deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-17 main" >> /etc/apt/sources.list'
