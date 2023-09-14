@@ -41,7 +41,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-frpc
-#rm -rf feeds/luci/applications/luci-app-daed
+rm -rf feeds/packages/net/sing-box
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-wechatpush
@@ -56,6 +56,7 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.gi
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/sing-box package/sing-box
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
