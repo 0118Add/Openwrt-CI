@@ -57,16 +57,15 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir    
     
-    - name: Clone Source Code
-      id: clone
+    - name: Clone source code
+      working-directory: /workdir
       run: |
-        df -hT $GITHUB_WORKSPACE
-        git clone $SOURCE_URL -b $SOURCE_BRANCH workspace/openwrt
-        cd workspace/openwrt
-        echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        VERSION_INFO=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
-        echo "VERSION_INFO=$VERSION_INFO" >> $GITHUB_ENV
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     
 #    - name: Cache
 #      uses: klever1988/cachewrtbuild@main
