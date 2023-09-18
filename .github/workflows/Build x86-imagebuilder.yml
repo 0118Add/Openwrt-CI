@@ -1,4 +1,4 @@
-name: Build OpenWrt
+name: Build imagebuilder
 on:
   repository_dispatch:
   workflow_dispatch:
