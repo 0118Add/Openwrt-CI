@@ -7,8 +7,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'  
-  schedule:
-  - cron: "20  3 * * 1"
+  #schedule:
+  #- cron: "20  3 * * 1"
 
 env:
   TZ: Asia/Shanghai
@@ -118,22 +118,3 @@ jobs:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
-        
-    - name: 删除运行的工作流
-      uses: naoki66/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
-
-    - name: 删除旧RReleases
-      uses: dev-drprasad/delete-older-releases@v0.2.1
-      with:
-        keep_latest: 6
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-
-               
-    - name: Pushplus推送通知
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      run: curl http://www.pushplus.plus/send -X POST -H "Content-Type:application/json" -d '{"title":"imagebuilder编译immortalwrt23.05.0_rc4成功！","content":" 从${{ env.TIME1 }}开始到${{ env.TIME2 }}编译完成！","token":"${{ secrets.PUSHPLUS_TOKEN }}","webhook":"02","channel":"cp"}'
