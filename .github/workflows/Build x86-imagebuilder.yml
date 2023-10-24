@@ -34,12 +34,17 @@ jobs:
         mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \
         libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \
         vim wget xmlto xxd zlib1g-dev python3-setuptools
+    
     - name: Clone source code
       run: |
         wget https://downloads.immortalwrt.org/releases/23.05.0-rc4/targets/x86/64/immortalwrt-imagebuilder-23.05.0-rc4-x86-64.Linux-x86_64.tar.xz
         tar -J -x -f immortalwrt-imagebuilder-23.05.0-rc4-x86-64.Linux-x86_64.tar.xz
         
-
+    - name: Packages
+      run: |
+        cd immortalwrt-imagebuilder-23.05.0-rc4-x86-64.Linux-x86_64
+        wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-app-unblockneteasemusic_all.ipk
+    
     - name: Build 
       run: |
         cd immortalwrt-imagebuilder-23.05.0-rc4-x86-64.Linux-x86_64
