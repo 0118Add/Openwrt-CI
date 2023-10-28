@@ -26,6 +26,10 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86
 sed -i 's/LINUX_KERNEL_HASH-4.19.246 = 00ad2f5a36c91221a2ade0078b93bf84b60d494bd1ef51eaccb5bdb6277dba3a/LINUX_KERNEL_HASH-4.19.277 = f682d9a202e059763fb4ef32a0287e6b5a49305ac34fb3161021df0fcd94f58c/g' ./include/kernel-version.mk
 sed -i 's/LINUX_VERSION-4.19 = .246/LINUX_VERSION-4.19 = .277/g' ./include/kernel-version.mk
 
+# node - prebuilt
+rm -rf feeds/packages/lang/node
+git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
+
 # 修改默认主题
 #sed -i 's/bootstrap/opentopd/' feeds/luci/collections/luci/Makefile
 
