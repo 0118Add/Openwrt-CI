@@ -44,7 +44,6 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
-rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/alist
 rm -rf feeds/luci/applications/luci-app-alist
 #rm -rf feeds/luci/applications/luci-app-frpc
