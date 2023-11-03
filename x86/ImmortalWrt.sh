@@ -51,7 +51,7 @@ rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-ssr-plus
-#rm -rf feeds/luci/applications/luci-app-wechatpush
+rm -rf feeds/luci/applications/luci-app-wechatpush
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
@@ -68,7 +68,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/sing-box pac
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 git clone -b main https://github.com/fw876/helloworld.git package/helloworld
-#git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
