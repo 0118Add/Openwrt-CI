@@ -53,7 +53,7 @@ rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 #rm -rf feeds/luci/applications/luci-app-wechatpush
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/luci-app-dockerman
@@ -66,7 +66,8 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/sing-box package/sing-box
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/sing-box package/sing-box
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+#svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+git clone -b main https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
@@ -75,7 +76,7 @@ svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash pa
 # 修改插件名字
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
 sed -i 's/Alist 文件列表/云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
