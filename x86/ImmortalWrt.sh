@@ -45,6 +45,7 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/packages/net/alist
+rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-alist
 #rm -rf feeds/luci/applications/luci-app-frpc
 rm -rf feeds/luci/applications/luci-app-vssr
@@ -68,6 +69,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/sing-box pac
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/sing-box package/sing-box
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+svn co https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
 git clone -b main https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
