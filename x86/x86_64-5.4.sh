@@ -44,7 +44,7 @@ rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-zerotier
-#git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+#git clone https://github.com/0118Add/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/0118Add/openwrt_packages package/openwrt_packages
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
@@ -58,8 +58,8 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 git clone https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/sing-box package/sing-box
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
-svn co https://github.com/fw876/helloworld/trunk/shadow-tls package/shadow-tls
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+svn co https://github.com/0118Add/helloworld/trunk/shadow-tls package/shadow-tls
+svn co https://github.com/0118Add/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
