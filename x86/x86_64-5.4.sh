@@ -63,7 +63,8 @@ svn co https://github.com/0118Add/helloworld/trunk/luci-app-ssr-plus package/luc
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
+git clone https://github.com/sirpdboy/luci-app-ddns-go package/ddns-go
 svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/luci-theme-atmaterial_new
