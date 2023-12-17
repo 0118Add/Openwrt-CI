@@ -51,7 +51,7 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-alist
-#rm -rf feeds/luci/applications/luci-app-frpc
+#rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
