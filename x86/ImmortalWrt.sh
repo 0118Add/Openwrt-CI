@@ -74,7 +74,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone -b main https://github.com/fw876/helloworld.git package/helloworld
+git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
