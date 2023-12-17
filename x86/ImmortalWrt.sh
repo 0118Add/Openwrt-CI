@@ -96,9 +96,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/openwrt_packages/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
 # 调整 Zerotier 到 服务 菜单
-sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/controller/*.lua
-sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
-sed -i 's/vpn/services/g' package/luci-app-zerotier/luasrc/view/zerotier/*.htm
+sed -i 's/vpn/services/g' package/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # 调整 Alist 文件列表 到 系统 菜单
 sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/controller/*.lua
