@@ -156,7 +156,7 @@ sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/m
 sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 修改权限
-chmod 0755 package/mypackages/luci-app-bypass/root/etc/init.d/bypass
+chmod 0755 package/luci-app-bypass/root/etc/init.d/bypass
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
