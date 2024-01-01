@@ -1,15 +1,15 @@
 # 更改主机名
-sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
+#sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
 
 # 更换内核
-sed -i 's/PATCHVER:=4.9/PATCHVER:=4.19/g' target/linux/x86/Makefile
+#sed -i 's/PATCHVER:=4.9/PATCHVER:=4.19/g' target/linux/x86/Makefile
 
 # 内核替换成 kernel 4.19(14).xxx
-sed -i 's/LINUX_KERNEL_HASH-4.19.238 = 83b74545c5d380384e09955c26e786bf9ee81a44bcf9347f2ca2ad3d31b46b7a/LINUX_KERNEL_HASH-4.19.255 = 773992063f4c0956260afdd946c76ddffefbd9c252e800be60945696c01b8a43/g' ./include/kernel-4.19
-sed -i 's/LINUX_VERSION-4.19 = .238/LINUX_VERSION-4.19 = .255/g' ./include/kernel-4.19
+#sed -i 's/LINUX_KERNEL_HASH-4.19.238 = 83b74545c5d380384e09955c26e786bf9ee81a44bcf9347f2ca2ad3d31b46b7a/LINUX_KERNEL_HASH-4.19.255 = 773992063f4c0956260afdd946c76ddffefbd9c252e800be60945696c01b8a43/g' ./include/kernel-4.19
+#sed -i 's/LINUX_VERSION-4.19 = .238/LINUX_VERSION-4.19 = .255/g' ./include/kernel-4.19
 
 # 修改默认IP为 192.168.2.1
-sed -i "s/192.168.1.1/192.168.2.1/g" package/base-files/files/bin/config_generate
+sed -i "s/192.168.1.1/10.0.0.1/g" package/base-files/files/bin/config_generate
 
 # 修改连接数
 sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
@@ -40,14 +40,14 @@ git clone https://github.com/0118Add/luci-app-unblockneteasemusic package/luci-a
 
 sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
-sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
+#sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 
 # 调整 Dockerman 到 服务菜单
-sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/luasrc/controller/*.lua
-sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/*.lua
-sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
-sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/*.htm
-sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
+#sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/luasrc/controller/*.lua
+#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/*.lua
+#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
+#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/*.htm
+#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 # 调整 bypass 到 GFW 菜单
 sed -i 's/services/vpn/g' package/bypass/luci-app-bypass/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/bypass/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
