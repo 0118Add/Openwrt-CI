@@ -13,10 +13,10 @@ on:
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: 19.07
-  FEEDS_CONF: x86/diy/x86_lede/lienol19.07.feeds.conf.default
-  CONFIG_FILE: x86/Lienol-19.07.config
-  DIY_P1_SH: x86/Lienol-19.07.sh
+  REPO_BRANCH: 22.03
+  FEEDS_CONF: x86/diy/x86_lede/lienol22.03.feeds.conf.default
+  CONFIG_FILE: x86/Lienol-22.03.config
+  DIY_P1_SH: x86/Lienol-22.03.sh
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
