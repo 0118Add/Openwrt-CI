@@ -1,4 +1,4 @@
-name: Lienol-19.07 x86
+name: Lienol-22.03 x86
 
 on:
   repository_dispatch:
