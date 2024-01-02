@@ -25,8 +25,8 @@ git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/l
 rm -rf feeds/packages/lang/node
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
 
-rm -rf feeds/packages/libs/glib2
-svn co https://github.com/openwrt/packages/trunk/libs/glib2 feeds/packages/libs/glib2
+#rm -rf feeds/packages/libs/glib2
+#svn co https://github.com/openwrt/packages/trunk/libs/glib2 feeds/packages/libs/glib2
 svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
 
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-argon package/luci-theme-argon
