@@ -25,8 +25,13 @@ git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/l
 rm -rf feeds/packages/lang/node
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
 
+rm -rf feeds/packages/libs/glib2
+svn co https://github.com/coolsnowwolf/packages/trunk/libs/glib2 package/glib2
+svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
+
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-argon package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/fw876/helloworld package/helloworld
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
@@ -37,8 +42,6 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-#rm -rf feeds/packages/libs/libcap
-#svn co https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap/ feeds/packages/libs/libcap
 
 sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
@@ -81,10 +84,6 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
-
-#echo 'src-git my https://github.com/0118Add/NueXini_Packages' >>feeds.conf.default
-#svn co https://github.com/coolsnowwolf/packages/trunk/net/microsocks package/microsocks
-svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
