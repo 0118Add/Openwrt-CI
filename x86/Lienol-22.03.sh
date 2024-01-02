@@ -40,7 +40,7 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 #rm -rf feeds/packages/libs/libcap
 #svn co https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap/ feeds/packages/libs/libcap
 
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/ssrplus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
@@ -83,7 +83,6 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 #echo 'src-git my https://github.com/0118Add/NueXini_Packages' >>feeds.conf.default
-svn co https://github.com/coolsnowwolf/packages/trunk/net/redsocks2 package/redsocks2
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/microsocks package/microsocks
 svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
 
