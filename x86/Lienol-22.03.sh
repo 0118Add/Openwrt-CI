@@ -21,10 +21,6 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 
-# node - prebuilt
-rm -rf feeds/packages/lang/node
-git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
-
 #rm -rf feeds/packages/libs/glib2
 #svn co https://github.com/openwrt/packages/trunk/libs/glib2 feeds/packages/libs/glib2
 svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
