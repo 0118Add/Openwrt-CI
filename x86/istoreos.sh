@@ -76,9 +76,9 @@
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
 
 #echo 'src-git my https://github.com/0118Add/NueXini_Packages' >>feeds.conf.default
-svn co https://github.com/coolsnowwolf/packages/trunk/net/redsocks2 package/redsocks2
+#svn co https://github.com/coolsnowwolf/packages/trunk/net/redsocks2 package/redsocks2
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/microsocks package/microsocks
-svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
+#svn co https://github.com/coolsnowwolf/packages/trunk/net/kcptun package/kcptun
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
