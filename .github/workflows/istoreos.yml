@@ -1,4 +1,4 @@
-name: Lienol-21.02 x86
+name: istoreos x86
 
 on:
   repository_dispatch:
@@ -12,11 +12,11 @@ on:
   #  - cron: 0 8 * * 5
 
 env:
-  REPO_URL: https://github.com/0118Add/Lienol-openwrt
-  REPO_BRANCH: 21.02
-  FEEDS_CONF: x86/diy/x86_lede/lienol21.02.feeds.conf.default
-  CONFIG_FILE: x86/Lienol-21.02.config
-  DIY_P1_SH: x86/Lienol-21.02.sh
+  REPO_URL: https://github.com/istoreos/istoreos
+  REPO_BRANCH: istoreos-22.03
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: x86/istoreos.config
+  DIY_P1_SH: x86/istoreos.sh
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
