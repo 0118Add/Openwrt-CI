@@ -1,4 +1,4 @@
-name: Lienol-22.03 x86
+name: DHDAXCW-Lede x86
 
 on:
   repository_dispatch:
@@ -12,11 +12,11 @@ on:
   #  - cron: 0 8 * * 5
 
 env:
-  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_URL: https://github.com/DHDAXCW/lede-rockchip
   REPO_BRANCH: 22.03
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86/Lienol-22.03.config
-  DIY_P1_SH: x86/Lienol-22.03.sh
+  CONFIG_FILE: x86/DHDAXCW-Lede.config
+  DIY_P1_SH: x86/DHDAXCW-Lede.sh
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
