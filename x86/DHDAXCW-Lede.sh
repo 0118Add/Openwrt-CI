@@ -24,40 +24,39 @@ git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/l
 #rm -rf openwrt-package/luci-app-verysync
 
 # Add luci-app-ssr-plus
-git clone --depth=1 -b main https://github.com/fw876/helloworld
+git clone --depth=1 -b main https://github.com/fw876/helloworld package/helloworld
 
 # add luci-app-daed
-git clone https://github.com/sbwml/luci-app-daed-next
+git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 
 # Add luci-app-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/passwall
 
 # Add luci-app-unblockneteasemusic
-rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
+git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
 # Add luci-app-vssr <M>
-git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
-git clone --depth=1 https://github.com/0118Add/luci-app-vssr
+git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+git clone --depth=1 https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 
 # Add luci-app-wechatpush
 rm -rf feeds/luci/applications/luci-app-serverchan
-git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush
+git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
 
 # Add luci-app-ddns-go
-git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go
+git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 
 # Add OpenClash
-git clone --depth=1 https://github.com/vernesong/OpenClash
+git clone --depth=1 https://github.com/vernesong/OpenClash package/OpenClash
 
 # Add luci-app-poweroff
 #git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
 # Add luci-theme
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 #rm -rf ../../customfeeds/luci/themes/luci-theme-argon
 #rm -rf ../../customfeeds/luci/themes/luci-theme-argon-mod
 #rm -rf ./luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
