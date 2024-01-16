@@ -18,10 +18,10 @@ mkdir package/community
 pushd package/community
 
 # Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
-rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf openwrt-package/verysync
-rm -rf openwrt-package/luci-app-verysync
+#git clone --depth=1 https://github.com/Lienol/openwrt-package
+#rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
+#rm -rf openwrt-package/verysync
+#rm -rf openwrt-package/luci-app-verysync
 
 # Add luci-app-ssr-plus
 git clone --depth=1 -b main https://github.com/fw876/helloworld
@@ -42,17 +42,18 @@ git clone --depth=1 https://github.com/UnblockNeteaseMusic/luci-app-unblocknetea
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
 git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr
 
-# Add luci-proto-minieap
-git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
+# Add luci-app-wechatpush
+rm -rf feeds/luci/applications/luci-app-serverchan
+git clone --depth=1 https://github.com/tty228/luci-app-wechatpush
 
-# Add luci-app-onliner (need luci-app-nlbwmon)
-git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
+# Add luci-app-ddns-go
+git clone --depth=1 git clone https://github.com/sirpdboy/luci-app-ddns-go
 
 # Add OpenClash
 git clone --depth=1 https://github.com/vernesong/OpenClash
 
 # Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
+#git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
 # Add luci-theme
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
@@ -64,47 +65,38 @@ cp -f $GITHUB_WORKSPACE/data/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/i
 git clone https://github.com/DHDAXCW/theme
 
 # Add subconverter
-git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
-
-# alist
-git clone --depth=1 https://github.com/sbwml/openwrt-alist
+#git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
 
 # Add OpenAppFilter
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
+#git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 # Add luci-aliyundrive-webdav
-rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav
-rm -rf ../../customfeeds/packages/multimedia/aliyundrive-webdav
-git clone --depth=1 https://github.com/messense/aliyundrive-webdav
-mkdir -p linkease
-popd
+#rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav
+#rm -rf ../../customfeeds/packages/multimedia/aliyundrive-webdav
+#git clone --depth=1 https://github.com/messense/aliyundrive-webdav
+#mkdir -p linkease
+#popd
  
 # Mod zzz-default-settings
-pushd package/lean/default-settings/files
-sed -i '/http/d' zzz-default-settings
-sed -i '/18.06/d' zzz-default-settings
-export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
-sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
-popd
-
-# Add ddnsto & linkease
-pushd package/community/linkease
-git clone --depth=1 https://github.com/linkease/nas-packages-luci
-git clone --depth=1 https://github.com/linkease/nas-packages
-cd nas-packages-luci
-rm -rf luci-app-istorex luci-app-quickstart luci-app-linkease luci-app-unishare && cd ../
-cd nas-packages/network/services
-rm -rf linkease quickstart unishare webdav2 && cd ../../ && rm -rf multimedia/ffmpeg-remux && cd ../
-popd
-
-rm -rf nas-packages-luci/luci/luci-app-istorex
+#pushd package/lean/default-settings/files
+#sed -i '/http/d' zzz-default-settings
+#sed -i '/18.06/d' zzz-default-settings
+#export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
+#export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
+#sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
+#popd
 
 # Change default shell to zsh
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+
+# 修改连接数
+sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+
+# 修正连接数
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
