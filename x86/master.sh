@@ -59,7 +59,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/sbwml/luci-app-alist/trunk/luci-app-alist package/luci-app-alist
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
-#git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
+git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 
 
