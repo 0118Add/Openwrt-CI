@@ -151,7 +151,7 @@ https://github.com/vernesong/OpenClash package/OpenClash
 #chmod 0755 package/luci-app-bypass/root/etc/init.d/bypass
 
 # 修改系统文件
-curl -fsSL https://raw.githubusercontent.com/0118Add/X86_64-Test/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
+#curl -fsSL https://raw.githubusercontent.com/0118Add/X86_64-Test/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
