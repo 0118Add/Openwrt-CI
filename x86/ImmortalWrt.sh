@@ -61,6 +61,9 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 # 替换内核
 #sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
 
+# 替换文件
+wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/netsupport.mk
+
 # 内核替换成 kernel 5.xxx
 #sed -i 's/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/g' ./include/kernel-5.4
 #sed -i 's/LINUX_VERSION-5.4 = .238/LINUX_VERSION-5.4 = .238/g' ./include/kernel-5.4
@@ -71,7 +74,7 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
-#rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf package/helloworld/{shadowsocksr-libev}
 rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-alist
