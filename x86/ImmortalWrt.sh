@@ -133,6 +133,11 @@ sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/view/alist/*.htm
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/*.htm
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
+# 调整 daed-next 到 GFW 菜单
+sed -i 's/services/vpn/g' package/luci-app-daed-next/luci-app-daed-next/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/luci-app-daed-next/luci-app-daed-next/luasrc/model/cbi/daed-next/*.lua
+sed -i 's/services/vpn/g' package/luci-app-daed-next/luci-app-daed-next/luasrc/view/daed-next/*.htm
+
 # 调整 bypass 到 GFW 菜单
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
