@@ -103,6 +103,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone https://github.com/fw876/helloworld.git package/helloworld
+merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
