@@ -108,7 +108,7 @@ git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
+#git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # 修改插件名字
@@ -135,11 +135,6 @@ sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/view/alist/*.htm
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/*.htm
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
-
-# 调整 daed-next 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-daed-next/luci-app-daed-next/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-daed-next/luci-app-daed-next/luasrc/model/cbi/daed-next/*.lua
-sed -i 's/services/vpn/g' package/luci-app-daed-next/luci-app-daed-next/luasrc/view/daed-next/*.htm
 
 # 调整 bypass 到 GFW 菜单
 sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
