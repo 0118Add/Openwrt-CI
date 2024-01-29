@@ -62,7 +62,7 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' target/linux/x86/Makefile
 
 # 替换文件
-wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/netsupport.mk
+#wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/netsupport.mk
 
 # 内核替换成 kernel 5.xxx
 #sed -i 's/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/LINUX_KERNEL_HASH-5.4.238 = 70a2b2da85598eba6a73cdc0749e441cbdf3011d9babcb7028a46aa8d98aa91f/g' ./include/kernel-5.4
@@ -138,14 +138,14 @@ sed -i 's/nas/system/g' package/alist/luci-app-alist/luasrc/view/alist/*.htm
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 bypass 到 GFW 菜单
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
-sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/view/bypass/*.htm
+sed -i 's/services/vpn/g' package/custom/luci-app-bypass/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/custom/luci-app-bypass/luasrc/model/cbi/bypass/*.lua
+sed -i 's/services/vpn/g' package/custom/luci-app-bypass/luasrc/view/bypass/*.htm
 
 # 调整 SSRP 到 GFW 菜单
-sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+sed -i 's/services/vpn/g' package/custom/luci-app-ssr-plus/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/custom/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
+sed -i 's/services/vpn/g' package/custom/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 
 # 调整 Pass Wall 到 GFW 菜单
 sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
@@ -186,7 +186,7 @@ sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/m
 sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 修改权限
-chmod 0755 package/luci-app-bypass/root/etc/init.d/bypass
+chmod 0755 package/custom/luci-app-bypass/root/etc/init.d/bypass
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
