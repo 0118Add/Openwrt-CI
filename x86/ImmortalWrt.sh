@@ -101,14 +101,14 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/sing-box package/sing-box
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+#git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash package/luci-app-openclash
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-#git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
+git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # 修改插件名字
