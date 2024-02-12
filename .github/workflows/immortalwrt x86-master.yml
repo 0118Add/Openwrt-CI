@@ -113,7 +113,8 @@ jobs:
         /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules
         sudo timedatectl set-timezone "$TZ"
         sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
-
+        df -Th
+    
     - name: Clone source code
       working-directory: ./
       run: |
