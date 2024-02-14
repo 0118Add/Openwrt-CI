@@ -63,8 +63,6 @@ jobs:
         pip3 install --user -U pylibfdt
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
-        sudo -E git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
-        sudo -E git config --global core.abbre
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
