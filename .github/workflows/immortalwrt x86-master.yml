@@ -105,8 +105,7 @@ jobs:
         sudo -E systemctl daemon-reload
         sudo -E apt clean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+        sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
         df -h 
     
     - name: Clone source code
