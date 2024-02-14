@@ -34,7 +34,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #sed -i 's/LINUX_VERSION-5.15 = .114/LINUX_VERSION-5.15 = .115/g' ./include/kernel-5.15
 
 # node - prebuilt
-rm -rf feeds/packages/lang/node
+#rm -rf feeds/packages/lang/node
 #git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-23.05 feeds/packages/lang/node
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
