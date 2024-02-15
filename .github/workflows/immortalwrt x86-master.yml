@@ -20,8 +20,8 @@ env:
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
+  UPLOAD_FIRMWARE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
