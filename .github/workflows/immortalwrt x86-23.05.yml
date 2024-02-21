@@ -58,19 +58,24 @@ jobs:
         sudo -E apt -y install libfuse-dev clang-13 $(curl -fsSL https://is.gd/depends_ubuntu_2204)
         sudo -E apt -y autoremove --purge
         sudo -E systemctl daemon-reload
-        sudo -E apt clean
+        sudo -E apt clean && sudo -E apt autoclean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+        sudo mkdir -p /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir
         echo "status=success" >> ${GITHUB_OUTPUT}
         df -Th    
     
     - name: Clone source code
-      working-directory: /workdir
+      working-directory: /mnt/workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
     
 #    - name: Cache
 #      uses: klever1988/cachewrtbuild@main
@@ -115,7 +120,10 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        
+        rm -rf $GITHUB_WORKSPACE/.git
+        rm -rf $GITHUB_WORKSPACE/opt
+        df -Th        
+    
     - name: Compile the firmware
       id: compile
       run: |
@@ -127,6 +135,13 @@ jobs:
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         
+    - name: Clean up server space
+      if: steps.compile.outputs.status == 'success' && !cancelled()
+      run: |
+        cd openwrt/
+        rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
+        df -hT ${PWD}    
+    
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
