@@ -123,11 +123,11 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
 #git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-merge_package https://github.com/0118Add/helloworld helloworld/shadow-tls
+merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-merge_package https://github.com/0118Add/helloworld helloworld/xray-core
-merge_package https://github.com/0118Add/helloworld helloworld/xray-plugin
-merge_package https://github.com/0118Add/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/xray-core
+merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
