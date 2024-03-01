@@ -97,14 +97,14 @@ merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbw
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/sing-box package/sing-box
 #svn co https://github.com/xiaorouji/openwrt-passwall/branches/packages/tuic-client package/tuic-client
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-#git clone https://github.com/fw876/helloworld.git package/helloworld
-merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+git clone https://github.com/fw876/helloworld.git package/helloworld
+#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
