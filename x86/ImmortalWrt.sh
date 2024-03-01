@@ -75,7 +75,7 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 rm -rf package/helloworld/{shadowsocksr-libev}
-rm -rf package/openwrt-passwall/{xray-core,xray-plugin}
+rm -rf package/openwrt-passwall/{xray-core,xray-plugin,shadowsocks-rust}
 rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-alist
@@ -109,7 +109,6 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocks-rust
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
@@ -124,10 +123,11 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
 #git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/fw876/helloworld helloworld/xray-core
-merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/0118Add/helloworld helloworld/shadow-tls
+merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
+merge_package https://github.com/0118Add/helloworld helloworld/xray-core
+merge_package https://github.com/0118Add/helloworld helloworld/xray-plugin
+merge_package https://github.com/0118Add/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
