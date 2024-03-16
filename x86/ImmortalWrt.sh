@@ -54,6 +54,10 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
+# golang 1.22
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+
 # node - prebuilt
 rm -rf feeds/packages/lang/node
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
@@ -74,8 +78,8 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
-rm -rf package/helloworld/{shadowsocksr-libev}
-rm -rf package/openwrt-passwall/{xray-core,xray-plugin,shadowsocks-rust}
+#rm -rf package/helloworld/{shadowsocksr-libev}
+#rm -rf package/openwrt-passwall/{xray-core,xray-plugin,shadowsocks-rust}
 rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-alist
@@ -96,38 +100,38 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2tcp
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/gn
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/hysteria
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ipt2socks
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ssocks
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tcping
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-go
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tuic-client
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
-#git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2tcp
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/gn
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/hysteria
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ipt2socks
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ssocks
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tcping
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-go
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tuic-client
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
+git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-merge_package https://github.com/fw876/helloworld helloworld/xray-core
-merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+#merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
+#merge_package https://github.com/fw876/helloworld helloworld/xray-core
+#merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
+#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
@@ -139,7 +143,8 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-a
 # 修改插件名字
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
 sed -i 's/Alist 文件列表/网络云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
