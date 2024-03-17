@@ -109,6 +109,7 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocks-rust
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
@@ -124,8 +125,7 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-merge_package https://github.com/fw876/helloworld helloworld/xray-core
+merge_package https://github.com/0118Add/helloworld helloworld/xray-core
 merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
