@@ -96,38 +96,38 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
-#git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2tcp
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/gn
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/hysteria
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ipt2socks
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ssocks
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tcping
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-go
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tuic-client
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2tcp
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/gn
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/hysteria
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ipt2socks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ssocks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tcping
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-go
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tuic-client
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
 git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-#merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-#merge_package https://github.com/fw876/helloworld helloworld/xray-core
-#merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
-#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
+merge_package https://github.com/fw876/helloworld helloworld/xray-core
+merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
@@ -142,8 +142,7 @@ sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 # 修改插件名字
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
 sed -i 's/Alist 文件列表/网络云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
-#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
@@ -171,23 +170,23 @@ sed -i 's/services/vpn/g' package/custom/luci-app-bypass/luasrc/model/cbi/bypass
 sed -i 's/services/vpn/g' package/custom/luci-app-bypass/luasrc/view/bypass/*.htm
 
 # 调整 SSRP 到 GFW 菜单
-sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+sed -i 's/services/vpn/g' package/custom/luci-app-ssr-plus/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/custom/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
+sed -i 's/services/vpn/g' package/custom/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
 
 # 调整 Pass Wall 到 GFW 菜单
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/passwall/*.lua
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/global/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/log/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/rule/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/server/*.htm
-sed -i 's/services/vpn/g' package/helloworld/luci-app-passwall/luasrc/view/passwall/socks_auto_switch/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/client/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/model/cbi/passwall/server/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/passwall/*.lua
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/app_update/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/global/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/haproxy/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/log/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/node_list/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/rule/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/server/*.htm
+sed -i 's/services/vpn/g' package/passwall/luci-app-passwall/luasrc/view/passwall/socks_auto_switch/*.htm
 
 # 调整 Pass Wall 2 到 GFW 菜单
 #sed -i 's/services/vpn/g' package/passwall2/luci-app-passwall2/luasrc/controller/*.lua
