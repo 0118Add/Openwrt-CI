@@ -119,7 +119,7 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
-git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
+#git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
