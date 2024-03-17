@@ -72,8 +72,6 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packa
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-#rm -rf feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 #rm -rf package/helloworld/{shadowsocksr-libev}
 #rm -rf package/openwrt-passwall/{xray-core,xray-plugin,shadowsocks-rust}
 rm -rf feeds/packages/net/alist
