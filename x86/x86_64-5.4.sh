@@ -72,9 +72,7 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/luci-app-dockerman
-#svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
+merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-zerotier
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
@@ -117,9 +115,6 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
-# 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
-#sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
-
 # 修改插件名字
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
 #sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
@@ -149,9 +144,9 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 Zerotier 到 服务 菜单
-sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/controller/*.lua
-sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
-sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/*.htm
+sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/controller/*.lua
+sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
+sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
 # 调整 bypass 到 GFW 菜单
 #sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
