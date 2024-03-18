@@ -108,7 +108,7 @@ merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
 merge_package https://github.com/0118Add/helloworld helloworld/xray-core
 merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
