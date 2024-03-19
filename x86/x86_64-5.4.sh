@@ -60,7 +60,6 @@ git clone https://github.com/8688Add/feeds_packages_lang_node-prebuilt feeds/pac
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-app-argon-config
-rm -rf feeds/packages/net/frp
 rm -rf feeds/luci/applications/luci-app-frpc
 rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-ddns-go
@@ -105,7 +104,6 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
-merge_package https://github.com/coolsnowwolf/packages packages/net/frp
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
