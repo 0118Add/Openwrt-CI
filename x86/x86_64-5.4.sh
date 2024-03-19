@@ -75,7 +75,7 @@ git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-zerotier
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/zerotier
+merge_package https://github.com/coolsnowwolf/packages packages/zerotier
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
