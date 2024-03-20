@@ -60,14 +60,17 @@
 		local cpu_usage = luci.sys.exec("top -n1 | awk '/^CPU/ {printf(\"%d%\", 100 - $8)}'") or "6%"
 		local cpu_info = luci.sys.exec("/sbin/cpuinfo") or "?"
 
-		local eth_info = ""
+		local run_time = luci.sys.exec("awk '{print int($1/86400)\"天 \"int($1%86400/3600)\"时 \"int($1%86400%3600/60)\"分 \"int($1%60)\"秒\"}' /proc/uptime")
+	
+	        local eth_info = ""
 		if not has_switch then
 			eth_info = luci.sys.exec("/sbin/ethinfo")
 		end
 
 		local rv = {
 			cpuinfo    = cpu_info,
-			cpuusage   = cpu_usage,
+			runtime = run_time,
+	                cpuusage   = cpu_usage,
 			ethinfo    = eth_info,
 			userinfo   = user_info,
 			uptime     = sysinfo.uptime or 0,
@@ -190,7 +193,7 @@
 		});
 	}
 
-	XHR.poll(5, '<%=REQUEST_URI%>', { status: 1 },
+	XHR.poll(1, '<%=REQUEST_URI%>', { status: 1 },
 		function(x, info)
 		{
 			if (!(npoll++ % 5))
@@ -678,7 +681,10 @@
 			if (e = document.getElementById('cpuinfo'))
 				e.innerHTML = info.cpuinfo;
 
-			if (e = document.getElementById('loadavg'))
+			if (e = document.getElementById('runtime'))
+				e.innerHTML = info.runtime;
+	
+	                if (e = document.getElementById('loadavg'))
 				e.innerHTML = String.format(
 					'%.02f, %.02f, %.02f',
 					info.loadavg[0] / 65535.0,
@@ -730,16 +736,16 @@
 		<tr><td width="33%"><%:Temperature%></td><td><%=luci.sys.exec("/sbin/tempinfo") or "?"%></td></tr>
 		<% end %>
 		<tr><td width="33%"><%:Target Platform%></td><td><%=pcdata(boardinfo.release.target or "?")%></td></tr>
-                <tr><td width="33%"><%:CPU负载%></td><td id="cpuusage">-</td></tr>
-		<tr><td width="33%"><%:运行内存%></td><td > <%=luci.sys.exec("free -m  | grep Mem | awk '{print $2/1024}'|  awk -F '.' '{print $1}'").."MB"%></td></tr>
-		 
-           	<tr><td width="33%"><%:Kernel Version%></td><td><%=unameinfo.release or "?"%></td></tr>
-		<tr><td width="33%"><%:Local Time%></td><td id="localtime">-</td></tr>
-		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
-		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
 		<tr><td width="33%"><%:Firmware Version%></td><td>
-			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>
-	  </table>
+			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
+		        <%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
+		</td></tr>
+		<tr><td width="33%"><%:Kernel Version%></td><td><%=unameinfo.release or "?"%></td></tr>
+		<tr><td width="33%"><%:Local Time%></td><td id="localtime">-</td></tr>
+		<tr><td width="33%"><%:Uptime%></td><td id="runtime">-</td></tr>
+		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
+		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
+	</table>
 </fieldset>
 
 <fieldset class="cbi-section">
