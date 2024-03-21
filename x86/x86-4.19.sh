@@ -88,11 +88,11 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ssocks
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tcping
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-go
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tuic-client
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
@@ -101,8 +101,8 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-#merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-#merge_package https://github.com/0118Add/helloworld helloworld/xray-core
+merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
+merge_package https://github.com/fw876/helloworld helloworld/xray-core
 #merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
