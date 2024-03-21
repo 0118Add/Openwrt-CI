@@ -71,7 +71,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-zerotier
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
+#merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
@@ -99,9 +99,9 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
-git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
+#merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
 #merge_package https://github.com/fw876/helloworld helloworld/xray-core
 #merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
@@ -113,7 +113,7 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-a
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
-sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
+#sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 
 # 修改插件名字
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
@@ -122,7 +122,7 @@ sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/p
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
 sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
 #sed -i 's/Alist 文件列表/网络云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 
