@@ -29,13 +29,13 @@ rm -rf package/custom; mkdir package/custom
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # 更改主机名
-sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
+#sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
 # 更改固件版本信息
 #sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION=''|g" package/base-files/files/etc/openwrt_release
 #sed -i "s|DISTRIB_DESCRIPTION='.*'|DISTRIB_DESCRIPTION='OpenWrt 18.06'|g" package/base-files/files/etc/openwrt_release
-sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt 18.06'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=''/g" package/base-files/files/etc/openwrt_release
+#sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt 18.06'/g" package/base-files/files/etc/openwrt_release
+#sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=''/g" package/base-files/files/etc/openwrt_release
 
 # 修改系统文件
 #curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/immortalwrt.index.htm > ./package/emortal/autocore/files/generic/index.htm
@@ -107,7 +107,7 @@ merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/frp
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-merge_package https://github.com/0118Add/helloworld helloworld/xray-core
+merge_package https://github.com/fw876/helloworld helloworld/xray-core
 merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
