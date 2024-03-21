@@ -56,7 +56,6 @@ git clone https://github.com/8688Add/feeds_packages_lang_node-prebuilt feeds/pac
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf package/helloworld/v2raya
 rm -rf feeds/luci/themes/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-frpc
 rm -rf feeds/luci/applications/luci-app-vssr
@@ -66,17 +65,17 @@ rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-rm -rf feeds/luci/applications/luci-app-zerotier
-git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
+#rm -rf feeds/luci/applications/luci-app-zerotier
+#git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-zerotier
+#merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-zerotier
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
@@ -100,7 +99,7 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
-git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 #merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
 #merge_package https://github.com/0118Add/helloworld helloworld/xray-core
