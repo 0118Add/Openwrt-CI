@@ -56,6 +56,7 @@ git clone https://github.com/8688Add/feeds_packages_lang_node-prebuilt feeds/pac
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf package/helloworld/v2raya
 rm -rf feeds/luci/themes/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-frpc
 rm -rf feeds/luci/applications/luci-app-vssr
@@ -111,6 +112,9 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
+
+# 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
+sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 
 # 修改插件名字
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
