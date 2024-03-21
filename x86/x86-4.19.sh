@@ -75,7 +75,7 @@ merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbw
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
@@ -98,14 +98,14 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
-git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
-#git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
+git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-merge_package https://github.com/fw876/helloworld helloworld/xray-core
+#merge_package https://github.com/fw876/helloworld helloworld/xray-core
 #merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+#git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
