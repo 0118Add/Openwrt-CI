@@ -120,7 +120,7 @@ git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 #sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
-#sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
+sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
 #sed -i 's/Alist 文件列表/网络云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
@@ -144,9 +144,9 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 Zerotier 到 服务 菜单
-#sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/controller/*.lua
-#sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
-#sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/view/zerotier/*.htm
+sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/controller/*.lua
+sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/model/cbi/zerotier/*.lua
+sed -i 's/vpn/services/g' package/custom/luci-app-zerotier/luasrc/view/zerotier/*.htm
 
 # 调整 bypass 到 GFW 菜单
 #sed -i 's/services/vpn/g' package/luci-app-bypass/luasrc/controller/*.lua
