@@ -44,6 +44,7 @@ jobs:
       run: |
         cd immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64
         wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-app-filetransfer_all.ipk
+        wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-i18n-filetransfer-zh-cn_all.ipk
         wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-app-unblockneteasemusic_all.ipk
     
     - name: Build 
