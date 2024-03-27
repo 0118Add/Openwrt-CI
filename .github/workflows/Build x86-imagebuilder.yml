@@ -37,17 +37,18 @@ jobs:
     
     - name: Clone source code
       run: |
-        wget https://downloads.immortalwrt.org/releases/23.05.1/targets/x86/64/immortalwrt-imagebuilder-23.05.1-x86-64.Linux-x86_64.tar.xz
-        tar -J -x -f immortalwrt-imagebuilder-23.05.1-x86-64.Linux-x86_64.tar.xz
+        wget https://downloads.immortalwrt.org/releases/23.05.2/targets/x86/64/immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64.tar.xz
+        tar -J -x -f immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64.tar.xz
         
     - name: Packages
       run: |
-        cd immortalwrt-imagebuilder-23.05.1-x86-64.Linux-x86_64
-        wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-app-unblockneteasemusic_all.ipk
-         
+        cd immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64
+        wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-app-daed-next_1.0.0-1_all.ipk
+        wget -P ./packages https://github.com/0118Add/luci-app-unblockneteasemusic/releases/download/v3.2-3/luci-app-unblockneteasemusic_2.14-3_all.ipk
+    
     - name: Build 
       run: |
-        cd immortalwrt-imagebuilder-23.05.1-x86-64.Linux-x86_64
+        cd immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64
         sed -i 's/CONFIG_TARGET_ROOTFS_EXT4FS=y/#CONFIG_TARGET_ROOTFS_EXT4FS is not set/' .config
         sed -i 's/CONFIG_ISO_IMAGES=y/#CONFIG_ISO_IMAGES is not set/' .config
         sed -i 's/CONFIG_QCOW2_IMAGES=y/#CONFIG_QCOW2_IMAGES is not set/' .config
@@ -57,10 +58,10 @@ jobs:
         sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=300/CONFIG_TARGET_ROOTFS_PARTSIZE=500/' .config
        
         
-        make image PACKAGES="-automount kmod-alx luci-i18n-base-zh-cn luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn kmod-tun luci-compat luci-lib-ip htop coremark ca-bundle kmod-sched-core kmod-sched-bpf kmod-xdp-sockets-diag kmod-nf-socket kmod-nf-tproxy kmod-nft-socket kmod-nft-tproxy dae dae-geoip dae-geosite hysteria luci-app-alist luci-app-daed luci-app-ddns-go luci-app-filetransfer luci-app-firewall luci-app-ramfree luci-app-openclash luci-app-passwall luci-app-unblockneteasemusic luci-app-ttyd luci-app-wechatpush luci-app-zerotier luci-i18n-alist-zh-cn luci-i18n-daed-zh-cn luci-i18n-ddns-go-zh-cn luci-i18n-filetransfer-zh-cn luci-i18n-ramfree-zh-cn luci-i18n-passwall-zh-cn luci-i18n-ttyd-zh-cn luci-i18n-wechatpush-zh-cn luci-i18n-zerotier-zh-cn"
+        make image PACKAGES="-automount kmod-alx luci-i18n-base-zh-cn luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn kmod-tun luci-compat luci-lib-ip htop coremark ca-bundle kmod-sched-core kmod-sched-bpf kmod-xdp-sockets-diag kmod-nf-socket kmod-nf-tproxy kmod-nft-socket kmod-nft-tproxy dae dae-geoip dae-geosite hysteria luci-app-alist luci-app-ddns-go luci-app-daed-next luci-app-filetransfer luci-app-firewall luci-app-ramfree luci-app-openclash luci-app-passwall luci-app-unblockneteasemusic luci-app-ttyd luci-app-wechatpush luci-app-zerotier luci-i18n-alist-zh-cn luci-i18n-daed-zh-cn luci-i18n-ddns-go-zh-cn luci-i18n-filetransfer-zh-cn luci-i18n-ramfree-zh-cn luci-i18n-passwall-zh-cn luci-i18n-ttyd-zh-cn luci-i18n-wechatpush-zh-cn luci-i18n-zerotier-zh-cn"
 
     - name: Upload firmware
       uses: actions/upload-artifact@master
       with: 
-        name: immortalwrt-imagebuilder-23.05.1-x86-64.Linux-x86_64-firmware
-        path: immortalwrt-imagebuilder-23.05.1-x86-64.Linux-x86_64/bin/targets/
+        name: immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64-firmware
+        path: immortalwrt-imagebuilder-23.05.2-x86-64.Linux-x86_64/bin/targets/
