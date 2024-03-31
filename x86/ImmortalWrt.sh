@@ -135,7 +135,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
-sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
+#sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 
 # 修改插件名字
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
