@@ -58,7 +58,7 @@ git clone https://github.com/0118Add/openwrt-passwall package/passwall
 #git clone -b luci https://github.com/8688Add/openwrt-passwall package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
-git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
+#git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # 修改插件名字
