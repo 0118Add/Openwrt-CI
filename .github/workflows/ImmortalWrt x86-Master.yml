@@ -1,4 +1,4 @@
-name: immortalwrt x86-master
+name: ImmortalWrt x86-Master
 
 on:
   repository_dispatch:
