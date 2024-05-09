@@ -34,7 +34,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  FILE_NAME: Openwrt x86
+  FILE_NAME: Openwrt x86-23.05
 
 jobs:
   build:
