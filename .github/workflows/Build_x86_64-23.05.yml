@@ -28,9 +28,9 @@ env:
 # REPO_BRANCH: openwrt-18.06-dev --single-branch
 # REPO_BRANCH: openwrt-18.06-k5.4 --single-branch
   FEEDS_CONF: x86/diy/x86_lede/lean-23.05.feeds.conf.default
-  CONFIG_FILE: x86/ceshi-x86.config
+  CONFIG_FILE: x86/Lean-x86.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: x86/ceshi-x86.sh
+  DIY_P2_SH: x86/Lean-x86.sh
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
