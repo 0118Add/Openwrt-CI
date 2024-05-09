@@ -129,11 +129,11 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
-merge_package https://github.com/fw876/helloworld helloworld/mosdns
-merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/fw876/helloworld helloworld/redsocks2
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2 v2raya
+#merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+#merge_package https://github.com/fw876/helloworld helloworld/mosdns
+#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+#merge_package https://github.com/fw876/helloworld helloworld/redsocks2
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
