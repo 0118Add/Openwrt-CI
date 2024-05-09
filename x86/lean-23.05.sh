@@ -107,13 +107,13 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
-#rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/collections/luci-lib-docker
-#rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/luci/applications/luci-app-netdata
-#rm -rf feeds/luci/applications/luci-app-aliyundrive-webdav
+rm -rf feeds/luci/applications/luci-app-ssr-plus
+rm -rf feeds/luci/applications/luci-app-vssr
+rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
-#rm -rf feeds/luci/applications/luci-app-serverchan
+rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
 # 添加额外软件包
 #git clone https://github.com/0118Add/OpenWrt package/myautocore
@@ -127,7 +127,7 @@ git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
@@ -143,10 +143,10 @@ git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+#git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
+#git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
