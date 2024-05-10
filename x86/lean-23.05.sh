@@ -108,7 +108,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-openclash
-#rm -rf feeds/luci/collections/luci-lib-docker
+rm -rf feeds/luci/applications/luci-app-diskman
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-vssr
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -122,6 +122,8 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
+merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
+merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-turboacc
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/luci-app-bypass
@@ -138,7 +140,7 @@ merge_package https://github.com/fw876/helloworld helloworld/v2raya
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-#git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
+git clone https://github.com/lisaac/luci-app-diskman package/luci-app-diskman
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
