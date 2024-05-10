@@ -148,7 +148,7 @@ git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatp
 merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
 #git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-#git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
+git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
