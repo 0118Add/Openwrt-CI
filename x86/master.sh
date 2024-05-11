@@ -41,8 +41,8 @@ sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-#rm -rf feeds/packages/lang/golang
-#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+rm -rf package/libs/mbedtls
+wget -O ./package/libs/mbedtls https://raw.githubusercontent.com/0118Add/N1-X86-CI/master/general/mbedtls
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-daed
