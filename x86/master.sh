@@ -10,6 +10,29 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
+echo "开始配置……"
+echo "========================="
+
+function merge_package(){
+    repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
+    pkg=`echo $2 | rev | cut -d'/' -f 1 | rev`
+    git clone --depth=1 --single-branch $1
+    mv $2 package/custom/
+    rm -rf $repo
+}
+function drop_package(){
+    find package/ -follow -name $1 -not -path "package/custom/*" | xargs -rt rm -rf
+}
+function merge_feed(){
+    if [ ! -d "feed/$1" ]; then
+        echo >> feeds.conf.default
+        echo "src-git $1 $2" >> feeds.conf.default
+    fi
+    ./scripts/feeds update $1
+    ./scripts/feeds install -a -p $1
+}
+rm -rf package/custom; mkdir package/custom
+
 # 更改主机名
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
@@ -41,8 +64,8 @@ sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-#rm -rf package/libs/mbedtls
-wget -O ./package/libs/mbedtls/Makefile https://raw.githubusercontent.com/0118Add/N1-X86-CI/master/general/mbedtls/Makefile
+rm -rf package/libs/mbedtls
+merge_package https://github.com/openwrt/openwrt openwrt/package/libs/mbedtls
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-daed
