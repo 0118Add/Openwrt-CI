@@ -41,7 +41,7 @@ sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-rm -rf package/libs/mbedtls
+#rm -rf package/libs/mbedtls
 wget -O ./package/libs/mbedtls/Makefile https://raw.githubusercontent.com/0118Add/N1-X86-CI/master/general/mbedtls/Makefile
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-frpc
