@@ -102,7 +102,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-#rm -rf package/lean/autocore
+rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -114,11 +114,9 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
 # 添加额外软件包
-#git clone https://github.com/0118Add/OpenWrt package/myautocore
-#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
-#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+merge_package https://github.com/immortalwrt/immortalwrt immortalwrt/package/emortal/autocore
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-turboacc
