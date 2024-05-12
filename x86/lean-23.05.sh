@@ -102,8 +102,6 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf package/lean/autocore
-#rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-diskman
@@ -113,10 +111,21 @@ rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
+rm -rf package/lean/autocore
+rm -rf feeds/packages/utils/coremark
+rm -rf feeds/luci/modules/luci-base
+rm -rf feeds/luci/modules/luci-mod-status
+merge_package https://github.com/immortalwrt/immortalwrt immortalwrt/package/emortal/autocore
+merge_package https://github.com/immortalwrt/immortalwrt immortalwrt/package/utils/mhz
+git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git immortalwrt-luci
+cp -rf immortalwrt-luci/modules/luci-base feeds/luci/modules/luci-base
+cp -rf immortalwrt-luci/modules/luci-mod-status feeds/luci/modules/luci-mod-status
+git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/packages.git immortalwrt-packages
+cp -rf immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
+
 # 添加额外软件包
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-merge_package https://github.com/immortalwrt/immortalwrt immortalwrt/package/emortal/autocore
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-turboacc
