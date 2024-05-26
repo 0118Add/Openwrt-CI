@@ -114,7 +114,7 @@ git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-mu
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/frp
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/shadowsocks-rust
+#merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/shadowsocks-rust
 merge_package https://github.com/fw876/helloworld helloworld/xray-core
 merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
