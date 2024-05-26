@@ -122,8 +122,8 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 #git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/0118Add/helloworld helloworld/shadowsocks-rust
-merge_package https://github.com/0118Add/helloworld helloworld/xray-core
+merge_package https://github.com/fw876/helloworld helloworld/shadowsocks-rust
+merge_package https://github.com/fw876/helloworld helloworld/xray-core
 merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
@@ -133,6 +133,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 #git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone https://github.com/sbwml/package_kernel_r8126 package/r8126
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
