@@ -120,7 +120,7 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
+merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
