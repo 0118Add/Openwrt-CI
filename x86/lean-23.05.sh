@@ -121,7 +121,7 @@ cp -rf immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
 # 添加额外软件包
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
+merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-turboacc
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
