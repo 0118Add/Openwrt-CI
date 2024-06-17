@@ -124,7 +124,7 @@ git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
+merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
