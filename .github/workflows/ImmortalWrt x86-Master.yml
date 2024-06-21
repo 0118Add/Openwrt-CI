@@ -21,7 +21,7 @@ env:
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_RELEASE: false
+  UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: x86_64-Master
   PRODUCT_NAME: x86_64-Master
