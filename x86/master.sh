@@ -58,12 +58,12 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #git clone --depth=1 -b openwrt-23.05 https://github.com/openwrt/openwrt openwrt-openwrt 
 #cp -rf openwrt-openwrt/package/libs/mbedtls package/libs/mbedtls
 #rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/luci/applications/luci-app-daed
 #rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-wechatpush
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
+rm -rf feeds/telephony/freeswitch
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages r8126
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
