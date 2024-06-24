@@ -78,6 +78,16 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
+# mihomo
+git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
+mkdir -p package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/ui
+curl -Lso package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/Country.mmdb https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
+curl -Lso package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/GeoIP.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+curl -Lso package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/GeoSite.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+curl -Lso metacubexd-gh-pages.tar.gz https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.tar.gz
+tar zxf metacubexd-gh-pages.tar.gz
+mv metacubexd-gh-pages package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/ui/metacubexd
+
 # 修改插件名字
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Alist 文件列表/网络云盘/g' package/alist/luci-app-alist/po/zh-cn/alist.po
