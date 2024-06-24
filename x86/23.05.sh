@@ -10,6 +10,19 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
+echo "开始配置……"
+echo "========================="
+
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
 # 更改主机名
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
@@ -55,21 +68,14 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-wechatpush
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-#git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages r8126
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
-#svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-frpc package/luci-app-frpc
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/luci-app-dockerman
-#svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/luci-app-netdata
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b luci https://github.com/8688Add/openwrt-passwall package/passwall
-#svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/sing-box package/sing-box
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-#svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-#git clone https://github.com/sbwml/luci-app-alist.git package/alist
-#git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
