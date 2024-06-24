@@ -59,8 +59,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
-#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-#rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-homeproxy
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/luci/applications/luci-app-daed
@@ -69,14 +68,14 @@ rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-wechatpush
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages r8126
-#git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
-#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+git clone https://github.com/muink/luci-app-homeproxy package/luci-app-homeproxy
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b luci https://github.com/8688Add/openwrt-passwall package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
+#git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # 修改插件名字
