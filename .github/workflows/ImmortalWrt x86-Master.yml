@@ -21,7 +21,7 @@ env:
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: x86_64-Master
+  FIRMWARE_TAG: X86_64-Master
   TZ: Asia/Shanghai
 
 jobs:
@@ -240,4 +240,4 @@ jobs:
           - ${{ env.COMMIT_AUTHOR }}
           - ${{ env.COMMIT_DATE }}
           - ${{ env.COMMIT_MESSAGE }}
-          - ${{ env.COMMIT_HASH }
+          - ${{ env.COMMIT_HASH }}
