@@ -23,8 +23,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: x86_64-immortalwrt 5.4
-  PRODUCT_NAME: x86_64-immortalwrt 5.4
+  FILE_NAME: x86_64
+  PRODUCT_NAME: x86_64
 
 jobs:
   Build:
@@ -228,7 +228,7 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: ${{ env.DATE }} 「${{ env.FILE_NAME }}_${{ env.KERNEL }}」固件
+        name: ${{ env.DATE }} 「 ${{ env.FILE_NAME }}_${{ env.KERNEL }} 」固件
         allowUpdates: true
         tag: ${{ env.TAG }}_${{ env.KERNEL }}
         token: ${{ secrets.GH_TOKEN }}
