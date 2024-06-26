@@ -85,18 +85,39 @@ merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-
 git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/wrtbwmon
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-bypass
-#git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/frp
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
-#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-#merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/shadowsocks-rust
-#merge_package https://github.com/fw876/helloworld helloworld/xray-core
-#merge_package https://github.com/fw876/helloworld helloworld/xray-plugin
-#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/shadowsocks-rust
+merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/xray-core
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/brook
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/chinadns-ng
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2socks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/dns2tcp
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/gn
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/hysteria
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ipt2socks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/microsocks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/naiveproxy
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/pdnsd-alt
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/shadowsocksr-libev
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/simple-obfs
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/ssocks
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tcping
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-go
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan-plus
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/tuic-client
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-core
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/v2ray-plugin
+merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/xray-plugin
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
