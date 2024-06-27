@@ -124,9 +124,9 @@ git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone https://github.com/sbwml/package_kernel_r8126 package/r8126
+git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
+merge_package https://github.com/kenzok8/openwrt-packages openwrt-packages/luci-theme-atmaterial_new
 
 # 修改插件名字
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
