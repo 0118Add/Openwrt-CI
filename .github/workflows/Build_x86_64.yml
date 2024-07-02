@@ -21,8 +21,8 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: x86_64-LEDE
-  PRODUCT_NAME: x86_64-LEDE
+  FILE_NAME: x86_64
+  PRODUCT_NAME: x86_64
 
 jobs:
   Build:
