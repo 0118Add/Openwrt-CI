@@ -744,8 +744,7 @@
 		<tr><td width="33%"><%:型号参数%></td><td><%=pcdata(boardinfo.model or "?")%> <%=luci.sys.exec("cat /etc/bench.log") or " "%></td></tr>
 		<tr><td width="33%"><%:实时频率%></td><td id="cpuinfo">-</td></tr>
 		<tr><td width="33%"><%:内核温度%></td><td id="cpuwd">-</td></tr>
-                <tr><td width="33%"><%:内存大小%></td><td id="ramsize">-</td></tr>
-		<tr><td width="33%"><%:Firmware Version%></td><td>
+                <tr><td width="33%"><%:Firmware Version%></td><td>
 			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
 			<%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
 		</td></tr>
