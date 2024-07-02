@@ -96,7 +96,7 @@ git clone https://github.com/8688Add/feeds_packages_lang_node feeds/packages/lan
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf package/lean/autocore
+#rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
@@ -108,7 +108,7 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
-git clone https://github.com/0118Add/Cloudbuild package/myautocore
+#git clone https://github.com/0118Add/Cloudbuild package/myautocore
 #curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
