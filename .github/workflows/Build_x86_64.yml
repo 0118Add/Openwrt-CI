@@ -202,15 +202,22 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.UPLOAD_CONFIG == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: x86-config
+        name: x86-54-config
         path: ./artifact/buildinfo/
+
+    - name: Delete files
+      run: |
+        cd openwrt
+        bash  rename.sh
+        Kernel=`grep "_uefi.img.gz" wget/open_dev_md5 | cut -d - -f 2 | cut -d _ -f 2 `
+        echo "KERNEL=$Kernel" >> $GITHUB_ENV
 
     - name: Organize files
       id: organize
       if: steps.compile.outputs.status == 'success'
       run: |
         cd openwrt/bin/targets/*/*
-        rm -rf packages config.buildinfo feeds.buildinfo sha256sums version.buildinfo *.manifest Packages.tar.gz
+        rm -rf packages config.buildinfo feeds.buildinfo openwrt-x86-64-generic-kernel.bin openwrt-x86-64-generic-squashfs-combined-efi.vmdk openwrt-x86-64-generic-squashfs-combined.vmdk openwrt-x86-64-generic.manifest sha256sums version.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
@@ -241,3 +248,14 @@ jobs:
           - 内容: ${{ env.commit }}
           - hash: ${{ env.hash }}
         artifacts: ${{ env.FIRMWARE }}/*
+
+    - name: Completion time 
+      run: |
+        echo "DATE1=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        end=$(date +%s)
+        seconds=$(( end - start ))
+        hour=$(( $seconds/3600 ))
+        min=$(( ($seconds-${hour}*3600)/60 ))
+        sec=$(( $seconds-${hour}*3600-${min}*60 ))
+        HMS=`echo ${hour}:${min}:${sec}`
+        echo "time=$HMS" >> $GITHUB_ENV
