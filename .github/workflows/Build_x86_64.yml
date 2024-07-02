@@ -18,8 +18,8 @@ env:
   DIY_P2_SH: x86/ceshi-x86.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
+  UPLOAD_FIRMWARE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
   FILE_NAME: x86_64
   PRODUCT_NAME: x86_64
