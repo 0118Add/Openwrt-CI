@@ -18,8 +18,8 @@ env:
   DIY_P2_SH: x86/Lean-x86.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
+  UPLOAD_FIRMWARE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
   FILE_NAME: x86_64-Lean
   PRODUCT_NAME: x86_64-Lean
@@ -202,7 +202,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.UPLOAD_CONFIG == 'true' && steps.compile.outputs.status == 'success'
       with:
-        name: x86-config
+        name: x86-54-config
         path: ./artifact/buildinfo/
 
     - name: Organize files
@@ -210,7 +210,7 @@ jobs:
       if: steps.compile.outputs.status == 'success'
       run: |
         cd openwrt/bin/targets/*/*
-        rm -rf packages config.buildinfo feeds.buildinfo sha256sums version.buildinfo *.manifest Packages.tar.gz
+        rm -rf packages config.buildinfo feeds.buildinfo sha256sums version.buildinfo *.manifest Packages.tar.gz openwrt-x86-64-generic-kernel.bin profiles.json openwrt-x86-64-generic-squashfs-combined.img.gz openwrt-x86-64-generic-squashfs-rootfs.img.gz
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
@@ -241,3 +241,14 @@ jobs:
           - 内容: ${{ env.commit }}
           - hash: ${{ env.hash }}
         artifacts: ${{ env.FIRMWARE }}/*
+
+    - name: Completion time 
+      run: |
+        echo "DATE1=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        end=$(date +%s)
+        seconds=$(( end - start ))
+        hour=$(( $seconds/3600 ))
+        min=$(( ($seconds-${hour}*3600)/60 ))
+        sec=$(( $seconds-${hour}*3600-${min}*60 ))
+        HMS=`echo ${hour}:${min}:${sec}`
+        echo "time=$HMS" >> $GITHUB_ENV
