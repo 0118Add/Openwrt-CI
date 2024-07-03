@@ -25,9 +25,9 @@ start()
 	a=$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq)
 	b=$(echo -n ' : ')
 	c=$(cat /proc/cpuinfo | grep 'core id' | sort -u | wc -l)
-	d=$(echo -n 'C')
+	d=$(echo -n '核')
 	e=$(cat /proc/cpuinfo | grep 'processor' | wc -l)
-	f=$(echo -n 'T ')
+	f=$(echo -n '线程 ')
 	g=$(dmesg | grep 'DMI:' | awk -F ',' '{print $1 }' | awk -F ':' '{print $2 }')
 	
 	if [ -d /sys/devices/cpu_atom/ ]; then
