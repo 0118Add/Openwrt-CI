@@ -8,4 +8,4 @@ else
 TEMP=`sensors 2>/dev/null | grep 'Core 0' | cut -c16-18`
 fi
 
-echo "$MHz MHz $TEMP.0°C "
+echo "$MHz MHz "
