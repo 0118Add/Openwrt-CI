@@ -53,7 +53,6 @@ git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-
 merge_package master https://github.com/kiddin9/openwrt-packages package/openwrt dae
 git clone https://github.com/8688Add/luci-app-daed package/luci-app-daed
 #git clone https://github.com/8688Add/luci-app-daed-next package/luci-app-daed-next
-merge_package master https://github.com/immortalwrt/packages feeds/packages/libs/libcron
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
@@ -149,6 +148,7 @@ sed -i '/\/etc\/shadow/{/root/d;}' package/lean/default-settings/files/zzz-defau
 #sed -i 's/luci-app-accesscontrol //g' include/target.mk
 #sed -i 's/luci-app-nlbwmon //g' include/target.mk
 #sed -i 's/luci-app-turboacc //g' include/target.mk
+cp -rf ${GITHUB_WORKSPACE}/patch/libcron feeds/packages/libs/libcron
 
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/lede/diy" 2>/dev/null)" ]; then
