@@ -57,6 +57,13 @@ git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/l
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 
+# homeproxy
+rm -rf feeds/luci/applications/luci-app-homeproxy
+git clone https://github.com/muink/luci-app-homeproxy package/luci-app-homeproxy
+
+# mihomo
+git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
+
 # unzip
 rm -rf feeds/packages/utils/unzip
 git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
