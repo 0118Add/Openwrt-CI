@@ -75,6 +75,7 @@ git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/uti
 # ppp - 2.5.0
 rm -rf package/network/services/ppp
 git clone https://github.com/sbwml/package_network_services_ppp package/network/services/ppp
+merge_package master https://github.com/kiddin9/openwrt-packages package/openwrt r8126
 
 # TTYD设置
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
