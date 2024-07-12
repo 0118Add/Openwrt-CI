@@ -16,11 +16,11 @@ on:
 #    - cron: 0 8 * * 5
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
   DEVICE_NAME: X86-Im
   FILES: immortalwrt/files
-  FEEDS_CONF: immortalwrt/feeds.conf.default
+  FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
   CONFIG_FILE: immortalwrt/config.x86
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part2.sh
@@ -28,7 +28,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
