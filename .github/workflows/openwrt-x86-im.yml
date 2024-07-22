@@ -20,7 +20,7 @@ env:
   REPO_BRANCH: master
   DEVICE_NAME: X86-Im
   FILES: immortalwrt/files
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
   CONFIG_FILE: immortalwrt/config.x86
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part2.sh
