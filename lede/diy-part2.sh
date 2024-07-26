@@ -99,12 +99,12 @@ cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 # sed -i 's/^PKG_MIRROR_HASH/#&/' feeds/packages/net/smartdns/Makefile
 
 # 替换curl修改版（无nghttp3、ngtcp2）
-curl_ver=$(cat feeds/packages/net/curl/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}' | awk 'BEGIN{FS=".";OFS="."};{print $1,$2}')
-if ! [ $curl_ver \> 8.8 ]; then
+curl_ver=$(cat feeds/packages/net/curl/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}')
+[ "$(chk_ver "$curl_ver" "8.8.0")" != "0" ] && {
 	echo "替换curl版本"
 	rm -rf feeds/packages/net/curl
 	cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
-fi
+}
 
 # unzip
 rm -rf feeds/packages/utils/unzip
