@@ -40,7 +40,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86
 wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
 
 # x86型号主页只显示CPU型号
-#sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
+sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
 
 # 添加额外软件包
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
@@ -49,8 +49,7 @@ git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 merge_package master https://github.com/fw876/helloworld package/helloworld luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
-#merge_package master https://github.com/0118Add/openwrt-packages package/openwrt dae
-#merge_package master https://github.com/kiddin9/openwrt-packages package/openwrt dae
+merge_package master https://github.com/kiddin9/openwrt-packages package/openwrt dae
 #git clone https://github.com/8688Add/luci-app-daed package/luci-app-daed
 #git clone https://github.com/8688Add/luci-app-daed-next package/luci-app-daed-next
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
