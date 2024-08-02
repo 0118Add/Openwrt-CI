@@ -103,7 +103,7 @@ cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 
 # 替换curl修改版（无nghttp3、ngtcp2）
 curl_ver=$(cat feeds/packages/net/curl/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}')
-[ "$(chk_ver "$curl_ver" "8.8.0")" != "0" ] && {
+[ $(check_ver "$curl_ver" "8.9.0") != 0 ] && {
 	echo "替换curl版本"
 	rm -rf feeds/packages/net/curl
 	cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
