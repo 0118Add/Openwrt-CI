@@ -39,6 +39,10 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86
 curl -fsSL https://raw.githubusercontent.com/0118Add/Actions-OpenWrt/main/patch/index.htm > ./package/lean/autocore/files/x86/index.htm
 curl -fsSL https://raw.githubusercontent.com/0118Add/Actions-OpenWrt/main/patch/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
 
+# 修改概览里时间显示为中文数字
+#sed -i 's/os.date()/os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
+sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. os.date("%X") .. " " .. translate(os.date("%A"))/g' package/lean/autocore/files/x86/index.htm
+
 # 替换文件
 wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
 
