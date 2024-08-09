@@ -76,7 +76,7 @@ git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # mihomo
-git clone https://github.com/morytyann/OpenWrt-mihomo  package/new/openwrt-mihomo
+git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 mkdir -p files/etc/mihomo/run/ui
 curl -Lso files/etc/mihomo/run/Country.mmdb https://github.com/NobyDa/geoip/raw/release/Private-GeoIP-CN.mmdb
 curl -Lso files/etc/mihomo/run/GeoIP.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
