@@ -86,14 +86,8 @@ sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/ut
 sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 
 # 替换curl修改版（无nghttp3、ngtcp2）
-curl_ver=$(cat feeds/packages/net/curl/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}')
-[ $(check_ver "$curl_ver" "8.9.0") != 0 ] && {
-	echo "替换curl版本"
-	rm -rf feeds/packages/net/curl
-	cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
-}
-
-mirror=raw.githubusercontent.com/sbwml/r4s_build_script/master
+rm -rf feeds/packages/net/curl
+cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
 
 # firewall4 add custom nft command support
 curl -s https://$mirror/openwrt/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch | patch -p1
