@@ -36,7 +36,7 @@ sed -i 's/luciversion)%>)/luciversion)%>)-->/g' package/lean/autocore/files/*/in
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/autocore > ./package/lean/autocore/files/x86/autocore
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/scripts/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
 
-curl -fsSL https://raw.githubusercontent.com/0118Add/Actions-OpenWrt/main/patch/index.htm > ./package/lean/autocore/files/x86/index.htm
+curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/index.htm > ./package/lean/autocore/files/x86/index.htm
 curl -fsSL https://raw.githubusercontent.com/0118Add/Actions-OpenWrt/main/patch/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
 
 # 修改概览里时间显示为中文数字
