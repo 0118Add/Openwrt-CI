@@ -115,9 +115,9 @@ cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
 rm -rf feeds/packages/utils/unzip
 git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
 
-# golang 1.22
+# golang 1.23
 rm -rf feeds/packages/lang/golang
-git clone --depth=1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 # ppp - 2.5.0
 rm -rf package/network/services/ppp
