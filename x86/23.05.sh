@@ -63,30 +63,27 @@ rm -rf feeds/luci/applications/luci-app-homeproxy
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/luci/applications/luci-app-daed
-#rm -rf feeds/luci/applications/luci-app-passwall
+rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
-#rm -rf feeds/luci/applications/luci-app-wechatpush
+rm -rf feeds/luci/applications/luci-app-smartdns
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages r8126
-git clone https://github.com/muink/luci-app-homeproxy package/luci-app-homeproxy
+git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
+sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b luci https://github.com/8688Add/openwrt-passwall package/passwall
+git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
+git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # mihomo
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
-mkdir -p package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/ui
-curl -Lso package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/Country.mmdb https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
-curl -Lso package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/GeoIP.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
-curl -Lso package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/GeoSite.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
-curl -Lso metacubexd-gh-pages.tar.gz https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.tar.gz
-tar zxf metacubexd-gh-pages.tar.gz
-mv metacubexd-gh-pages package/openwrt-mihomo/luci-app-mihomo/root/etc/mihomo/run/ui/metacubexd
 
 # 修改插件名字
 #sed -i 's/Frp 内网穿透/内网穿透/g' package/luci-app-frpc/po/zh-cn/frp.po
