@@ -59,7 +59,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
-rm -rf feeds/luci/applications/luci-app-homeproxy
+#rm -rf feeds/luci/applications/luci-app-homeproxy
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/luci/applications/luci-app-daed
@@ -67,9 +67,9 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-smartdns
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
-sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
-sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+#git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
+sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
