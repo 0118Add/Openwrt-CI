@@ -68,8 +68,8 @@ rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-smartdns
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
-sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
-sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+#sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
+#sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
