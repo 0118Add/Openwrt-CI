@@ -83,6 +83,9 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenCl
 
 # mihomo
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
+sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
+sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
+sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/htdocs/luci-static/resources/view/mihomo/config.js
 
 # 修复编译时提示 freeswitch 缺少 libpcre 依赖
 sed -i 's/+libpcre \\$/+libpcre2 \\/g' package/feeds/telephony/freeswitch/Makefile
