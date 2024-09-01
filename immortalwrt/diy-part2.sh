@@ -82,23 +82,14 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 # ppp - 2.5.0
 rm -rf package/network/services/ppp
 git clone https://github.com/sbwml/package_network_services_ppp package/network/services/ppp
-merge_package master https://github.com/kiddin9/openwrt-packages package/openwrt r8126
 
 # TTYD设置
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 
 # 替换curl修改版（无nghttp3、ngtcp2）
-#rm -rf feeds/packages/net/curl
-#cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
-curl_ver=$(cat feeds/packages/net/curl/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}')
-[ $(check_ver "$curl_ver" "8.9.1") != 0 ] && {
-	echo "替换curl版本"
-	rm -rf feeds/packages/net/curl
-	cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
-}
-
-mirror=raw.githubusercontent.com/sbwml/r4s_build_script/master
+rm -rf feeds/packages/net/curl
+cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
 
 # 防火墙4添加自定义nft命令支持
 curl -s https://$mirror/openwrt/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch | patch -p1
