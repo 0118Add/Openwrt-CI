@@ -59,7 +59,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #添加额外软件包
 #rm -rf feeds/packages/lang/golang
-#rm -rf feeds/luci/applications/luci-app-homeproxy
+rm -rf feeds/luci/applications/luci-app-homeproxy
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/luci/applications/luci-app-daed
@@ -81,7 +81,6 @@ git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/nek
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # homeproxy
-#rm -rf feeds/luci/applications/luci-app-homeproxy
 #git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
 #sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
 #sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
