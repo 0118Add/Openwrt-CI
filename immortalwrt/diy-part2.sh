@@ -73,6 +73,9 @@ git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/htdocs/luci-static/resources/view/mihomo/config.js
 
+# neko
+git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/neko
+
 # unzip
 rm -rf feeds/packages/utils/unzip
 git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
