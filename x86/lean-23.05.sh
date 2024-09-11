@@ -53,7 +53,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 替换内核
-sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
+#sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.6.23 = 200fd119cb9ef06bcedcdb52be00ba443163eab154295c5831fed9a12211a8b9/LINUX_KERNEL_HASH-6.6.22 = 23e3e7b56407250f5411bdab95763d0bc4e3a19dfa431d951df7eacabd61a2f4/g' ./include/kernel-6.6
@@ -124,21 +124,22 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-turboacc
-git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
-git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
+#git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+#git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
-merge_package https://github.com/fw876/helloworld helloworld/mosdns
-merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-merge_package https://github.com/fw876/helloworld helloworld/redsocks2
-merge_package https://github.com/fw876/helloworld helloworld/v2raya
+#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+#merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+#merge_package https://github.com/fw876/helloworld helloworld/mosdns
+#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+#merge_package https://github.com/fw876/helloworld helloworld/redsocks2
+#merge_package https://github.com/fw876/helloworld helloworld/v2raya
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
+git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/neko
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone https://github.com/lisaac/luci-app-diskman package/luci-app-diskman
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
@@ -146,11 +147,11 @@ git clone https://github.com/lisaac/luci-app-diskman package/luci-app-diskman
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
-merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
+#git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+#merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
 #git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
+#git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
@@ -168,12 +169,12 @@ sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/p
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 #sed -i 's/Hello World/OverWall/g' package/luci-app-vssr/luasrc/controller/vssr.lua
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/msgstr "KMS 服务器"/msgstr "KMS激活"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
