@@ -61,6 +61,10 @@ git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/l
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 
+# openclash
+rm -rf feeds/luci/applications/luci-app-openclash
+git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
+
 # homeproxy
 rm -rf feeds/luci/applications/luci-app-homeproxy
 git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
