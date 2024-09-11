@@ -166,7 +166,6 @@ sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
 cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
 rm -rf feeds/packages/lang/ruby
 cp -rf $GITHUB_WORKSPACE/patch/ruby feeds/packages/lang/ruby
-rm -rf package/emortal/automount
 rm -rf feeds/luci/applications/luci-app-polipo
 
 # comment out the following line to restore the full description
