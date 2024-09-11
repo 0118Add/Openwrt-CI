@@ -167,6 +167,7 @@ cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-
 rm -rf feeds/packages/lang/ruby
 cp -rf $GITHUB_WORKSPACE/patch/ruby feeds/packages/lang/ruby
 rm -rf feeds/luci/applications/luci-app-polipo
+sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 
 # comment out the following line to restore the full description
 #sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/emortal/default-settings/files/99-default-settings
