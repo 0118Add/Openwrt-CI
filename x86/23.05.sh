@@ -77,7 +77,7 @@ rm -rf feeds/luci/applications/luci-app-openclash
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/neko
+git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/luci-app-nekoclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # homeproxy
