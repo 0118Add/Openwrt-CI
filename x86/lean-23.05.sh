@@ -139,7 +139,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #merge_package https://github.com/fw876/helloworld helloworld/v2raya
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/neko
+git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/luci-app-nekoclash
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone https://github.com/lisaac/luci-app-diskman package/luci-app-diskman
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
