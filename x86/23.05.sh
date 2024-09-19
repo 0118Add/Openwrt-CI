@@ -62,14 +62,14 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #rm -rf feeds/luci/applications/luci-app-homeproxy
 #rm -rf feeds/luci/applications/luci-app-frpc
 #rm -rf feeds/packages/net/sing-box
-#rm -rf feeds/luci/applications/luci-app-daed
+rm -rf feeds/luci/applications/luci-app-daed
 #rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-smartdns
 #rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-#git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
+git clone https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b luci https://github.com/8688Add/openwrt-passwall package/passwall
 #git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
