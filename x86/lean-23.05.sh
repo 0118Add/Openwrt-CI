@@ -106,7 +106,7 @@ rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
-#rm -rf package/lean/autocore
+rm -rf package/lean/autocore
 #rm -rf feeds/packages/utils/coremark
 #rm -rf feeds/luci/modules/luci-base
 #rm -rf feeds/luci/modules/luci-mod-status
@@ -119,8 +119,7 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #cp -rf immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
 
 # 添加额外软件包
-#git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
-#git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/v2raya
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
