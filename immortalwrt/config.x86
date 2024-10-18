@@ -311,12 +311,3 @@ CONFIG_boost-compile-visibility-hidden=y
 CONFIG_boost-runtime-shared=y
 CONFIG_boost-static-and-shared-libs=y
 CONFIG_boost-variant-release=y
-
-# neko
-CONFIG_PACKAGE_bash=y
-CONFIG_DEFAULT_curl=y
-CONFIG_PACKAGE_jq=y
-CONFIG_PACKAGE_kmod-tun=y
-CONFIG_PACKAGE_php8=y
-CONFIG_PACKAGE_php8-cgi=y
-CONFIG_PACKAGE_luci-app-nekoclash=y
