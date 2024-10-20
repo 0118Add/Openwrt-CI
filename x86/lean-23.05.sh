@@ -123,6 +123,7 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetransfer
+merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
