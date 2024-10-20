@@ -12,7 +12,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: x86/diy/x86_lede/lean-18.06.feeds.conf.default
   CONFIG_FILE: x86/Lean-x86.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: x86/Lean-x86.sh
