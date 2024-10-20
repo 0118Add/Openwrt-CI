@@ -124,6 +124,7 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetransfer
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
+git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
@@ -175,7 +176,7 @@ sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' package/luci-app-
 #sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 #sed -i 's/IPSec VPN 服务器/IPSec VPN/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
 #sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
-#sed -i 's/Turbo ACC 网络加速/网络加速/g' package/custom/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/root/usr/share/luci/menu.d/luci-app-turboacc.json
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
