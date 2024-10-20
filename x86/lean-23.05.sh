@@ -101,9 +101,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-diskman
 rm -rf feeds/luci/applications/luci-app-ssr-plus
-rm -rf feeds/luci/applications/luci-app-vssr
+rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-passwall
-#rm -rf feeds/packages/multimedia/aliyundrive-webdav
+rm -rf feeds/packages/net/smartdns
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
 #rm -rf package/lean/autocore
@@ -124,15 +124,10 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetransfer
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
-git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-#git clone https://github.com/fw876/helloworld.git package/helloworld
-#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-#merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
-#merge_package https://github.com/fw876/helloworld helloworld/mosdns
-#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-#merge_package https://github.com/fw876/helloworld helloworld/redsocks2
-#merge_package https://github.com/fw876/helloworld helloworld/v2raya
+git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
