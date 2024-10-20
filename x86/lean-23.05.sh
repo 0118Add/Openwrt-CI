@@ -106,7 +106,7 @@ rm -rf feeds/luci/applications/luci-app-passwall
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
-rm -rf package/lean/autocore
+#rm -rf package/lean/autocore
 #rm -rf feeds/packages/utils/coremark
 #rm -rf feeds/luci/modules/luci-base
 #rm -rf feeds/luci/modules/luci-mod-status
@@ -119,16 +119,10 @@ rm -rf package/lean/autocore
 #cp -rf immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
 
 # 添加额外软件包
-merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
-merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/v2raya
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-ramfree
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-app-turboacc
+#merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/luci-app-bypass
-git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
@@ -141,7 +135,6 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-git clone https://github.com/lisaac/luci-app-diskman package/luci-app-diskman
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
@@ -181,7 +174,7 @@ sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' package/luci-app-
 #sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 #sed -i 's/IPSec VPN 服务器/IPSec VPN/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
 #sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
-sed -i 's/Turbo ACC 网络加速/网络加速/g' package/custom/luci-app-turboacc/po/zh-cn/turboacc.po
+#sed -i 's/Turbo ACC 网络加速/网络加速/g' package/custom/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
