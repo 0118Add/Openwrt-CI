@@ -76,7 +76,7 @@ sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-d
 #sed -i 's/CPU 性能优化调节/性能优化/g' feeds/luci/applications/luci-app-cpufreq/po/zh-cn/cpufreq.po
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
 sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
