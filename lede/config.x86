@@ -43,7 +43,7 @@ CONFIG_PACKAGE_luci-app-ddns-go=y
 CONFIG_PACKAGE_dae=y
 CONFIG_PACKAGE_dae-geoip=y
 CONFIG_PACKAGE_dae-geosite=y
-CONFIG_PACKAGE_luci-app-daed=y
+# CONFIG_PACKAGE_luci-app-daed is not set
 # CONFIG_PACKAGE_luci-app-daed-next is not set
 CONFIG_PACKAGE_luci-app-design-config=y
 # CONFIG_PACKAGE_luci-app-ddnsto is not set
