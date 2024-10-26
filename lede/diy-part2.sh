@@ -56,7 +56,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #merge_package master https://github.com/fw876/helloworld package/helloworld luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
-merge_package master https://github.com/mgz0227/OP-Packages package/openwrt dae
+merge_package master https://github.com/mgz0227/OP-Packages package/openwrt dae luci-app-daed
 #git clone https://github.com/8688Add/luci-app-daed package/luci-app-daed
 #git clone https://github.com/8688Add/luci-app-daed-next package/luci-app-daed-next
 #git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
@@ -72,10 +72,10 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
 sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
-sed -i 's/CPU 性能优化调节/性能优化/g' feeds/luci/applications/luci-app-cpufreq/po/zh-cn/cpufreq.po
+#sed -i 's/CPU 性能优化调节/性能优化/g' feeds/luci/applications/luci-app-cpufreq/po/zh-cn/cpufreq.po
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
 sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
