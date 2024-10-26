@@ -50,13 +50,14 @@ wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubuserconte
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
 
 # 添加额外软件包
+rm -rf feeds/packages/net/{dae,daed}
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #merge_package master https://github.com/fw876/helloworld package/helloworld luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
-merge_package master https://github.com/mgz0227/OP-Packages package/openwrt luci-app-daed
+merge_package master https://github.com/mgz0227/OP-Packages package/openwrt dae daed luci-app-daed
 #git clone https://github.com/8688Add/luci-app-daed package/luci-app-daed
 #git clone https://github.com/8688Add/luci-app-daed-next package/luci-app-daed-next
 #git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
