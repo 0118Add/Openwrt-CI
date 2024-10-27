@@ -55,7 +55,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-#merge_package master https://github.com/fw876/helloworld package/helloworld luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2
+merge_package master https://github.com/fw876/helloworld package/helloworld lua-neturl redsocks2
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 merge_package master https://github.com/mgz0227/OP-Packages package/OP-Packages dae
 merge_package master https://github.com/haiibo/openwrt-packages package/openwrt-packages luci-app-bypass
