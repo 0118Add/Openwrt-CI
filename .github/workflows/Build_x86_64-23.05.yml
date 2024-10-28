@@ -232,7 +232,7 @@ jobs:
         tag: ${{ env.TAG }}_lean_${{ env.KERNEL }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
-          **This is ImmortalWrt Firmware for ${{ env.FILE_NAME }}**
+          **This is LEDE Firmware for ${{ env.FILE_NAME }}**
           ### 📒 固件信息
           - 💻 平台架构: ${{ env.FILE_NAME }}
           - ⚽ 固件源码: ${{ env.REPO_URL }}
