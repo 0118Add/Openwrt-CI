@@ -13,7 +13,7 @@ env:
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: Lienol-Main
+  FIRMWARE_TAG: LEDE-x86_64
   TZ: Asia/Shanghai
 
 jobs:
