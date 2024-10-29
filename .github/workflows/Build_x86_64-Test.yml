@@ -14,7 +14,7 @@ env:
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: LEDE-x86_64
+  FIRMWARE_TAG: LEDE-x86_64-18.06
   TZ: Asia/Shanghai
 
 jobs:
