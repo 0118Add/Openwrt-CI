@@ -8,6 +8,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: lede/lean-18.06.feeds.conf.default
   CONFIG_FILE: lede/config.x86
+  DIY_P1_SH: diy-part1.sh
   DIY_SCRIPT: lede/diy-part2.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
@@ -114,9 +115,9 @@ jobs:
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
-        chmod +x $DIY_SCRIPT
+        chmod +x $DIY_P1_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_SCRIPT    
+        $GITHUB_WORKSPACE/$DIY_P1_SH    
     
     - name: Install Feeds
       run: |
