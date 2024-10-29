@@ -241,14 +241,3 @@ jobs:
           - 内容: ${{ env.commit }}
           - hash: ${{ env.hash }}
         artifacts: ${{ env.FIRMWARE }}/*
-
-    - name: Completion time 
-      run: |
-        echo "DATE1=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
-        end=$(date +%s)
-        seconds=$(( end - start ))
-        hour=$(( $seconds/3600 ))
-        min=$(( ($seconds-${hour}*3600)/60 ))
-        sec=$(( $seconds-${hour}*3600-${min}*60 ))
-        HMS=`echo ${hour}:${min}:${sec}`
-        echo "time=$HMS" >> $GITHUB_ENV
