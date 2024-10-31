@@ -59,7 +59,7 @@ merge_package master https://github.com/fw876/helloworld package/helloworld lua-
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 merge_package master https://github.com/mgz0227/OP-Packages package/OP-Packages dae
 merge_package master https://github.com/haiibo/openwrt-packages package/openwrt-packages luci-app-bypass
-git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
+git clone -b main --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
@@ -74,7 +74,8 @@ sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-arg
 sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
 #sed -i 's/CPU 性能优化调节/性能优化/g' feeds/luci/applications/luci-app-cpufreq/po/zh-cn/cpufreq.po
 sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
-sed -i 's/NekoClash/Neko/g' package/nekoclash/luci-app-nekoclash/luasrc/controller/neko.lua
+sed -i 's/NekoClash/Neko/g' package/nekoclash/luasrc/controller/neko.lua
+sed -i 's/PKG_RELEASE:=en/PKG_RELEASE:=cn/g' package/nekoclash/Makefile
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
