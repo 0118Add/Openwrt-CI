@@ -4,17 +4,17 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  FEEDS_CONF: lede/lean-18.06.feeds.conf.default
-  CONFIG_FILE: lede/config.x86
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-24.10
+  FEEDS_CONF: x86/diy/x86_lede/24.10.feeds.conf.default
+  CONFIG_FILE: x86/master.config
   DIY_P1_SH: diy-part1.sh
-  DIY_SCRIPT: lede/diy-part2.sh
+  DIY_SCRIPT: x86/master.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: LEDE-x86_64-18.06
+  FIRMWARE_TAG: x86_64-Test
   TZ: Asia/Shanghai
 
 jobs:
