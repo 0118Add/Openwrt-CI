@@ -26,6 +26,10 @@ source ${GITHUB_WORKSPACE}/immortalwrt/function.sh
 # 修改x86内核到6.6版
 #sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.6/g' ./target/linux/x86/Makefile
 
+# 内核替换 kernel 6.x
+sed -i 's/LINUX_KERNEL_HASH-6.6.58 = e7df81e588d70fab5ec3ec3bb04ac53d51f0860fc3b1ec45e0a4167a026899db/LINUX_KERNEL_HASH-6.6.60 = 52f9e32d5082ab94253447fd66670d0c3bb765cfcb99b0bf61d1b8eae25952ef/g' ./include/kernel-6.6
+sed -i 's/LINUX_VERSION-6.6 = .58/LINUX_VERSION-6.6 = .60/g' ./include/kernel-6.6
+
 # 修改默认IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
