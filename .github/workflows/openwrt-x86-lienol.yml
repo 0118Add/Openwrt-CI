@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt X86
+name: OpenWrt X86 lienol
 
 on:
   repository_dispatch:
@@ -16,14 +16,14 @@ on:
 #    - cron: 0 8 * * 5
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: 24.10
   DEVICE_NAME: X86
-  FILES: lede/files
-  FEEDS_CONF: lede/lean-18.06.feeds.conf.default
-  CONFIG_FILE: lede/config.x86
-  DIY_P1_SH: lede/diy-part1.sh
-  DIY_P2_SH: lede/diy-part2.sh
+  FILES: lienol/files
+  FEEDS_CONF: lienol/lienol-24.10.feeds.conf.default
+  CONFIG_FILE: lienol/config.x86
+  DIY_P1_SH: lienol/diy-part1.sh
+  DIY_P2_SH: lienol/diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
