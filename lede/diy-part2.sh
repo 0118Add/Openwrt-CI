@@ -15,8 +15,8 @@ echo "========================="
 chmod +x ${GITHUB_WORKSPACE}/lede/subscript.sh
 source ${GITHUB_WORKSPACE}/lede/subscript.sh
 
-# 修改x86内核到6.6版
-#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.6/g' ./target/linux/x86/Makefile
+# 修改x86内核到6.12版
+sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefile
 
 # 默认IP由1.1修改为0.1
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
