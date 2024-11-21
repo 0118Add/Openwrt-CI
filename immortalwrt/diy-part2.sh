@@ -80,6 +80,14 @@ git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 # neko
 #git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 
+# 替换curl修改版（无nghttp3、ngtcp2）
+curl_ver=$(cat feeds/packages/net/curl/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}')
+[ $(check_ver "$curl_ver" "8.9.1") != 0 ] && {
+	echo "替换curl版本"
+	rm -rf feeds/packages/net/curl
+	cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
+}
+
 # apk-tools
 mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
 
