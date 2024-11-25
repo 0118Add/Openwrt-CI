@@ -82,16 +82,6 @@ git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 # neko
 #git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 
-# apk-tools APK管理器不再校验版本号的合法性
-mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
-
-mirror=raw.githubusercontent.com/sbwml/r4s_build_script/master
-
-# haproxy - fix build with quictls
-sed -i '/USE_QUIC_OPENSSL_COMPAT/d' feeds/packages/net/haproxy/Makefile
-
-mirror=raw.githubusercontent.com/sbwml/r4s_build_script/master
-
 # 防火墙4添加自定义nft命令支持
 # curl -s https://$mirror/openwrt/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch | patch -p1
 patch -p1 < ${GITHUB_WORKSPACE}/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch
