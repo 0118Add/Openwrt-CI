@@ -106,10 +106,11 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
-#rm -rf package/lean/autocore
+rm -rf package/lean/autocore
 #rm -rf feeds/packages/utils/coremark
 #rm -rf feeds/luci/modules/luci-base
 #rm -rf feeds/luci/modules/luci-mod-status
+merge_package https://github.com/0118Add/Openwrt-CI Openwrt-CI/lede/autocore
 #merge_package https://github.com/immortalwrt/immortalwrt immortalwrt/package/emortal/autocore
 #merge_package https://github.com/immortalwrt/immortalwrt immortalwrt/package/utils/mhz
 #git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git immortalwrt-luci
