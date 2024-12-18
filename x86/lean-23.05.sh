@@ -132,7 +132,7 @@ git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/l
 cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
+#git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
@@ -141,7 +141,7 @@ git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
-#git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
+git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
