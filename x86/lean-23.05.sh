@@ -126,6 +126,7 @@ merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetr
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/daed
+merge_package https://github.com/mgz0227/OP-Packages OP-Packages/UnblockNeteaseMusic
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
@@ -146,7 +147,6 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-git clone https://github.com/UnblockNeteaseMusic/server package/unblockneteasemusic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-design
