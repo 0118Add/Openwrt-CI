@@ -97,7 +97,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf feeds/packages/net/{dae,daed}
+#rm -rf feeds/packages/net/{dae,daed}
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-diskman
 rm -rf feeds/luci/applications/luci-app-ssr-plus
@@ -126,8 +126,8 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetransfer
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
-merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
-merge_package https://github.com/mgz0227/OP-Packages OP-Packages/daed
+#merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
+#merge_package https://github.com/mgz0227/OP-Packages OP-Packages/daed
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/UnblockNeteaseMusic
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
