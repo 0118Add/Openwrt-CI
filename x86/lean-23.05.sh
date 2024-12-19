@@ -106,6 +106,7 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/multimedia/UnblockNeteaseMusic
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
+rm -rf feeds/luci/applications/luci-app-zerotier
 
 #rm -rf package/lean/autocore
 #rm -rf feeds/packages/utils/coremark
