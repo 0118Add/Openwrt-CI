@@ -104,8 +104,7 @@ rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/smartdns
-rm -rf feeds/packages/multimedia/UnblockNeteaseMusic
-rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
+#rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-zerotier
 
 #rm -rf package/lean/autocore
@@ -128,14 +127,13 @@ merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetr
 merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/daed
-merge_package https://github.com/mgz0227/OP-Packages OP-Packages/UnblockNeteaseMusic
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-#git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
+git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
@@ -144,11 +142,11 @@ git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
-git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+#git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 git clone https://github.com/Firsgith/luci-app-zerotier package/luci-app-zerotier
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-design
@@ -169,7 +167,8 @@ sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/shar
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+#sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
