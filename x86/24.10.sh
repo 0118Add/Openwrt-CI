@@ -128,9 +128,6 @@ sed -i 's#\"title\": \"UPnP IGD \& PCP/NAT-PMP\"#\"title\": \"UPnP\"#g' feeds/lu
 # 移动 UPnP 到 “网络” 子菜单
 sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
-# 修复编译时提示 freeswitch 缺少 libpcre 依赖
-sed -i 's/+libpcre \\$/+libpcre2 \\/g' package/feeds/telephony/freeswitch/Makefile
-
 # vim - fix E1187: Failed to source defaults.vim
 pushd feeds/packages
 	vim_ver=$(cat utils/vim/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}' | awk 'BEGIN{FS=".";OFS="."};{print $1,$2}')
