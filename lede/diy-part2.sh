@@ -109,6 +109,15 @@ cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 # sed -i 's/f50e4dd0813da9300580f7188e44ed72a27ae79c/1fd18601e7d8ac88e8557682be7de3dc56e69105/g' feeds/packages/net/smartdns/Makefile
 # sed -i 's/^PKG_MIRROR_HASH/#&/' feeds/packages/net/smartdns/Makefile
 
+# MSD组播转换luci
+git clone https://github.com/lwb1978/luci-app-msd_lite package/luci-app-msd_lite
+
+# 替换udpxy为修改版，解决组播源数据有重复数据包导致的花屏和马赛克问题
+rm -rf feeds/packages/net/udpxy/Makefile
+cp -f ${GITHUB_WORKSPACE}/patch/udpxy/Makefile feeds/packages/net/udpxy/
+# 修改 udpxy 菜单名称为大写
+sed -i 's#_(\"udpxy\")#_(\"UDPXY\")#g' feeds/luci/applications/luci-app-udpxy/luasrc/controller/udpxy.lua
+
 # 替换curl修改版（无nghttp3、ngtcp2）
 rm -rf feeds/packages/net/curl
 cp -rf ${GITHUB_WORKSPACE}/patch/curl feeds/packages/net/curl
