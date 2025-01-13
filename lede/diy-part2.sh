@@ -58,6 +58,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 merge_package master https://github.com/fw876/helloworld package/helloworld lua-neturl redsocks2
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 merge_package master https://github.com/mgz0227/OP-Packages package/OP-Packages dae
+merge_package master https://github.com/kiddin9/kwrt-packages package/kwrt-packages luci-app-msd_lite
 #merge_package master https://github.com/haiibo/openwrt-packages package/openwrt-packages luci-app-bypass
 git clone https://github.com/siropboy/luci-app-bypass package/luci-app-bypass
 git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
@@ -108,9 +109,6 @@ cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 # sed -i 's/1.2021.35/2022.03.02/g' feeds/packages/net/smartdns/Makefile
 # sed -i 's/f50e4dd0813da9300580f7188e44ed72a27ae79c/1fd18601e7d8ac88e8557682be7de3dc56e69105/g' feeds/packages/net/smartdns/Makefile
 # sed -i 's/^PKG_MIRROR_HASH/#&/' feeds/packages/net/smartdns/Makefile
-
-# MSD组播转换luci
-git clone https://github.com/lwb1978/luci-app-msd_lite package/luci-app-msd_lite
 
 # 替换udpxy为修改版，解决组播源数据有重复数据包导致的花屏和马赛克问题
 rm -rf feeds/packages/net/udpxy/Makefile
