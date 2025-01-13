@@ -58,7 +58,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 merge_package master https://github.com/fw876/helloworld package/helloworld lua-neturl redsocks2
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 merge_package master https://github.com/mgz0227/OP-Packages package/OP-Packages dae
-merge_package master https://github.com/kiddin9/kwrt-packages package/kwrt-packages luci-app-msd_lite
+merge_package main https://github.com/kiddin9/kwrt-packages package/kwrt-packages luci-app-msd_lite
 #merge_package master https://github.com/haiibo/openwrt-packages package/openwrt-packages luci-app-bypass
 git clone https://github.com/siropboy/luci-app-bypass package/luci-app-bypass
 git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
