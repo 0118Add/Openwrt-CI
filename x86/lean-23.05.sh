@@ -123,8 +123,8 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
-merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-app-filetransfer
-merge_package https://github.com/mgz0227/OP-Packages OP-Packages/luci-lib-fs
+merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
+merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/daed
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
