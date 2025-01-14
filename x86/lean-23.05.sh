@@ -105,6 +105,7 @@ rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/sing-box
+rm -rf package/nekoclash/sing-box
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-zerotier
 
