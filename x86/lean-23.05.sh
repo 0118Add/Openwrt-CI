@@ -127,7 +127,6 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
@@ -153,7 +152,8 @@ git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
 git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekoclash
-rm -rf package/nekoclash/sing-box
+rm -rf package/nekoclash/{sing-box}
+merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
