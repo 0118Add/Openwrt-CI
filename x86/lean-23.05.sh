@@ -151,7 +151,7 @@ git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
 git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
-rm -rf package/nekobox/{sing-box}
+rm -rf package/nekobox/sing-box
 merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
