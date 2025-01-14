@@ -139,6 +139,7 @@ cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
+git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekoclash
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
 #git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
@@ -149,10 +150,6 @@ git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #rm -rf feeds/luci/themes/luci-theme-design
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
-
-git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekoclash
-rm -rf package/nekoclash/{sing-box}
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
