@@ -53,13 +53,13 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwal
 rm -rf package/passwall-packages/{chinadns-ng,naiveproxy,v2ray-geodata}
 merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-packages chinadns-ng naiveproxy v2ray-geodata
 # app
-#rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-ssr-libev-server}
+rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-smartdns}
 #git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 # git clone https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
 # ------------------------------------------------------------
 
 # SmartDNS
-rm -rf feeds/luci/applications/luci-app-smartdns
+#rm -rf feeds/luci/applications/luci-app-smartdns
 git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 # 替换immortalwrt 软件仓库smartdns版本为官方最新版
 rm -rf feeds/packages/net/smartdns
