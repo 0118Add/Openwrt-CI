@@ -126,7 +126,7 @@ EOF
 # 精简 UPnP 菜单名称
 sed -i 's#\"title\": \"UPnP IGD \& PCP/NAT-PMP\"#\"title\": \"UPnP\"#g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 # 移动 UPnP 到 “网络” 子菜单
-sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+#sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
 # vim - fix E1187: Failed to source defaults.vim
 pushd feeds/packages
