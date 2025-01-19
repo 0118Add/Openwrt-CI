@@ -86,6 +86,9 @@ git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 # neko
 git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 
+# filemanager
+git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
+
 # 防火墙4添加自定义nft命令支持
 # curl -s https://$mirror/openwrt/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch | patch -p1
 patch -p1 < ${GITHUB_WORKSPACE}/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch
