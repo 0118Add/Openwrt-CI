@@ -142,7 +142,7 @@ git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-fileman
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
-#git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
@@ -151,9 +151,9 @@ git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
-git clone -b main --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
-rm -rf package/nekobox/sing-box
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
+#git clone -b main --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
+#rm -rf package/nekobox/sing-box
+#merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
