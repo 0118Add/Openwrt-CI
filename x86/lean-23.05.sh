@@ -153,7 +153,7 @@ git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 
 #git clone -b main --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 #rm -rf package/nekobox/sing-box
-#merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
+merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
