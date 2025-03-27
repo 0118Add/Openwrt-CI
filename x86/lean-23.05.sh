@@ -146,7 +146,6 @@ git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #rm -rf package/nekobox/sing-box
 merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
-merge_package https://github.com/kenzok8/small small/mihomo
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
