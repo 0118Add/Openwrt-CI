@@ -1,5 +1,4 @@
-name: Build_x86_64-Test
-
+name: Build_x86_64-24.10
 on:
   workflow_dispatch:
 
