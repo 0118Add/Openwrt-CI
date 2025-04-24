@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt X86 lienol
+name: OpenWrt X86 im-6.12
 
 on:
   repository_dispatch:
@@ -16,14 +16,14 @@ on:
 #    - cron: 0 8 * * 5
 
 env:
-  REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: 24.10
+  REPO_URL: https://github.com/xuanranran/immortalwrt
+  REPO_BRANCH: 6.12
   DEVICE_NAME: X86
-  FILES: lienol/files
-  FEEDS_CONF: lienol/lienol-24.10.feeds.conf.default
-  CONFIG_FILE: lienol/config.x86
-  DIY_P1_SH: lienol/diy-part1.sh
-  DIY_P2_SH: lienol/diy-part2.sh
+  FILES: immortalwrt/files
+  FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
+  CONFIG_FILE: immortalwrt/config.x86
+  DIY_P1_SH: immortalwrt/diy-part1.sh
+  DIY_P2_SH: immortalwrt/diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
