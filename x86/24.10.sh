@@ -58,9 +58,12 @@ rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-smartdns}
 # git clone https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
 # ------------------------------------------------------------
 
-# SmartDNS
+# SmartDNS ZeroTier
 #rm -rf feeds/luci/applications/luci-app-smartdns
+rm -rf feeds/luci/applications/luci-app-zerotier
 git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+git clone https://github.com/lwb1978/luci-app-zerotier package/luci-app-zerotier
+sed -i 's/vpn/services/g' package/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 # 替换immortalwrt 软件仓库smartdns版本为官方最新版
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
