@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 拉取仓库文件夹
-function merge_package() {
+merge_package() {
 	# 参数1是分支名,参数2是库地址,参数3是所有文件下载到指定路径。
 	# 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
 	# 示例:
@@ -28,32 +28,63 @@ function merge_package() {
 	cd "$rootdir"
 }
 
-function drop_package(){
+drop_package(){
 	find package/ -follow -name $1 -not -path "package/custom/*" | xargs -rt rm -rf
 }
 
-function merge_feed(){
+merge_feed(){
 	./scripts/feeds update $1
 	./scripts/feeds install -a -p $1
 }
 
-# 版本比较
-compare_version() {
-	version1="$1"
-	version2="$2"
+# 版本比较 sh
+check_ver() {
+	local version1="$1"
+	local version2="$2"
+	# 分割版本号字符串并设置默认值
+	local i v1 v1_1 v1_2 v1_3 v2 v2_1 v2_2 v2_3
+	IFS='.'; set -- $version1; v1_1=${1:-0}; v1_2=${2:-0}; v1_3=${3:-0}
+	IFS='.'; set -- $version2; v2_1=${1:-0}; v2_2=${2:-0}; v2_3=${3:-0}
+	IFS=
+	# 逐个比较版本号段
+	for i in 1 2 3; do
+		eval v1=\$v1_$i
+		eval v2=\$v2_$i
+		if [ "$v1" -gt "$v2" ]; then
+			# echo "版本 $version1 大于版本 $version2"
+			echo 0
+			return
+		elif [ "$v1" -lt "$v2" ]; then
+			# echo "版本 $version1 小于版本 $version2"
+			echo 1
+			return
+		fi
+	done
+	# echo "版本 $version1 等于版本 $version2"
+	echo 255
+}
+
+# 版本比较 bash
+check_ver2() {
+	local version1="$1"
+	local version2="$2"
+	local v1={}
+	local v2={}
 	# 将版本号字符串分割成数组
 	IFS='.' read -ra v1 <<< "$version1"
 	IFS='.' read -ra v2 <<< "$version2"
 	# 逐个比较数组中的元素
 	for i in "${!v1[@]}"; do
-	if [ "${v1[i]}" -gt "${v2[i]}" ]; then
-		# echo "版本 $version1 大于版本 $version2"
-		return 0
-	elif [ "${v1[i]}" -lt "${v2[i]}" ]; then
-		# echo "版本 $version1 小于版本 $version2"
-		return 1
-	fi
+		if [ "${v1[i]}" -gt "${v2[i]}" ]; then
+			# echo "版本 $version1 大于版本 $version2"
+			echo 0
+			return
+		elif [ "${v1[i]}" -lt "${v2[i]}" ]; then
+			# echo "版本 $version1 小于版本 $version2"
+			echo 1
+			return
+		fi
 	done
 	# echo "版本 $version1 等于版本 $version2"
-	return 255
+	echo 255
 }
