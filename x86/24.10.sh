@@ -61,12 +61,12 @@ rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-smartdns}
 # SmartDNS ZeroTier
 #rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-zerotier
-git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+#git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 git clone https://github.com/lwb1978/luci-app-zerotier package/luci-app-zerotier
 sed -i 's/vpn/services/g' package/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 # 替换immortalwrt 软件仓库smartdns版本为官方最新版
-rm -rf feeds/packages/net/smartdns
-cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
+#rm -rf feeds/packages/net/smartdns
+#cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -77,8 +77,8 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenCl
 #git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
 #sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
 #sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
-sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
-sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+#sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
+#sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
@@ -154,8 +154,8 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload.github.com/g' {}
 
 # 自定义默认配置
-sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
-cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
+#sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
+#cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
