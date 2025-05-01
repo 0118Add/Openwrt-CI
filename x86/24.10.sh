@@ -88,58 +88,6 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 # neko
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 
-# 防火墙4添加自定义nft命令支持
-# curl -s https://$mirror/openwrt/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch | patch -p1
-patch -p1 < ${GITHUB_WORKSPACE}/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch
-
-pushd feeds/luci
-	# 防火墙4添加自定义nft命令选项卡
-	# curl -s https://$mirror/openwrt/patch/firewall4/luci-24.10/0004-luci-add-firewall-add-custom-nft-rule-support.patch | patch -p1
-	patch -p1 < ${GITHUB_WORKSPACE}/patch/firewall4/0004-luci-add-firewall-add-custom-nft-rule-support.patch
-	# 状态-防火墙页面去掉iptables警告，并添加nftables、iptables标签页
-	# curl -s https://$mirror/openwrt/patch/luci/0004-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
-	patch -p1 < ${GITHUB_WORKSPACE}/patch/firewall4/0004-luci-mod-status-firewall-disable-legacy-firewall-rul.patch
-popd
-
-# 补充 firewall4 luci 中文翻译
-cat >> "feeds/luci/applications/luci-app-firewall/po/zh_Hans/firewall.po" <<-EOF
-	
-	msgid ""
-	"Custom rules allow you to execute arbitrary nft commands which are not "
-	"otherwise covered by the firewall framework. The rules are executed after "
-	"each firewall restart, right after the default ruleset has been loaded."
-	msgstr ""
-	"自定义规则允许您执行不属于防火墙框架的任意 nft 命令。每次重启防火墙时，"
-	"这些规则在默认的规则运行后立即执行。"
-	
-	msgid ""
-	"Applicable to internet environments where the router is not assigned an IPv6 prefix, "
-	"such as when using an upstream optical modem for dial-up."
-	msgstr ""
-	"适用于路由器未分配 IPv6 前缀的互联网环境，例如上游使用光猫拨号时。"
-
-	msgid "NFtables Firewall"
-	msgstr "NFtables 防火墙"
-
-	msgid "IPtables Firewall"
-	msgstr "IPtables 防火墙"
-EOF
-
-# 精简 UPnP 菜单名称
-sed -i 's#\"title\": \"UPnP IGD \& PCP/NAT-PMP\"#\"title\": \"UPnP\"#g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
-# 移动 UPnP 到 “网络” 子菜单
-#sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
-
-# vim - fix E1187: Failed to source defaults.vim
-pushd feeds/packages
-	vim_ver=$(cat utils/vim/Makefile | grep -i "PKG_VERSION:=" | awk 'BEGIN{FS="="};{print $2}' | awk 'BEGIN{FS=".";OFS="."};{print $1,$2}')
-	[ "$vim_ver" = "9.0" ] && {
-		echo "修复 vim E1187 的错误"
-		# curl -s https://github.com/openwrt/packages/commit/699d3fbee266b676e21b7ed310471c0ed74012c9.patch | patch -p1
-		patch -p1 < ${GITHUB_WORKSPACE}/patch/vim/0001-vim-fix-renamed-defaults-config-file.patch
-	}
-popd
-
 # 调整Dockerman到服务菜单
 sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/*.lua
