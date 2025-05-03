@@ -136,6 +136,9 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/*.htm
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
+rm -rf package/kernel/r8152
+git clone https://github.com/sbwml/package_kernel_r8152 package/kernel/r8152
+
 # 修正部分从第三方仓库拉取的软件 Makefile 路径问题
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang\/golang\/golang-package.mk/$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang-package.mk/g' {}
