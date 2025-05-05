@@ -80,6 +80,7 @@ CONFIG_DEFAULT_kmod-igc=y
 CONFIG_DEFAULT_kmod-ixgbe=y
 CONFIG_DEFAULT_kmod-ixgbevf=y
 CONFIG_DEFAULT_kmod-nft-offload=y
+CONFIG_PACKAGE_kmod-mac80211=y
 CONFIG_DEFAULT_kmod-pcnet32=y
 CONFIG_DEFAULT_kmod-sound-hda-codec-hdmi=y
 CONFIG_DEFAULT_kmod-sound-hda-codec-realtek=y
