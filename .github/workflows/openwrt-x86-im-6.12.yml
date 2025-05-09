@@ -5,28 +5,19 @@
 name: OpenWrt X86 im-6.12
 
 on:
-  repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-#  schedule:
-#    - cron: 0 8 * * 5
 
 env:
   REPO_URL: https://github.com/0118Add/immortalwrt
   REPO_BRANCH: master
-  DEVICE_NAME: X86
-  FILES: immortalwrt/files
   FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
   CONFIG_FILE: immortalwrt/config.x86
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part2.sh
+  CLASH_KERNEL: amd64
+  CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
+  FIRMWARE_RELEASE: true
   FIRMWARE_TAG: x86_64-im-6.12
   TZ: Asia/Shanghai
 
@@ -92,6 +83,14 @@ jobs:
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
         echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
 
+    - name: Cache Toolchain
+      if: env.CACHE_TOOLCHAIN == 'true'
+      uses: HiGarfield/cachewrtbuild@main
+      with:
+        ccache: false
+        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
+        prefix: ${{ env.OPENWRT_PATH }}
+
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
@@ -116,7 +115,7 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P2_SH
       
         sed -i 's/CONFIG_LINUX.*/CONFIG_LINUX_6_12=y/g' .config
-
+ 
         sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.12/g' target/linux/x86/Makefile    
     
     - name: Download DL Package
