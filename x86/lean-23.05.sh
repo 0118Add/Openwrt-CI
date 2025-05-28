@@ -135,7 +135,7 @@ git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-fileman
 #git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-git clone https://github.com/lwb1978/luci-app-zerotier package/luci-app-zerotier
+git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-design
