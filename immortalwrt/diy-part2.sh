@@ -80,6 +80,9 @@ sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/sha
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 
+# tailscale
+git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
+
 # apk-tools APK管理器不再校验版本号的合法性
 mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
 
