@@ -80,9 +80,8 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 
-# tailscale easytier
+# tailscale
 git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
-git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 
 # apk-tools APK管理器不再校验版本号的合法性
 mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
