@@ -56,8 +56,8 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
-#sed -i 's/LINUX_KERNEL_HASH-6.6.23 = 200fd119cb9ef06bcedcdb52be00ba443163eab154295c5831fed9a12211a8b9/LINUX_KERNEL_HASH-6.6.22 = 23e3e7b56407250f5411bdab95763d0bc4e3a19dfa431d951df7eacabd61a2f4/g' ./include/kernel-6.6
-#sed -i 's/LINUX_VERSION-6.6 = .23/LINUX_VERSION-6.6 = .22/g' ./include/kernel-6.6
+sed -i 's/LINUX_KERNEL_HASH-6.12.32 = a9b020721778384507010177d3929e7d4058f7f6120f05a99d56b5c5c0346a70/LINUX_KERNEL_HASH-6.12.33 = c0a575630f2603a20bb0641f8df8f955e46c9d7ac1fae8b54b21316e6b52a254/g' ./include/kernel-6.12
+sed -i 's/LINUX_VERSION-6.12 = .32/LINUX_VERSION-6.12 = .33/g' ./include/kernel-6.12
 
 # 替换文件
 wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
