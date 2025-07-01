@@ -109,9 +109,11 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-tailscale
 rm -rf feeds/luci/applications/luci-app-zerotier
 
-git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git immortalwrt-luci
+git clone --depth=1 -b openwrt-24.10 https://github.com/0118Add/luci-immortalwrt immortalwrt-luci
 cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
+cp -rf immortalwrt-luci/applications/luci-app-unblockneteasemusic feeds/luci/applications/luci-app-unblockneteasemusic
+ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/feeds/luci/luci-app-unblockneteasemusic
 
 # 添加额外软件包
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
@@ -149,7 +151,7 @@ merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sin
 
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #NAME=$"package/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
 #curl 'https://api.github.com/repos/UnblockNeteaseMusic/server/commits?sha=enhanced&path=precompiled' -o commits.json
 #echo "$(grep sha commits.json | sed -n "1,1p" | cut -c 13-52)">"$NAME/core_local_ver"
@@ -173,7 +175,7 @@ sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/shar
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+#sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/Multi Stream daemon Lite/MultiSD_Lite/g' feeds/luci/applications/luci-app-msd_lite/root/usr/share/luci/menu.d/luci-app-msd_lite.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
