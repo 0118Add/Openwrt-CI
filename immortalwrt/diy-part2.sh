@@ -55,11 +55,11 @@ merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-pa
 # ------------------------------------------------------------
 
 # SmartDNS
-rm -rf feeds/luci/applications/luci-app-smartdns
-git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+#rm -rf feeds/luci/applications/luci-app-smartdns
+#git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 # 替换immortalwrt 软件仓库smartdns版本为官方最新版
-rm -rf feeds/packages/net/smartdns
-cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
+#rm -rf feeds/packages/net/smartdns
+#cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
