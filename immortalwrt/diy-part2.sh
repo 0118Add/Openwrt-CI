@@ -55,11 +55,19 @@ merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-pa
 # ------------------------------------------------------------
 
 # SmartDNS
-#rm -rf feeds/luci/applications/luci-app-smartdns
-#git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns
+git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 # 替换immortalwrt 软件仓库smartdns版本为官方最新版
-#rm -rf feeds/packages/net/smartdns
-#cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
+rm -rf feeds/packages/net/smartdns
+# cp -rf ${GITHUB_WORKSPACE}/patch/smartdns package/
+git clone https://github.com/lwb1978/openwrt-smartdns package/smartdns
+# 添加 smartdns-ui
+echo "CONFIG_PACKAGE_luci-app-smartdns_INCLUDE_smartdns_ui=y" >> .config
+echo "CONFIG_PACKAGE_smartdns-ui=y" >> .config
+
+# openssl Enable QUIC and KTLS support
+echo "CONFIG_OPENSSL_WITH_QUIC=y" >> .config
+# echo "CONFIG_OPENSSL_WITH_KTLS=y" >> .config
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -80,8 +88,13 @@ sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/sha
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 
-# tailscale
-#git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
+# golang 1.25
+rm -rf feeds/packages/lang/golang
+git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+
+# luci-app-filemanager
+rm -rf feeds/luci/applications/luci-app-filemanager
+git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 
 # apk-tools APK管理器不再校验版本号的合法性
 mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
