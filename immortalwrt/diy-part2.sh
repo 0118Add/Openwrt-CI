@@ -96,6 +96,10 @@ git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/
 rm -rf feeds/luci/applications/luci-app-filemanager
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 
+# curl
+rm -rf feeds/packages/net/curl
+git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
+
 # apk-tools APK管理器不再校验版本号的合法性
 mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
 
