@@ -180,9 +180,6 @@ sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''ImmortalWrt 
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/release-os > package/base-files/files/etc/os-release
 
 sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
-sed -i "/CONFIGURE_ARGS/i\TARGET_CFLAGS += \$(FPIC) -std=gnu17\n" feeds/packages/libs/libsodium/Makefile
-rm -rf package/libs/gettext-full
-git clone --depth=1 https://github.com/xuanranran/package_libs_gettext-full package/libs/gettext-full
 
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
