@@ -177,6 +177,12 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt
 
 sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
+# gettext-full
+sed -i '/--without-emacs \\/{
+    N
+    s/^\(\s*\)--without-emacs \\\n/\1--without-emacs \\\n\1--with-bison-prefix=$(STAGING_DIR_HOST) \\\n/
+}' package/libs/gettext-full/Makefile
+
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
 	cp -Rf ${GITHUB_WORKSPACE}/immortalwrt/diy/* .
