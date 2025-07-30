@@ -178,7 +178,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt
 sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
 # libsodium - fix build with lto (GNU BUG - 89147)
-sed -i "/CONFIGURE_ARGS/i\TARGET_CFLAGS += -std=gnu17\n" customfeeds/packages/libs/libsodium/Makefile
+sed -i "/CONFIGURE_ARGS/i\TARGET_CFLAGS += -std=gnu17\n" feeds/packages/libs/libsodium/Makefile
 
 # gettext-full
 curl -s https://raw.githubusercontent.com/ZqinKing/wrt_release/refs/heads/main/patches/300-gettext-tools-define-bison-localedir.patch > package/libs/gettext-full/patches/300-gettext-tools-define-bison-localedir.patch
