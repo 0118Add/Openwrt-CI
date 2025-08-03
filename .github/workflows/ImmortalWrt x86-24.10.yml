@@ -1,4 +1,4 @@
-name: Build_x86_64-24.10
+name: ImmortalWrt x86-24.10
 on:
   workflow_dispatch:
 
