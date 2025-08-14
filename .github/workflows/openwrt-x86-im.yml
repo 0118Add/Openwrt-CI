@@ -187,7 +187,7 @@ jobs:
         name: ${{ env.DATE }} 「 ${{ env.FILE_NAME }}_${{ env.KERNEL }} 」[ImmortalWrt]固件
         allowUpdates: true
         removeArtifacts: true
-        tag: ${{ env.TAG }}_immo_${{ env.KERNEL }}
+        tag: ${{ env.FIRMWARE_TAG }}_immo_${{ env.KERNEL }}
         token: ${{ secrets.GH_TOKEN }}
         body: |
           **This is ImmortalWrt Firmware for ${{ env.FILE_NAME }}**
