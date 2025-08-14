@@ -113,11 +113,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
         #make defconfig
-
-        sed -i 's/CONFIG_LINUX.*/CONFIG_LINUX_6_12=y/g' .config
  
-        sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.12/g' target/linux/x86/Makefile
-    
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
@@ -149,13 +145,6 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    - name: Delete files
-      run: |
-        cd openwrt 
-        bash  rename.sh
-        Kernel=$(ls bin/targets/x86/64 | grep "_uefi.img.gz" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
-        echo "KERNEL=$Kernel" >> $GITHUB_ENV    
-    
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'false'
@@ -168,6 +157,8 @@ jobs:
       if: steps.compile.outputs.status == 'success'
       run: |
         cd openwrt/bin/targets/*/*
+        cat config.buildinfo
+        echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         rm -rf packages
         rm -rf config.buildinfo
         rm -rf feeds.buildinfo
