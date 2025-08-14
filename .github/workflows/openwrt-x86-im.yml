@@ -27,6 +27,7 @@ env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  FILE_NAME: x86_64
   PRODUCT_NAME: x86_64
 
 jobs:
@@ -148,6 +149,13 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
+    - name: Delete files
+      run: |
+        cd openwrt 
+        bash  rename.sh
+        Kernel=$(ls bin/targets/x86/64 | grep "_uefi.img.gz" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+        echo "KERNEL=$Kernel" >> $GITHUB_ENV    
+    
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
