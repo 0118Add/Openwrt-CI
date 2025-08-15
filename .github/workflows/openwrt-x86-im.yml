@@ -118,12 +118,7 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/immortalwrt/*.sh
         chmod +x $DIY_P2_SH
         cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_P2_SH
-      
-        sed -i 's/CONFIG_LINUX.*/CONFIG_LINUX_6_12=y/g' .config
- 
-        sed -i 's/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.12/g' target/linux/x86/Makefile    
-    
+     
     - name: Download DL Package
       run: |
         cd $OPENWRT_PATH
