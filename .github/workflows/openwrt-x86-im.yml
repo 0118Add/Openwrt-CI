@@ -118,7 +118,8 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/immortalwrt/*.sh
         chmod +x $DIY_P2_SH
         cd $OPENWRT_PATH
-     
+        $GITHUB_WORKSPACE/$DIY_P2_SH
+    
     - name: Download DL Package
       run: |
         cd $OPENWRT_PATH
