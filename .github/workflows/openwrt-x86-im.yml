@@ -96,6 +96,7 @@ jobs:
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        chmod +x $GITHUB_WORKSPACE/immortalwrt/*.sh
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
@@ -242,7 +243,7 @@ jobs:
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
           - 🚀 内核版本: ${{ env.KERNEL }}
-          - 🌐 默认地址：192.168.8.3
+          - 🌐 默认地址：10.0.0.1
           - 🔑 默认密码：无密码
           ### 🧊 固件版本
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/immortalwrt/immortalwrt)更新记录】
