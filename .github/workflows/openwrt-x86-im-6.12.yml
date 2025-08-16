@@ -60,7 +60,7 @@ jobs:
         root-reserve-mb: 1024
 
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v5
 
     - name: Clone Source Code
       run: |
