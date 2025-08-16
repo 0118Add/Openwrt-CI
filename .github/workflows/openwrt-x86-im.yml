@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/0118Add/immortalwrt
   REPO_BRANCH: master
   FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
   CONFIG_FILE: immortalwrt/config.x86
