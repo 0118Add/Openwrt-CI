@@ -1,4 +1,4 @@
-name: Build_x86_64-LEDE-24.10
+name: Build_x86_64-LEDE
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ env:
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: LEDE-x86_64-24.10
+  FIRMWARE_TAG: LEDE-x86_64
   TZ: Asia/Shanghai
 
 jobs:
