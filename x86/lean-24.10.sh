@@ -150,8 +150,8 @@ git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscal
 #rm -rf package/nekobox/sing-box
 merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
-git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-#git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
+#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #NAME=$"package/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
