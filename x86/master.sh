@@ -79,7 +79,7 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
 
-# neko
+# nekobox
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 
 # partexp
