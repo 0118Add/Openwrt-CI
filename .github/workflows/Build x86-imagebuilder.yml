@@ -8,7 +8,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
   CONFIG_FILE: x86/ImmortalWrt.config
-  DIY_P1_SH: x86/diy-part1.sh
+  DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: x86/ImmortalWrt.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
