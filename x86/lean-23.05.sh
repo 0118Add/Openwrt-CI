@@ -137,7 +137,7 @@ git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytie
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 #git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
-git clone -b next --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
