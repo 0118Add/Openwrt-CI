@@ -13,8 +13,8 @@
 echo "开始配置……"
 echo "========================="
 
-chmod +x ${GITHUB_WORKSPACE}/immortalwrt/function.sh
-source ${GITHUB_WORKSPACE}/immortalwrt/function.sh
+chmod +x ${GITHUB_WORKSPACE}/patch/function.sh
+source ${GITHUB_WORKSPACE}/patch/function.sh
 
 # 更改主机名
 sed -i "s/hostname='.*'/hostname='ImmortalWrt'/g" package/base-files/files/bin/config_generate
