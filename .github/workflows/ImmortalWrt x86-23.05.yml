@@ -3,22 +3,16 @@ name: ImmortalWrt x86-23.05
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-  #schedule:
-  #  - cron: 0 8 * * 5
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-23.05
   FEEDS_CONF: x86/diy/x86_lede/23.05.feeds.conf.default
   CONFIG_FILE: x86/23.05.config
-  DIY_P1_SH: x86/23.05.sh
-  DIY_P2_SH: diy-part2.sh
-  SSH_ACTIONS: false
+  DIY_P1_SH: diy-part1.sh
+  DIY_SCRIPT: x86/23.05.sh
+  CLASH_KERNEL: amd64
+  CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: X86_64-23.05
@@ -27,7 +21,7 @@ env:
 jobs:
   Build:
     runs-on: ubuntu-22.04
-    
+
     steps:
     - name: Checkout
       uses: actions/checkout@main
@@ -55,7 +49,7 @@ jobs:
         sudo rm -rf ~/{.cargo,.dotnet,.rustup}
         sudo timedatectl set-timezone "$TZ"
         df -Th
-
+    
     - name: Create simulated physical disk
       run: |
         mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
@@ -72,9 +66,9 @@ jobs:
         sudo mkdir -p /builder
         sudo mount /dev/github/runner /builder
         sudo chown -R runner.runner /builder
-        df -Th
+        df -Th   
     
-    - name: Clone source code
+    - name: Clone Source Code
       working-directory: /builder
       run: |
         df -hT $PWD
@@ -103,33 +97,36 @@ jobs:
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
         echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
 
+    - name: Cache Toolchain
+      if: env.CACHE_TOOLCHAIN == 'true'
+      uses: HiGarfield/cachewrtbuild@main
+      with:
+        ccache: false
+        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
+        prefix: ${{ env.OPENWRT_PATH }}
+
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
-
-    - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
-
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
-
-    - name: Load custom configuration
+        $GITHUB_WORKSPACE/$DIY_P1_SH    
+    
+    - name: Install Feeds
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
-        
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh54 == 'true' && github.event.inputs.ssh54  != 'false') || contains(github.event.action, 'ssh54')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        cd $OPENWRT_PATH
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
 
+    - name: Load Custom Configuration
+      run: |
+        [ -e files ] && mv files $OPENWRT_PATH/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
+        chmod +x $GITHUB_WORKSPACE/x86/*.sh
+        chmod +x $DIY_SCRIPT
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_SCRIPT
+    
     - name: Output compilation information
       run: |
         cd openwrt
@@ -195,9 +192,9 @@ jobs:
         cd $OPENWRT_PATH/bin/targets/*/*
         cat config.buildinfo
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
-        rm -rf packages feeds.buildinfo version.buildinfo immortalwrt-x86-64-generic-kernel.bin immortalwrt-x86-64-generic-squashfs-combined.img.gz immortalwrt-x86-64-generic-squashfs-rootfs.img.gz immortalwrt-x86-64-generic.manifest profiles.json sha256sums
+        rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz *combined.img.gz profiles.json sha256sums
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
-        echo "status=success" >> ${GITHUB_OUTPUT}    
+        echo "status=success" >> ${GITHUB_OUTPUT}
     
     - name: Upload Firmware To Artifact
       if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE != 'true'
