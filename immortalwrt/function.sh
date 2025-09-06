@@ -88,3 +88,34 @@ check_ver2() {
 	# echo "版本 $version1 等于版本 $version2"
 	echo 255
 }
+
+# Toolchain缓存文件名
+TOOLS_HASH=$(git log --pretty=tformat:"%h" -n1 tools toolchain)
+CACHE_NAME="$SOURCE_REPO-${REPO_BRANCH#*-}-$DEVICE_TARGET-cache-$TOOLS_HASH"
+echo "CACHE_NAME=$CACHE_NAME" >>$GITHUB_ENV
+
+# 下载并部署Toolchain
+if [[ $TOOLCHAIN = 'true' ]]; then
+    #cache_xa=$(curl -sL api.github.com/repos/$GITHUB_REPOSITORY/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
+    cache_xa="https://github.com/$GITHUB_REPOSITORY/releases/download/toolchain-cache/$CACHE_NAME.tzst"
+    cache_xc=$(curl -sL api.github.com/repos/0118Add/toolchain-cache/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
+    #if [[ $cache_xa || $cache_xc ]]; then
+    if curl -Isf $cache_xa >/dev/null 2>&1 || [ $cache_xc ]; then
+        begin_time=$(date '+%H:%M:%S')
+        curl -Isf $cache_xa >/dev/null 2>&1 && wget -qc -t=3 $cache_xa || wget -qc -t=3 $cache_xc
+        [ -e *.tzst ]; status "下载toolchain缓存文件"
+        [ -e *.tzst ] && {
+            begin_time=$(date '+%H:%M:%S')
+            tar -I unzstd -xf *.tzst || tar -xf *.tzst
+           # [ $cache_xa ] || (cp *.tzst $GITHUB_WORKSPACE/output && echo "OUTPUT_RELEASE=true" >>$GITHUB_ENV)
+            sed -i 's/ $(tool.*\/stamp-compile)//' Makefile
+            [ -d staging_dir ]; status "部署toolchain编译缓存"
+        }
+    else
+        echo -e "$(color ch 下载toolchain缓存文件)                         [ $(color cr ✕) ]"
+        echo "CANCEL_TOOLCHAIN=true" >>$GITHUB_ENV
+    fi
+else
+    echo -e "$(color ch 使用toolchain缓存文件)                         [ $(color cr ✕) ]"
+    echo "CANCEL_TOOLCHAIN=true" >>$GITHUB_ENV
+fi
