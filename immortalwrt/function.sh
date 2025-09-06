@@ -177,7 +177,7 @@ echo "CACHE_NAME=$CACHE_NAME" >>$GITHUB_ENV
 if [[ $TOOLCHAIN = 'true' ]]; then
     #cache_xa=$(curl -sL api.github.com/repos/$GITHUB_REPOSITORY/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
     cache_xa="https://github.com/$GITHUB_REPOSITORY/releases/download/toolchain-cache/$CACHE_NAME.tzst"
-    cache_xc=$(curl -sL api.github.com/repos/0118Add/toolchain-cache/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
+    cache_xc=$(curl -sL api.github.com/repos/Jejz168/toolchain-cache/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
     #if [[ $cache_xa || $cache_xc ]]; then
     if curl -Isf $cache_xa >/dev/null 2>&1 || [ $cache_xc ]; then
         begin_time=$(date '+%H:%M:%S')
