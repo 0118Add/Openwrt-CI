@@ -15,7 +15,6 @@ env:
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part2.sh
   CLASH_KERNEL: amd64
-  TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: x86_64-im-6.12
@@ -110,12 +109,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        $GITHUB_WORKSPACE/immortalwrt/preset-OpenWrt.sh
-    
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')    
-    
+         
     - name: Download DL Package
       run: |
         cd $OPENWRT_PATH
