@@ -110,6 +110,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        $GITHUB_WORKSPACE/immortalwrt/preset-OpenWrt.sh
     
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
