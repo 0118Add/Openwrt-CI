@@ -88,3 +88,50 @@ check_ver2() {
 	# echo "版本 $version1 等于版本 $version2"
 	echo 255
 }
+
+# 平台架构
+TARGET_NAME=$(awk -F '"' '/CONFIG_TARGET_BOARD/{print $2}' .config)
+SUBTARGET_NAME=$(awk -F '"' '/CONFIG_TARGET_SUBTARGET/{print $2}' .config)
+DEVICE_TARGET=$TARGET_NAME-$SUBTARGET_NAME
+echo "DEVICE_TARGET=$DEVICE_TARGET" >>$GITHUB_ENV
+
+# Toolchain缓存文件名
+TOOLS_HASH=$(git log --pretty=tformat:"%h" -n1 tools toolchain)
+CACHE_NAME="$SOURCE_REPO-${REPO_BRANCH#*-}-$DEVICE_TARGET-cache-$TOOLS_HASH"
+echo "CACHE_NAME=$CACHE_NAME" >>$GITHUB_ENV
+
+# 下载并部署Toolchain
+if [[ $TOOLCHAIN = 'true' ]]; then
+    #cache_xa=$(curl -sL api.github.com/repos/$GITHUB_REPOSITORY/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
+    cache_xa="https://github.com/$GITHUB_REPOSITORY/releases/download/toolchain-cache/$CACHE_NAME.tzst"
+    cache_xc=$(curl -sL api.github.com/repos/Jejz168/toolchain-cache/releases | awk -F '"' '/download_url/{print $4}' | grep $CACHE_NAME)
+    #if [[ $cache_xa || $cache_xc ]]; then
+    if curl -Isf $cache_xa >/dev/null 2>&1 || [ $cache_xc ]; then
+        begin_time=$(date '+%H:%M:%S')
+        curl -Isf $cache_xa >/dev/null 2>&1 && wget -qc -t=3 $cache_xa || wget -qc -t=3 $cache_xc
+        [ -e *.tzst ]; status "下载toolchain缓存文件"
+        [ -e *.tzst ] && {
+            begin_time=$(date '+%H:%M:%S')
+            tar -I unzstd -xf *.tzst || tar -xf *.tzst
+           # [ $cache_xa ] || (cp *.tzst $GITHUB_WORKSPACE/output && echo "OUTPUT_RELEASE=true" >>$GITHUB_ENV)
+            sed -i 's/ $(tool.*\/stamp-compile)//' Makefile
+            [ -d staging_dir ]; status "部署toolchain编译缓存"
+        }
+    else
+        echo -e "$(color ch 下载toolchain缓存文件)                         [ $(color cr ✕) ]"
+        echo "CANCEL_TOOLCHAIN=true" >>$GITHUB_ENV
+    fi
+else
+    echo -e "$(color ch 使用toolchain缓存文件)                         [ $(color cr ✕) ]"
+    echo "CANCEL_TOOLCHAIN=true" >>$GITHUB_ENV
+fi
+
+# 创建插件保存目录
+destination_dir="package/A"
+[ -d $destination_dir ] || mkdir -p $destination_dir
+
+if [ -z "$DEVICE_TARGET" ] || [ "$DEVICE_TARGET" == "-" ]; then
+  echo -e "$(color cy 当前编译机型) $(color cb $SOURCE_REPO-${REPO_BRANCH#*-})"
+else
+  echo -e "$(color cy 当前编译机型) $(color cb $SOURCE_REPO-${REPO_BRANCH#*-}-$DEVICE_TARGET)"
+fi
