@@ -19,8 +19,7 @@ env:
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: x86_64-im-6.12
   TZ: Asia/Shanghai
-  TOOLCHAIN: true
-
+   
 jobs:
   Build:
     runs-on: ubuntu-24.04
