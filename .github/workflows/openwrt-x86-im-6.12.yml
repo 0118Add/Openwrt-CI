@@ -110,18 +110,11 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P2_SH
          
-    - name: Download package
-      id: package
+    - name: Download DL Package
       run: |
-        cd openwrt
+        cd $OPENWRT_PATH
         make defconfig
-        if [[ "${CANCEL_TOOLCHAIN}" == "true" ]]; then
-           echo -e "\e[1;31m当前正常编译...\e[0m"
-           make download -j$(nproc)
-        else
-           echo -e "\e[1;31m当前使用toolchain缓存文件...\e[0m"
-           make package/download -j$(nproc)
-        fi
+        make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
