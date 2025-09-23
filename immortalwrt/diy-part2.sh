@@ -67,7 +67,8 @@ clone_dir v5 https://github.com/sbwml/openwrt_helloworld chinadns-ng naiveproxy 
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
-git_clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
+#git_clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
+clone_dir dev https://github.com/vernesong/OpenClash luci-app-openclash
 
 # homeproxy
 #rm -rf feeds/luci/applications/luci-app-homeproxy
