@@ -154,14 +154,14 @@ REPO_BRANCH="master"
 echo "REPO_BRANCH=$REPO_BRANCH" >>$GITHUB_ENV
 
 # 开始拉取编译源码
-begin_time=$(date '+%H:%M:%S')
-[[ $REPO_BRANCH != "master" ]] && BRANCH="-b $REPO_BRANCH --single-branch"
-cd /workdir
-git clone -q $BRANCH $REPO_URL openwrt
-status "拉取编译源码"
-ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-[ -d openwrt ] && cd openwrt || exit
-echo "OPENWRT_PATH=$PWD" >>$GITHUB_ENV
+#begin_time=$(date '+%H:%M:%S')
+#[[ $REPO_BRANCH != "master" ]] && BRANCH="-b $REPO_BRANCH --single-branch"
+#cd /workdir
+#git clone -q $BRANCH $REPO_URL openwrt
+#status "拉取编译源码"
+#ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+#[ -d openwrt ] && cd openwrt || exit
+#echo "OPENWRT_PATH=$PWD" >>$GITHUB_ENV
 
 # 开始生成全局变量
 begin_time=$(date '+%H:%M:%S')
