@@ -45,9 +45,9 @@ sed -i 's#top -n1#\/bin\/busybox top -n1#g' feeds/luci/modules/luci-base/root/us
 # 移除 openwrt feeds 自带的核心库
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,pdnsd-alt,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-plugin,xray-plugin}
 # 核心库
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
+git_clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
 rm -rf package/passwall-packages/{chinadns-ng,naiveproxy,v2ray-geodata,sing-box}
-merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-packages chinadns-ng naiveproxy v2ray-geodata
+clone_dir v5 https://github.com/sbwml/openwrt_helloworld chinadns-ng naiveproxy v2ray-geodata
 # app
 #rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-ssr-libev-server}
 #git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
@@ -67,7 +67,7 @@ merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-pa
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
-git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
+git_clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # homeproxy
 #rm -rf feeds/luci/applications/luci-app-homeproxy
@@ -76,13 +76,13 @@ sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/z
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
-git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+git_clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
 # nekobox
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 
 # partexp
-git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
+git_clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 
 # tailscale zerotier
 #git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
@@ -94,11 +94,11 @@ sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/sha
 
 # luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-filemanager
-git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
+git_clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 
 # curl
 rm -rf feeds/packages/net/curl
-git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
+git_clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
 
 # apk-tools APK管理器不再校验版本号的合法性
 mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
