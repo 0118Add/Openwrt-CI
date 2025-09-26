@@ -71,7 +71,7 @@ sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/sha
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
-git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
+git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/OpenClash
 
 # homeproxy
 #rm -rf feeds/luci/applications/luci-app-homeproxy
