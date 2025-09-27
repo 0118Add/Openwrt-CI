@@ -187,7 +187,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt
 # 报错修复
 if [ "$REPO_BRANCH" != "openwrt-23.05" ]; then
     echo "开始修复报错……"
-	cp -f $GITHUB_WORKSPACE/personal/rust/* feeds/packages/lang/rust/Makefile
+	cp -f $GITHUB_WORKSPACE/patch/rust/* feeds/packages/lang/rust/Makefile
     sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
     echo "修复完成……"
 fi
