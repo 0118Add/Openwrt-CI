@@ -180,9 +180,9 @@ sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''ImmortalWrt 
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/release-os > package/base-files/files/etc/os-release
 
 # rust
-pushd feeds/packages
-  curl -s https://patch-diff.githubusercontent.com/raw/openwrt/packages/pull/27487.patch | patch -p1
-popd
+#pushd feeds/packages
+#  curl -s https://patch-diff.githubusercontent.com/raw/openwrt/packages/pull/27487.patch | patch -p1
+#popd
 
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
