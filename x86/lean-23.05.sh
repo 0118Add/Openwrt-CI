@@ -85,6 +85,9 @@ wget -O ./package/base-files/files/etc/banner https://raw.githubusercontent.com/
 # 删除主题强制默认
 #find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
+# coremark跑分定时清除
+#sed -i '/\* \* \* \/etc\/coremark.sh/d' feeds/packages/utils/coremark/*
+
 # 修改连接数
 sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
