@@ -26,6 +26,10 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 # 修改x86内核到6.6版
 #sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefile
 
+# 内核替换 kernel xxx
+sed -i 's/LINUX_KERNEL_HASH-6.12.54 = 1b0dcd3390efeec44e528748609bafcf36eae895bb68c8f62ac5e5940943de62/LINUX_KERNEL_HASH-6.12.55 = 328f8f4608a653063a5fd82d29b17163faab2825fa419fa85b961740a342fb9f/g' ./include/kernel-6.12
+sed -i 's/LINUX_VERSION-6.12 = .54/LINUX_VERSION-6.12 = .55/g' ./include/kernel-6.12
+
 # 修改默认IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
