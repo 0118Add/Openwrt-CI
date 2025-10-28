@@ -17,7 +17,7 @@ chmod +x ${GITHUB_WORKSPACE}/immortalwrt/function.sh
 source ${GITHUB_WORKSPACE}/immortalwrt/function.sh
 
 # 更改主机名
-#sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
 # 更改固件版本信息
 #sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION=''|g" package/base-files/files/etc/openwrt_release
@@ -43,11 +43,12 @@ sed -i 's#top -n1#\/bin\/busybox top -n1#g' feeds/luci/modules/luci-base/root/us
 
 # ------------------PassWall 科学上网--------------------------
 # 移除 openwrt feeds 自带的核心库
+# 移除 openwrt feeds 自带的核心库
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,pdnsd-alt,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-plugin,xray-plugin}
 # 核心库
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
 rm -rf package/passwall-packages/{chinadns-ng,naiveproxy,v2ray-geodata,sing-box}
-merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-packages chinadns-ng naiveproxy v2ray-geodata
+merge_package v5 https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld chinadns-ng naiveproxy v2ray-geodata
 # app
 #rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-ssr-libev-server}
 #git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
@@ -76,10 +77,9 @@ sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/z
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
-#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
+git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
-# neko
+# nekobox
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 
 # partexp
@@ -90,8 +90,8 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # golang 1.25
-rm -rf feeds/packages/lang/golang
-git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
 # luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-filemanager
@@ -170,7 +170,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 # 自定义默认配置
 sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
 cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
-curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/build-openwrt/master/scripts/30_network.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/30_network.js
