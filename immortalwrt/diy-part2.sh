@@ -90,12 +90,12 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # unzip
-rm -rf feeds/packages/utils/unzip
-git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
+#rm -rf feeds/packages/utils/unzip
+#git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
 
 # golang 1.25
-rm -rf feeds/packages/lang/golang
-git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
 # luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-filemanager
