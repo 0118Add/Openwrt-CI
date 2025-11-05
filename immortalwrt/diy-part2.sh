@@ -44,11 +44,11 @@ sed -i 's#top -n1#\/bin\/busybox top -n1#g' feeds/luci/modules/luci-base/root/us
 # ------------------PassWall 科学上网--------------------------
 # 移除 openwrt feeds 自带的核心库
 # 移除 openwrt feeds 自带的核心库
-rm -rf feeds/packages/net/{xray-core,sing-box,v2ray-core,v2ray-geodata,pdnsd-alt,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-plugin,xray-plugin}
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,pdnsd-alt,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-plugin,xray-plugin}
 # 核心库
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
 rm -rf package/passwall-packages/{chinadns-ng,naiveproxy,v2ray-geodata,sing-box}
-merge_package v5 https://github.com/0118Add/openwrt_helloworld package/openwrt_helloworld chinadns-ng naiveproxy v2ray-geodata sing-box
+merge_package v5 https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld chinadns-ng naiveproxy v2ray-geodata
 # app
 #rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-ssr-libev-server}
 #git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
