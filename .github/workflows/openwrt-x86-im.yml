@@ -10,7 +10,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
-  FEEDS_CONF: x86/diy/x86_lede/master.feeds.conf.default
+  FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: immortalwrt/config.imm
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part3.sh
