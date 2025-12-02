@@ -122,9 +122,9 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        echo "::group::Run the 6.12 upgrade patch"
-        ../patch/up6_12_patch.sh
-        echo "::endgroup::"
+        # echo "::group::Run the 6.12 upgrade patch"
+        # ../patch/up6_12_patch.sh
+        # echo "::endgroup::"
         echo "::group::View 'make defconfig' output"
         make defconfig
         echo "::endgroup::"        
