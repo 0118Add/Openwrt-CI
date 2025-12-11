@@ -59,7 +59,7 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenCl
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
 # momo
-git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo
+git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
