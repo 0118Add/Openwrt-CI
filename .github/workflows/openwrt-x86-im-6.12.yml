@@ -13,7 +13,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: immortalwrt/config.x86
   DIY_P1_SH: immortalwrt/diy-part1.sh
-  DIY_P2_SH: immortalwrt/diy-part2.sh
+  DIY_P2_SH: immortalwrt/diy-part4.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
