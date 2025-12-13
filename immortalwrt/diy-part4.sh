@@ -1,298 +1,120 @@
 #!/bin/bash
+#
+# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+# https://github.com/P3TERX/Actions-OpenWrt
+# File name: diy-part2.sh
+# Description: OpenWrt DIY script part 2 (After Update feeds)
+#
 
-# 创建文件夹结构
-[ -d files/bin ] || mkdir -p files/bin
+echo "开始配置……"
+echo "========================="
 
-# 创建脚本文件
-cat << 'EOF' > files/bin/JejzWrt
-#!/bin/bash
+chmod +x ${GITHUB_WORKSPACE}/immortalwrt/function.sh
+source ${GITHUB_WORKSPACE}/immortalwrt/function.sh
 
-# 获取内核版本
-kernel_version=$(uname -r)
+# 更改主机名
+sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 
-# 获取平台架构
-platform=$(uname -m)
+# 更改固件版本信息
+#sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION=''|g" package/base-files/files/etc/openwrt_release
+#sed -i "s|DISTRIB_DESCRIPTION='.*'|DISTRIB_DESCRIPTION='OpenWrt %V'|g" package/base-files/files/etc/openwrt_release
 
-# 获取 CPU 型号
-cpu_model=$(awk -F ': ' '/model name/ {print $2}' /proc/cpuinfo | uniq)
+# 修改x86内核到6.6版
+#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefile
 
-# 获取系统的运行时间（包括秒），并去掉小数
-uptime_seconds=$(cat /proc/uptime | awk '{print int($1)}')
+# 修改默认IP
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
-# 计算天、小时、分钟和秒（去掉小数）
-days=$((uptime_seconds / 86400))
-hours=$(( (uptime_seconds % 86400) / 3600 ))
-minutes=$(( (uptime_seconds % 3600) / 60 ))
-seconds=$((uptime_seconds % 60))
+# 修改连接数
+sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+# 修正连接数
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
-# 获取内存使用情况
-mem_usage=$(free | awk '/Mem/ {printf "%d%% of %dM\n", $3/$2*100, int($2/1024)}')
+# SmartDNS
+#rm -rf feeds/luci/applications/luci-app-smartdns
+#git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+# 替换immortalwrt 软件仓库smartdns版本为官方最新版
+#rm -rf feeds/packages/net/smartdns
+# cp -rf ${GITHUB_WORKSPACE}/patch/smartdns package/
+#git clone https://github.com/lwb1978/openwrt-smartdns package/smartdns
+# 添加 smartdns-ui
+#echo "CONFIG_PACKAGE_luci-app-smartdns_INCLUDE_smartdns_ui=y" >> .config
+#echo "CONFIG_PACKAGE_smartdns-ui=y" >> .config
 
-# 获取 IP 地址
-ip_addresses=$(ip -4 addr show dev br-lan | awk '/inet / {gsub(/\/.*/, "", $2); print $2}')
+# openclash
+rm -rf feeds/luci/applications/luci-app-openclash
+git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
-# 获取 CPU 温度（需要安装 kmod-thermal 模块）
-cpu_temp=$(cat /sys/class/thermal/thermal_zone0/temp 2>/dev/null | awk '{printf "%.0f°C", $1/1000}')
+# homeproxy
+#rm -rf feeds/luci/applications/luci-app-homeproxy
+#git clone --depth=1 -b dev https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
-# 获取磁盘使用情况
-disk_usage=$(df -h / | awk '/\// {printf "%s of %s", $5, $2}')
+# mihomo
+git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
-# 判断系统是通过 BIOS 还是 UEFI 启动
-if [ -d /sys/firmware/efi ]; then
-    boot_mode="UEFI"
-else
-    boot_mode="BIOS"
+# nekobox
+#git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
+
+# partexp
+git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
+
+# tailscale zerotier
+#git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
+sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
+
+# unzip
+#rm -rf feeds/packages/utils/unzip
+#git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
+
+# golang 1.25
+#rm -rf feeds/packages/lang/golang
+#git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+
+# luci-app-filemanager
+rm -rf feeds/luci/applications/luci-app-filemanager
+git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
+
+# curl
+rm -rf feeds/packages/net/curl
+git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
+
+# 音乐解锁
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+
+# 调整Dockerman到服务菜单
+sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/*.htm
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
+
+# 自定义默认配置
+sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
+cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
+#curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
+#curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
+
+# comment out the following line to restore the full description
+sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/emortal/default-settings/files/99-default-settings
+sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''ImmortalWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''ImmortalWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI Master\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''\'\'', branch = '\''LuCI Master'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/emortal/default-settings/files/99-default-settings
+#sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''ImmortalWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''ImmortalWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI Master\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"v'$(date +%Y%m%d)'\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''v'$(date +%Y%m%d)'\'\'', branch = '\''LuCI Master'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/emortal/default-settings/files/99-default-settings
+curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/release-os > package/base-files/files/etc/os-release
+
+# 拷贝自定义文件
+if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
+	cp -Rf ${GITHUB_WORKSPACE}/immortalwrt/diy/* .
 fi
 
-# 彩色输出函数
-color_output() {
-    echo -e "$1"
-}
+./scripts/feeds update -a
+./scripts/feeds install -a
 
-# 打印脚本头部，增加美观
-print_header() {
-    clear
-    color_output "\e[31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\e[0m"
-    color_output "\e[36m\       _      _   __          __   _        / \e[0m"
-    color_output "\e[36m\      | |    (_)  \ \        / /  | |       / \e[0m"
-    color_output "\e[36m\      | | ___ _ ___\ \  /\  / / __| |_      / \e[0m"
-    color_output "\e[36m\  _   | |/ _ \ |_  /\ \/  \/ / '__| __|     / \e[0m"
-    color_output "\e[33m\ | |__| |  __/ |/ /  \  /\  /| |  | |_      / \e[0m"
-    color_output "\e[33m\  \____/ \___| /___|  \/  \/ |_|   \__|     / \e[0m"
-    color_output "\e[33m\            _/ |                            / \e[0m"
-    color_output "\e[33m\           |__/                             / \e[0m"
-    color_output "\e[35m\          J e j z W r t   By   J e j z      / \e[0m"
-    color_output "\e[31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\e[0m"
-    echo -e "\e[96mCPU Model:       $cpu_model \e[0m"
-    echo -e "Run Time:        $days 天 $hours 小时 $minutes 分钟 $seconds 秒 "
-    echo -e "Memory Usage:    $mem_usage "
-    echo -e "Kernel Ver:      $kernel_version $cpu_temp "
-    echo -e "Overlay /TMP:    $disk_usage "
-    echo -e "Target Info:     $platform - $boot_mode "
-    echo -e "\e[31mIpv4 Address\e[0m:    \e[41m$ip_addresses\e[0m"
-    echo " "
-}
-
-# 显示菜单
-show_menu() {
-    echo "=============================================="
-    echo -e "\e[41mJejzWrt\e[0m \e[35m快捷命令菜单（Shortcut Command Menu）\e[0m         "
-    echo "=============================================="
-    echo -e "\e[33m1. 更改 LAN 口 IP 地址（Change LAN port IP address）\e[0m"
-    echo -e "\e[33m2. 更改管理员密码（Change administrator password）\e[0m"
-    echo -e "\e[33m3. 重置网络和切换默认主题（Reset network and Switch default theme）\e[0m"
-    echo -e "\e[33m4. 重启系统（Reboot）\e[0m"
-    echo -e "\e[33m5. 关闭系统（Shutdown）\e[0m"
-    echo -e "\e[33m6. 释放内存（Release memory）\e[0m"
-    echo -e "\e[33m7. 恢复出厂设置（Restore factory settings）\e[0m"
-    echo "0/q. 退出本快捷菜单（Exit shortcut menu）"
-    echo "=============================================="
-    printf "请输入功能编号(Enter the function number): "
-    read choice
-    case "$choice" in
-        1) change_ip ;;
-        2) change_password ;;
-        3) change_theme ;;
-        4) reboot_system ;;
-        5) shutdown_system ;;
-        6) echo "正在清理内存缓存..."; sync && echo 3 > /proc/sys/vm/drop_caches; echo "内存缓存已清理"; show_menu ;;
-        7) reset_config ;;
-        0|q|Q) exit 0 ;;
-        *) echo "无效选项，请重新输入"; show_menu ;;
-    esac
-}
-
-# 更改 LAN 口 IP 地址
-# 判断IP地址是否合法
-is_valid_ip() {
-    local ip="$1"
-    # 使用正则表达式检查 IP 地址格式
-    if [[ "$ip" =~ ^([1-9]{1}[0-9]{0,2}|0){1}\.([1-9]{1}[0-9]{0,2}|0){1}\.([1-9]{1}[0-9]{0,2}|0){1}\.([1-9]{1}[0-9]{0,2}|0){1}$ ]]; then
-        # 检查每个段的数字是否在 0 到 255 之间
-        IFS='.' read -r -a octets <<< "$ip"
-        for octet in "${octets[@]}"; do
-            if [[ "$octet" -lt 1 || "$octet" -gt 255 ]]; then
-                return 1  # 不合法
-            fi
-        done
-        return 0  # 合法
-    else
-        return 1  # 格式不正确
-    fi
-}
-
-change_ip() {
-    # 提示用户是否确认更改 IP 地址
-    echo -n "是否确定要更改 LAN 口 IP 地址？(y/n): "
-    read confirm_ip
-
-    if [[ "$confirm_ip" == "y" || "$confirm_ip" == "Y" ]]; then
-        # 用户确认后提示输入新的 LAN 口 IP 地址
-        printf "请输入新的 LAN 口 IP 地址（如 192.168.1.2），按 Enter 返回菜单："
-        read new_ip
-
-        # 如果用户没有输入新 IP，取消操作
-        if [[ -z "$new_ip" ]]; then
-            echo "操作已取消，返回菜单。"
-            show_menu
-            return
-        fi
-
-        # 如果输入的 IP 地址格式无效
-        if ! is_valid_ip "$new_ip"; then
-            echo "无效的 IP 地址格式，操作取消。"
-            show_menu
-            return
-        fi
-
-        # 使用 UCI 更改 IP 地址
-        uci set network.lan.ipaddr="$new_ip"
-        uci commit network
-        /etc/init.d/network restart
-        echo "LAN 口 IP 已成功更改为 $new_ip"
-    else
-        # 如果用户取消操作
-        echo "IP 地址更改已取消。"
-    fi
-
-    # 返回菜单
-    printf "按 Enter 键返回菜单..."
-    read
-    show_menu
-}
-
-# 更改管理员密码
-change_password() {
-    # 提示用户是否确认更改管理员密码
-    echo -n "是否确定要更改管理员密码？(y/n): "
-    read confirm_password
-
-    if [[ "$confirm_password" == "y" || "$confirm_password" == "Y" ]]; then
-        # 用户确认后提示输入新密码
-        printf "请输入新的管理员密码，按 Enter 返回菜单："
-        read new_password
-
-        # 如果用户未输入密码，则取消操作
-        if [[ -z "$new_password" ]]; then
-            echo "操作已取消，返回菜单。"
-            show_menu
-            return
-        fi
-
-        # 使用 OpenWrt 的 `passwd` 工具更新密码
-        echo -e "$new_password\n$new_password" | passwd root
-        echo "管理员密码已成功更改。"
-    else
-        # 如果用户取消操作
-        echo "密码更改已取消。"
-    fi
-
-    # 返回菜单
-    printf "按 Enter 键返回菜单..."
-    read
-    show_menu
-}
-
-# 重置网络和切换默认主题
-change_theme() {
-    # 提示用户是否更改 luci 配置
-    echo -n "是否要更改主题配置为默认主题？(y/n): "
-    read confirm_theme
-
-    if [[ "$confirm_theme" == "y" || "$confirm_theme" == "Y" ]]; then
-        # 使用 UCI 更改 luci 配置
-        uci set luci.main.mediaurlbase='/luci-static/bootstrap'
-        uci commit luci
-        echo "主题已成功切换为默认主题。"
-    else
-        echo "主题更改已取消。"
-    fi
- 
-    # 提示是否重启网络
-    echo -n "是否要重启网络服务？(y/n): "
-    read reset_choice
-    if [[ "$reset_choice" == "y" || "$reset_choice" == "Y" ]]; then
-        echo "正在重启网络..."
-        /etc/init.d/network restart
-        echo "网络已重启。"
-    else
-        echo "网络设置未更改。"
-    fi
-
-    # 返回菜单
-    printf "按 Enter 键返回菜单..."
-    read
-    show_menu
-}
-
-# 一键重启
-reboot_system() {
-    printf "确定要重启系统吗？(y/n): "
-    read confirm_reboot
-
-    if [[ "$confirm_reboot" == "y" || "$confirm_reboot" == "Y" ]]; then
-        echo "正在重启系统..."
-        reboot
-    else
-        echo "系统重启操作已取消。"
-    fi
-
-    # 返回菜单
-    printf "按 Enter 键返回菜单..."
-    read
-    show_menu
-}
-
-# 一键关闭系统
-shutdown_system() {
-    printf "确定要关闭系统吗？(y/n): "
-    read confirm_shutdown
-
-    if [[ "$confirm_shutdown" == "y" || "$confirm_shutdown" == "Y" ]]; then
-        echo "正在关闭系统..."
-        poweroff
-    else
-        echo "系统关闭操作已取消。"
-    fi
-
-    # 返回菜单
-    printf "按 Enter 键返回菜单..."
-    read
-    show_menu
-}
-
-# 一键重置配置
-reset_config() {
-    # 提示用户是否确认恢复出厂设置
-    echo -n "是否确定要恢复出厂设置？此操作将清除所有配置！(y/n): "
-    read confirm_reset
-
-    if [[ "$confirm_reset" == "y" || "$confirm_reset" == "Y" ]]; then
-        # 执行恢复出厂设置
-        echo "恢复出厂设置中..."
-        firstboot -y
-        
-        # 提示用户设备重启
-        echo "设备将在 5 秒钟后重启..."
-        sleep 5
-        reboot
-    else
-        echo "恢复出厂设置已取消。"
-    fi
-
-    # 返回菜单
-    printf "按 Enter 键返回菜单..."
-    read
-    show_menu
-}
-
-# 启动菜单
-print_header
-show_menu
-EOF
-
-# 设置脚本权限
-chmod +x files/bin/JejzWrt
-
-# 重定向 menu -> JejzWrt
-ln -s /bin/JejzWrt files/bin/menu
+echo "========================="
+echo "配置完成……"
