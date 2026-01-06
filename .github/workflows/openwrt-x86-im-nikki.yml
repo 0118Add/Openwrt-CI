@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt X86 imm-nikki
+name: OpenWrt X86 im-nikki
 
 on:
   workflow_dispatch:
