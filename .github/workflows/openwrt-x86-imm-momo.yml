@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt X86 Im
+name: OpenWrt X86 Imm-momo
 
 on:
   workflow_dispatch:
