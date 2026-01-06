@@ -17,7 +17,7 @@ env:
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: x86_64-im-6.12
+  FIRMWARE_TAG: x86_64-imm-6.12-nikki
   TZ: Asia/Shanghai
    
 jobs:
