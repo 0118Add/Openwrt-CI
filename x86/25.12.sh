@@ -45,7 +45,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #echo "CONFIG_PACKAGE_luci-app-smartdns_INCLUDE_smartdns_ui=y" >> .config
 #echo "CONFIG_PACKAGE_smartdns-ui=y" >> .config
 
-# 核心库
+# passwall核心库
 rm -rf feeds/packages/net/{xray-core,sing-box}
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
 
