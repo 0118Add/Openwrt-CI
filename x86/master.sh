@@ -49,6 +49,10 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
+# passwall核心库
+rm -rf feeds/packages/net/{xray-core,sing-box}
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
+
 # homeproxy
 #rm -rf feeds/luci/applications/luci-app-homeproxy
 #git clone --depth=1 -b dev https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
