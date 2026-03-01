@@ -34,16 +34,9 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
-# SmartDNS
-#rm -rf feeds/luci/applications/luci-app-smartdns
-#git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
-# 替换immortalwrt 软件仓库smartdns版本为官方最新版
-#rm -rf feeds/packages/net/smartdns
-# cp -rf ${GITHUB_WORKSPACE}/patch/smartdns package/
-#git clone https://github.com/lwb1978/openwrt-smartdns package/smartdns
-# 添加 smartdns-ui
-#echo "CONFIG_PACKAGE_luci-app-smartdns_INCLUDE_smartdns_ui=y" >> .config
-#echo "CONFIG_PACKAGE_smartdns-ui=y" >> .config
+# 额外软件包
+rm -rf feeds/packages/net/{xray-core,sing-box}
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -59,19 +52,12 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
-# nekobox
-#git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
-
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 
 # tailscale zerotier
 #git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
 sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
-
-# unzip
-#rm -rf feeds/packages/utils/unzip
-#git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
 
 # golang 26.x
 rm -rf feeds/packages/lang/golang
