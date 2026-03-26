@@ -78,6 +78,10 @@ sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/sha
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
 
+# 预编译 node
+rm -rf feeds/packages/lang/node/node
+git clone --depth=1 -b packages-24.10 https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node/node
+
 # luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-filemanager
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
