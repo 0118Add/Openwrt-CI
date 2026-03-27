@@ -34,16 +34,11 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
-# SmartDNS
-#rm -rf feeds/luci/applications/luci-app-smartdns
-#git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
-# 替换immortalwrt 软件仓库smartdns版本为官方最新版
-#rm -rf feeds/packages/net/smartdns
-# cp -rf ${GITHUB_WORKSPACE}/patch/smartdns package/
-#git clone https://github.com/lwb1978/openwrt-smartdns package/smartdns
-# 添加 smartdns-ui
-#echo "CONFIG_PACKAGE_luci-app-smartdns_INCLUDE_smartdns_ui=y" >> .config
-#echo "CONFIG_PACKAGE_smartdns-ui=y" >> .config
+# autocore default-settings
+rm -rf package/emortal/autocore
+rm -rf package/emortal/default-settings
+merge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI autocore-arm
+git clone https://github.com/sbwml/default-settings package/default-settings
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -104,8 +99,8 @@ git clone https://github.com/sbwml/packages_utils_runc feeds/packages/utils/runc
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
 
 # 自定义默认配置
-sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
-cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
+#sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
+#cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/1_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
