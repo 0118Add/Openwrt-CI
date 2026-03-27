@@ -35,10 +35,10 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # autocore default-settings
-rm -rf package/emortal/autocore
-rm -rf package/emortal/default-settings
-merge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI autocore-arm
-git clone https://github.com/sbwml/default-settings package/default-settings
+#rm -rf package/emortal/autocore
+#rm -rf package/emortal/default-settings
+#merge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI autocore-arm
+#git clone https://github.com/sbwml/default-settings package/default-settings
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -102,7 +102,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
 #cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
-#curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/1_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/1_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/build-openwrt/master/scripts/30_network.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/30_network.js
