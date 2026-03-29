@@ -53,7 +53,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改x86内核到6.12版
-#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.12.32 = a9b020721778384507010177d3929e7d4058f7f6120f05a99d56b5c5c0346a70/LINUX_KERNEL_HASH-6.12.33 = c0a575630f2603a20bb0641f8df8f955e46c9d7ac1fae8b54b21316e6b52a254/g' ./include/kernel-6.12
@@ -126,9 +126,8 @@ ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/f
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
-git clone -b main --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-rm -rf package/openwrt-passwall/sing-box
+git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
@@ -148,10 +147,7 @@ git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscal
 #rm -rf feeds/luci/themes/luci-theme-design
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
-
-#git clone -b main --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
-#rm -rf package/nekobox/sing-box
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
+#merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
