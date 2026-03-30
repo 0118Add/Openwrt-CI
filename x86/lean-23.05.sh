@@ -98,6 +98,10 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
+# mac80211 - 6.18
+rm -rf package/kernel/mac80211
+git clone https://github.com/sbwml/package_kernel_mac80211 package/kernel/mac80211 -b v6.18
+
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
 #rm -rf feeds/packages/net/{dae,daed}
