@@ -60,9 +60,6 @@ KERNEL_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_PATCHVER | sed 's/^.
 KERNEL_TESTING_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_TESTING_PATCHVER | sed 's/^.\{25\}//g')
 if [[ $KERNEL_TESTING_PATCHVER > $KERNEL_PATCHVER ]]; then
   sed -i "s/$KERNEL_PATCHVER/$KERNEL_TESTING_PATCHVER/g" target/linux/x86/Makefile
-  echo "内核版本已更新为 $KERNEL_TESTING_PATCHVER"
-else
-  echo "内核版本不需要更新"
 fi
 
 # 内核替换 kernel xxx
