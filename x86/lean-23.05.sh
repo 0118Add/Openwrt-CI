@@ -135,9 +135,9 @@ ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/f
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
-#merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
 git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+merge_package https://github.com/0118Add/passwall-packages passwall-packages/sing-box
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
