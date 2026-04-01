@@ -53,7 +53,17 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改x86内核版本
-sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
+#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
+
+# 读取内核版本
+KERNEL_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_PATCHVER | sed 's/^.\{17\}//g')
+KERNEL_TESTING_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_TESTING_PATCHVER | sed 's/^.\{25\}//g')
+if [[ $KERNEL_TESTING_PATCHVER > $KERNEL_PATCHVER ]]; then
+  sed -i "s/$KERNEL_PATCHVER/$KERNEL_TESTING_PATCHVER/g" target/linux/x86/Makefile
+  echo "内核版本已更新为 $KERNEL_TESTING_PATCHVER"
+else
+  echo "内核版本不需要更新"
+fi
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.12.32 = a9b020721778384507010177d3929e7d4058f7f6120f05a99d56b5c5c0346a70/LINUX_KERNEL_HASH-6.12.33 = c0a575630f2603a20bb0641f8df8f955e46c9d7ac1fae8b54b21316e6b52a254/g' ./include/kernel-6.12
@@ -97,10 +107,6 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # golang 1.25
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
-
-# mac80211 - 6.18
-rm -rf package/kernel/mac80211
-git clone https://github.com/sbwml/package_kernel_mac80211 package/kernel/mac80211 -b v6.18
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
