@@ -142,7 +142,7 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-git clone https://github.com/sirpdboy/luci-app-lucky package/luci-app-lucky
+git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
