@@ -55,7 +55,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 # 修改x86内核版本
 #sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
 
-# 读取内核版本
+# 修改内核版本
 KERNEL_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_PATCHVER | sed 's/^.\{17\}//g')
 KERNEL_TESTING_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_TESTING_PATCHVER | sed 's/^.\{25\}//g')
 if [[ $KERNEL_TESTING_PATCHVER > $KERNEL_PATCHVER ]]; then
