@@ -132,15 +132,16 @@ ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/f
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
-git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
-#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
-merge_package https://github.com/0118Add/passwall-packages passwall-packages/sing-box
+merge_package https://github.com/kiddin9/kwrt-packages kwrt-packages/luci-app-passwall
+#git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+#merge_package https://github.com/0118Add/passwall-packages passwall-packages/sing-box
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-#git clone https://github.com/sirpdboy/luci-app-lucky package/luci-app-lucky
+git clone https://github.com/sirpdboy/luci-app-lucky package/luci-app-lucky
 git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
