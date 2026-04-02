@@ -110,6 +110,7 @@ git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/
 #rm -rf feeds/packages/net/{dae,daed}
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-lucky
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-homeproxy
 rm -rf feeds/luci/applications/luci-app-passwall
