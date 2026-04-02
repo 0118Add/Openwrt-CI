@@ -107,7 +107,7 @@ git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-#rm -rf feeds/packages/net/{dae,daed}
+rm -rf feeds/packages/net/{dae,daed,v2ray-geodata,sing-box,xray-core}
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-lucky
@@ -116,7 +116,6 @@ rm -rf feeds/luci/applications/luci-app-homeproxy
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-nikki
 rm -rf feeds/packages/net/nikki
-rm -rf feeds/packages/net/sing-box
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-tailscale
 rm -rf feeds/luci/applications/luci-app-zerotier
