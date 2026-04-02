@@ -41,6 +41,16 @@ rm -rf package/custom; mkdir package/custom
 # 修改默认IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 
+# 修改x86内核版本
+#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
+
+# 修改内核版本
+KERNEL_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_PATCHVER | sed 's/^.\{17\}//g')
+KERNEL_TESTING_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_TESTING_PATCHVER | sed 's/^.\{25\}//g')
+if [[ $KERNEL_TESTING_PATCHVER > $KERNEL_PATCHVER ]]; then
+  sed -i "s/$KERNEL_PATCHVER/$KERNEL_TESTING_PATCHVER/g" target/linux/x86/Makefile
+fi
+
 # 修改autocore
 #sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 
@@ -51,9 +61,6 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
-
-# 修改x86内核到6.12版
-#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.12.32 = a9b020721778384507010177d3929e7d4058f7f6120f05a99d56b5c5c0346a70/LINUX_KERNEL_HASH-6.12.33 = c0a575630f2603a20bb0641f8df8f955e46c9d7ac1fae8b54b21316e6b52a254/g' ./include/kernel-6.12
@@ -94,9 +101,9 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
-# golang 1.25
+# golang 1.26
 rm -rf feeds/packages/lang/golang
-git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
@@ -126,9 +133,9 @@ ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/f
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
-git clone -b main --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-rm -rf package/openwrt-passwall/sing-box
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+merge_package https://github.com/0118Add/passwall-packages passwall-packages/sing-box
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
@@ -140,7 +147,6 @@ git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytie
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone -b master --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
-git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
@@ -150,10 +156,12 @@ git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscal
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
 #git clone -b main --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
-#rm -rf package/nekobox/sing-box
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
-#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+
+git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
