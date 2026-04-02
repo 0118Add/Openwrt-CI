@@ -146,7 +146,6 @@ git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytie
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone -b master --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
-git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
@@ -156,8 +155,12 @@ git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscal
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 #merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
+git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-#git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
+git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #NAME=$"package/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
