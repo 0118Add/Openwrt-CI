@@ -55,8 +55,15 @@ sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/z
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo momo
-git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
+#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+#git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
+
+# dae
+rm -rf feeds/luci/applications/luci-app-dae
+git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
+git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.04.30/g' package/dae/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4f85d8f78958bea01a90da6feb315bcf766c4804/g' package/dae/Makefile
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
@@ -105,7 +112,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 # 自定义默认配置
 #sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
 #cat ${GITHUB_WORKSPACE}/immortalwrt/default-settings >> package/emortal/default-settings/files/99-default-settings
-#curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
