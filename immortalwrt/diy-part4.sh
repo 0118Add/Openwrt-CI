@@ -24,7 +24,7 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 #sed -i "s|DISTRIB_DESCRIPTION='.*'|DISTRIB_DESCRIPTION='OpenWrt %V'|g" package/base-files/files/etc/openwrt_release
 
 # 修改x86内核版本
-sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
+#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
 
 # 修改默认IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
@@ -59,11 +59,11 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 # dae
-rm -rf feeds/luci/applications/luci-app-dae
-git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
-git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.04.30/g' package/dae/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4f85d8f78958bea01a90da6feb315bcf766c4804/g' package/dae/Makefile
+#rm -rf feeds/luci/applications/luci-app-dae
+#git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
+#git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.04.30/g' package/dae/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4f85d8f78958bea01a90da6feb315bcf766c4804/g' package/dae/Makefile
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
