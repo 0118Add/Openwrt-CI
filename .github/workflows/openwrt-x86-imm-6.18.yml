@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt X86 Im-ni&mo
+name: OpenWrt X86 Imm-6.18
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ env:
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: x86_imm-ni&mo
+  FIRMWARE_TAG: x86_imm-6.18
   TZ: Asia/Shanghai
 
 jobs:
