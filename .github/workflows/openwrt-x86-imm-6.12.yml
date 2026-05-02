@@ -22,7 +22,7 @@ env:
    
 jobs:
   Build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -47,7 +47,8 @@ jobs:
         sudo -E apt-get -qq clean
         sudo -E git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
         sudo -E git config --global core.abbrev auto
-        df -h
+        sudo timedatectl set-timezone "$TZ"
+        df -Th
 
     - name: Combine Disks
       uses: easimon/maximize-build-space@master
