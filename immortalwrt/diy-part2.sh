@@ -75,7 +75,7 @@ rm -rf feeds/luci/applications/luci-app-dae
 git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
 git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.05.01/g' package/dae/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=8f57a6a19e1670cc024948b8100c261fa2a55fd4/g' package/dae/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=1ab444998f84d7c1515963bea26716cd58bd7a10/g' package/dae/Makefile
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
