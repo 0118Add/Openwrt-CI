@@ -31,12 +31,14 @@ function merge_feed(){
 rm -rf package/custom; mkdir package/custom
 
 # 修改主机名字（不能纯数字或者使用中文）
-#sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 #sed -i "s/OpenWrt /OPWRT/g" package/lean/default-settings/files/zzz-default-settings
 
 # 加入作者信息
 #sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-X86-$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings   
-#sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' BGG'/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt'/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OPENWRT_RELEASE='*.*'/OPENWRT_RELEASE='OpenWrt R26.04.04'/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='R26.04.04'/g" package/lean/default-settings/files/zzz-default-settings
 
 # 修改默认IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
