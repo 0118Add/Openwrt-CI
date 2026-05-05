@@ -126,9 +126,13 @@ ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/f
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
-#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
-git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
-merge_package https://github.com/0118Add/passwall-packages passwall-packages/sing-box
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
+#git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
+merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+merge_package https://github.com/fw876/helloworld helloworld/mosdns
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
@@ -154,8 +158,8 @@ git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci
 sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
-git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
+#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+#git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #NAME=$"package/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
@@ -176,7 +180,7 @@ git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 #sed -i 's/NekoClash/Clash/g' package/nekoclash/luci-app-nekoclash/luasrc/controller/neko.lua
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/msgstr "KMS 服务器"/msgstr "KMS激活"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
