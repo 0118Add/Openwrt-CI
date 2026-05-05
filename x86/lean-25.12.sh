@@ -130,7 +130,10 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
 #git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
-#merge_package https://github.com/0118Add/passwall-packages passwall-packages/sing-box
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
+merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+merge_package https://github.com/fw876/helloworld helloworld/mosdns
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
