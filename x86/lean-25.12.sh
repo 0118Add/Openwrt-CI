@@ -138,7 +138,7 @@ merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
 merge_package https://github.com/fw876/helloworld helloworld/mosdns
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
-#git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/passwall2
 git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
