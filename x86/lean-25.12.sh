@@ -82,8 +82,7 @@ wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubuserconte
 wget -O ./package/base-files/files/etc/banner https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/banner
 
 # 修改默认主题
-sed -i 's/luci-theme-argon/luci-theme-bootstrap/g' feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-design/luci-theme-bootstrap/g' feeds/luci/collections/luci/Makefile
+#sed -i 's/luci-theme-argon/luci-theme-bootstrap/g' feeds/luci/collections/luci/Makefile
 
 # 删除主题强制默认
 #find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
