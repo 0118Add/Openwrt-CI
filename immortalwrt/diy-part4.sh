@@ -124,10 +124,13 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/25
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/release-os > package/base-files/files/etc/os-release
 rm -rf feeds/packages/net/onionshare-cli
 
+# 移除luci-app-attendedsysupgrade
+sed -i "/attendedsysupgrade/d" $(find ./feeds/luci/collections/ -type f -name "Makefile")
+
 # 移除 luci-app-attendedsysupgrade
-sed -i '18d' feeds/luci/collections/luci-nginx/Makefile
-sed -i '17d' feeds/luci/collections/luci/Makefile
-sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
+#sed -i '18d' feeds/luci/collections/luci-nginx/Makefile
+#sed -i '17d' feeds/luci/collections/luci/Makefile
+#sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
 
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
