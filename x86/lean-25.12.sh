@@ -131,14 +131,15 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
-merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
-#git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+#merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
+git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-ssr-plus
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
 merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
 merge_package https://github.com/fw876/helloworld helloworld/mosdns
+merge_package https://github.com/fw876/helloworld helloworld/mihomo
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/passwall2
