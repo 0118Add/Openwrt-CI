@@ -106,10 +106,11 @@ git clone --depth=1 -b packages-24.10 https://github.com/sbwml/feeds_packages_la
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf feeds/packages/net/{chinadns-ng,dns2tcp,dns2socks,lucky,geoview,tcping,v2ray-geodata,sing-box,xray-core}
+rm -rf feeds/packages/net/{chinadns-ng,dns2tcp,dns2socks,msd_lite,lucky,geoview,tcping,v2ray-geodata,sing-box,xray-core}
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-lucky
+rm -rf feeds/luci/applications/luci-app-msd_lite
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-homeproxy
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -122,8 +123,11 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci immortalwrt-luci
 cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
-#cp -rf immortalwrt-luci/applications/luci-app-unblockneteasemusic feeds/luci/applications/luci-app-unblockneteasemusic
-#ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/feeds/luci/luci-app-unblockneteasemusic
+cp -rf immortalwrt-luci/applications/luci-app-msd_lite feeds/luci/applications/luci-app-msd_lite
+ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/luci-app-msd_lite
+git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/packages immortalwrt-packages
+cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
+ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
 
 # 添加额外软件包
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
