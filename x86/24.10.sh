@@ -55,17 +55,11 @@ git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/Ope
 
 # homeproxy
 #rm -rf feeds/luci/applications/luci-app-homeproxy
-#git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
-#sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
-#sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
-#sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
-#sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+#git clone --depth 1 -b dev https://github.com/immortalwrt/homeproxy
 
 # mihomo
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
-#sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
-#sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
+#git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
 
 # neko
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
@@ -77,11 +71,11 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 
 # 调整Dockerman到服务菜单
-rm -rf feeds/luci/applications/luci-app-dockerman
-git clone https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
-git clone --depth=1 -b openwrt-25.12 https://github.com/coolsnowwolf/luci.git coolsnowwolf-luci
-cp -rf coolsnowwolf-luci/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
-ln -sf ../../../feeds/luci/collections/luci-lib-docker ./package/feeds/luci/luci-lib-docker
+#rm -rf feeds/luci/applications/luci-app-dockerman
+#git clone https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+#git clone --depth=1 -b openwrt-25.12 https://github.com/coolsnowwolf/luci.git coolsnowwolf-luci
+#cp -rf coolsnowwolf-luci/collections/luci-lib-docker feeds/luci/collections/luci-lib-docker
+#ln -sf ../../../feeds/luci/collections/luci-lib-docker ./package/feeds/luci/luci-lib-docker
 rm -rf feeds/packages/utils/{docker,dockerd,containerd,runc}
 git clone https://github.com/sbwml/packages_utils_docker feeds/packages/utils/docker
 git clone https://github.com/sbwml/packages_utils_dockerd feeds/packages/utils/dockerd
