@@ -21,7 +21,7 @@ env:
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: X86_64-25.12
+  FIRMWARE_TAG: X86_64-imm-25.12
   TZ: Asia/Shanghai
 
 jobs:
