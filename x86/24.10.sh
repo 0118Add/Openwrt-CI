@@ -116,6 +116,8 @@ sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
 # rust版本以免编译失败
 sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
+rm -rf feeds/packages/admin/zabbix
+
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
 	cp -Rf ${GITHUB_WORKSPACE}/immortalwrt/diy/* .
