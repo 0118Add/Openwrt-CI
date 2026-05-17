@@ -62,7 +62,7 @@ sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefi
 #sed -i 's/LINUX_VERSION-6.12 = .32/LINUX_VERSION-6.12 = .33/g' ./include/kernel-6.12
 
 # 替换文件
-wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
+#wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 去除主页一串的LUCI版本号显示
@@ -153,7 +153,7 @@ git clone https://github.com/gdy666/luci-app-lucky package/lucky
 git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
-git clone -b master --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
+git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
