@@ -128,6 +128,8 @@ ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/l
 git clone --depth=1 -b openwrt-25.12 https://github.com/immortalwrt/packages immortalwrt-packages
 cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
+cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
+ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
 
 # 添加额外软件包
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
@@ -136,14 +138,14 @@ ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
-git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+#git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-ssr-plus
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
-merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
-merge_package https://github.com/fw876/helloworld helloworld/mosdns
-merge_package https://github.com/fw876/helloworld helloworld/mihomo
+#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+#merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
+#merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+#merge_package https://github.com/fw876/helloworld helloworld/mosdns
+#merge_package https://github.com/fw876/helloworld helloworld/mihomo
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/passwall2
