@@ -81,8 +81,7 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # autocore
-git clone --depth=1 -b openwrt-24.10 https://github.com/8688Add/autocore-arm package/autocore
-#git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+git clone --depth=1 -b openwrt-24.10 https://github.com/sbwml/autocore-arm package/autocore
 
 # Default settings
 rm -rf package/default-settings
