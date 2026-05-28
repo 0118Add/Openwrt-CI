@@ -131,8 +131,6 @@ cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
 cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
 ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
-cp -rf immortalwrt-packages/net/xray-core feeds/packages/net/xray-core
-ln -sf ../../../feeds/packages/net/xray-core ./package/feeds/packages/xray-core
 
 # 添加额外软件包
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
@@ -143,6 +141,8 @@ ln -sf ../../../feeds/packages/net/xray-core ./package/feeds/packages/xray-core
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
 #git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
+merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/xray-core
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-ssr-plus
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 #merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
