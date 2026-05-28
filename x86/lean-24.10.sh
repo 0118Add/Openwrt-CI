@@ -140,6 +140,8 @@ ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
 #git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
+merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/xray-core
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-ssr-plus
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
 #merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
