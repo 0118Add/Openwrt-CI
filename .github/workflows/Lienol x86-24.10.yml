@@ -14,7 +14,7 @@ env:
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: lienol-24.10
+  FIRMWARE_TAG: Lienol-24.10
   TZ: Asia/Shanghai
 
 jobs:
