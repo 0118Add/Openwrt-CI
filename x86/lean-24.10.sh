@@ -55,7 +55,7 @@ sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION='R26.04.04'/g" package/lean/de
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改x86内核版本
-#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.12.32 = a9b020721778384507010177d3929e7d4058f7f6120f05a99d56b5c5c0346a70/LINUX_KERNEL_HASH-6.12.33 = c0a575630f2603a20bb0641f8df8f955e46c9d7ac1fae8b54b21316e6b52a254/g' ./include/kernel-6.12
@@ -128,6 +128,8 @@ ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/l
 git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/packages immortalwrt-packages
 cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
+cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
+ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
 
 # 添加额外软件包
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
@@ -136,28 +138,28 @@ ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
-git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+#git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-ssr-plus
-merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
-merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
-merge_package https://github.com/fw876/helloworld helloworld/mosdns
-merge_package https://github.com/fw876/helloworld helloworld/mihomo
+#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+#merge_package https://github.com/fw876/helloworld helloworld/dns2tcp
+#merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+#merge_package https://github.com/fw876/helloworld helloworld/mosdns
+#merge_package https://github.com/fw876/helloworld helloworld/mihomo
 #git clone --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #cp -rf ${GITHUB_WORKSPACE}/patch/smartdns feeds/packages/net
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/passwall2
-git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
+#git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
-git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
+#git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
+#git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone -b master --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
-git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
+#git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
+#git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-design
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
@@ -193,7 +195,7 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/l
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 #sed -i 's/NekoClash/Clash/g' package/nekoclash/luci-app-nekoclash/luasrc/controller/neko.lua
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+#sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/msgstr "KMS 服务器"/msgstr "KMS激活"/g' feeds/luci/applications/luci-app-vlmcsd/po/zh-cn/vlmcsd.po
 #sed -i 's/msgstr "UPnP"/msgstr "UPnP设置"/g' feeds/luci/applications/luci-app-upnp/po/zh-cn/upnp.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
