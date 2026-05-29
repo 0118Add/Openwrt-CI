@@ -70,8 +70,8 @@ wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubuserconte
 #sed -i 's/luciversion)%>)/luciversion)%>)-->/g' package/lean/autocore/files/*/index.htm
 
 # 修改 luci version.lua
-#sed -i '/luciversion/d' feeds/luci/modules/luci-base/luasrc/version.lua
-#echo "luciversion = '${BUILD_STRING}'" >> feeds/luci/modules/luci-base/luasrc/version.lua
+sed -i '/luciversion/d' feeds/luci/modules/luci-lua-runtime/luasrc/version.lua
+echo "luciversion = ''" >> feeds/luci/modules/luci-lua-runtime/luasrc/version.lua
 
 # 修改概览里时间显示为中文数字
 #sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
