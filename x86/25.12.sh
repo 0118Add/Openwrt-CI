@@ -41,8 +41,9 @@ merge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI auto
 git clone https://github.com/sbwml/default-settings package/default-settings
 
 # passwall核心库
-rm -rf feeds/packages/net/{xray-core,sing-box}
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+rm -rf feeds/packages/net/{v2ray-geodata,xray-core}
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+merge_package main https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall-packages v2ray-geodata xray-core
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
