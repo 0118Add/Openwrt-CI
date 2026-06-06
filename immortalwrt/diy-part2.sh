@@ -74,8 +74,8 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 rm -rf feeds/luci/applications/luci-app-dae
 git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
 git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.05.08/g' package/dae/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=2b3c63f9720654b6c1dc89c91644651ccb6be486/g' package/dae/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.06.05/g' package/dae/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=ba50380e15649b0c83ec04c07f355dece19b0cea/g' package/dae/Makefile
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
@@ -90,7 +90,7 @@ git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/
 
 # 预编译 node
 rm -rf feeds/packages/lang/node/node
-git clone --depth=1 -b packages-24.10 https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node/node
+git clone --depth=1 -b packages-25.12 https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node/node
 
 # luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-filemanager
