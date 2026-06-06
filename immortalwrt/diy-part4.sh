@@ -66,6 +66,7 @@ rm -rf feeds/packages/net/{dae,daed}
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.04.30/g' package/dae/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4f85d8f78958bea01a90da6feb315bcf766c4804/g' package/dae/Makefile
 git clone https://github.com/QiuSimons/luci-app-daed package/daed
+git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
