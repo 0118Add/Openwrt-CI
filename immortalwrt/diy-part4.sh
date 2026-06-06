@@ -59,7 +59,8 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 # dae
-#rm -rf feeds/luci/applications/luci-app-dae
+rm -rf feeds/luci/applications/{luci-app-dae,luci-app-daed}
+rm -rf feeds/packages/net/{dae,daed}
 #git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
 #git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.04.30/g' package/dae/Makefile
