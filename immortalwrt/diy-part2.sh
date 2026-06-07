@@ -71,11 +71,12 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
 
 # dae
-#rm -rf feeds/luci/applications/luci-app-dae
-#git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
-#git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.06.05/g' package/dae/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=ba50380e15649b0c83ec04c07f355dece19b0cea/g' package/dae/Makefile
+rm -rf feeds/luci/applications/luci-app-dae
+rm -rf feeds/packages/net/dae
+git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
+git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.06.05/g' package/dae/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=ba50380e15649b0c83ec04c07f355dece19b0cea/g' package/dae/Makefile
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
