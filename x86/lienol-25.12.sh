@@ -202,11 +202,12 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 
 # Realtek Ethernet driver - R8168 & R8125 & R8126 & R8152 & R8101 & r8127
 rm -rf package/kernel/{r8168,r8101,r8125,r8126,r8127}
-git clone https://github.com/sbwml/package_kernel_r8168 package/kernel/r8168
-git clone https://github.com/sbwml/package_kernel_r8101 package/kernel/r8101
-git clone https://github.com/sbwml/package_kernel_r8125 package/kernel/r8125
-git clone https://github.com/sbwml/package_kernel_r8126 package/kernel/r8126
-git clone https://github.com/sbwml/package_kernel_r8127 package/kernel/r8127
+git_sparse_clone master https://github.com/8688Add/openwrt_pkgs package_kernel_r8101 package_kernel_r8125 package_kernel_r8126 package_kernel_r8127 package_kernel_r8168
+#git clone https://github.com/sbwml/package_kernel_r8168 package/kernel/r8168
+#git clone https://github.com/sbwml/package_kernel_r8101 package/kernel/r8101
+#git clone https://github.com/sbwml/package_kernel_r8125 package/kernel/r8125
+#git clone https://github.com/sbwml/package_kernel_r8126 package/kernel/r8126
+#git clone https://github.com/sbwml/package_kernel_r8127 package/kernel/r8127
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
