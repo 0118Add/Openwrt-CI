@@ -238,8 +238,8 @@ curl -s $mirror/openwrt/patch/firewall4/nftables/0001-nftables-add-fullcone-expr
 curl -s $mirror/openwrt/patch/firewall4/nftables/0002-nftables-add-brcm-fullconenat-support.patch > package/network/utils/nftables/patches/0002-nftables-add-brcm-fullconenat-support.patch
 
 # FullCone module
-#rm -rf package/network/utils/fullconenat-nft
-#git clone https://$gitea/sbwml/nft-fullcone package/network/utils/fullconenat-nft
+rm -rf package/network/utils/fullconenat-nft
+git clone https://github.com/xianren78/nft-fullcone package/network/utils/fullconenat-nft
 
 # IPv6 NAT
 git clone https://github.com/sbwml/packages_new_nat6 package/utils/nat6 -b openwrt-25.12
