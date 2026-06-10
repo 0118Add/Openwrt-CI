@@ -122,6 +122,9 @@ sed -i '18d' feeds/luci/collections/luci-nginx/Makefile
 sed -i '17d' feeds/luci/collections/luci/Makefile
 sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
 
+# Shortcut Forwarding Engine
+git clone https://github.com/xianren78/shortcut-fe package/emortal/shortcut-fe
+
 # Patch FireWall 4
 rm -rf package/network/config/firewall4/patches
 # firewall4
