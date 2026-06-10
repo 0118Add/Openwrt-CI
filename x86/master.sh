@@ -79,12 +79,12 @@ rm -rf feeds/packages/lang/node/node
 git clone --depth=1 -b packages-25.12 https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node/node
 
 # luci-app-filemanager
-#rm -rf feeds/luci/applications/luci-app-filemanager
-#git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
+rm -rf feeds/luci/applications/luci-app-filemanager
+git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 
 # curl
-#rm -rf feeds/packages/net/curl
-#git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
+rm -rf feeds/packages/net/curl
+git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
 
 # 音乐解锁
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
