@@ -121,7 +121,7 @@ sed -i "/attendedsysupgrade/d" $(find ./feeds/luci/collections/ -type f -name "M
 #sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
 
 rm -rf feeds/luci/applications/luci-app-mjpg-streamer
-#rm -rf feeds/packages/net/onionshare-cli
+rm -rf feeds/packages/net/onionshare-cli
 
 # Shortcut Forwarding Engine
 git clone https://github.com/xianren78/shortcut-fe package/emortal/shortcut-fe
