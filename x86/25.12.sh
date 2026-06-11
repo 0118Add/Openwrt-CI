@@ -126,6 +126,8 @@ rm -rf feeds/packages/net/onionshare-cli
 # Shortcut Forwarding Engine
 git clone https://github.com/gitbruc/shortcut-fe package/shortcut-fe
 
+# Patch FireWall 4
+rm -rf package/network/config/firewall4/patches
 # firewall4
 mkdir -p package/network/config/firewall4/patches
 # fullcone
