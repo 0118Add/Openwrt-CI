@@ -107,6 +107,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/25
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/build-openwrt/master/scripts/30_network.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/30_network.js
 wget -O package/autocore/files/generic/10_system.js https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/25.12/10_system.js
+wget -O package/autocore/files/generic/29_ports.js https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/29_ports.js
 
 # comment out the following line to restore the full description
 #sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/emortal/default-settings/files/99-default-settings
