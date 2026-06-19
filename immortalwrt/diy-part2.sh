@@ -52,7 +52,7 @@ git clone --depth=1 -b openwrt-25.12 https://github.com/sbwml/autocore-arm packa
 git clone https://github.com/sbwml/default-settings package/default-settings
 
 # 核心库
-rm -rf feeds/luci/applications/{luci-app-dae,luci-app-openclash,luci-app-homeproxy,luci-app-filemanager}
+rm -rf feeds/luci/applications/{luci-app-dae,luci-app-openclash,luci-app-filemanager}
 rm -rf feeds/packages/net/{curl,dae,xray-core}
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 
