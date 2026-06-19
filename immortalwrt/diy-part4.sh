@@ -37,7 +37,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # autocore default-settings
 rm -rf package/emortal/autocore
 rm -rf package/emortal/default-settings
-#git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+#gmerge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI autocore
 git clone --depth=1 -b openwrt-25.12 https://github.com/sbwml/autocore-arm package/autocore
 git clone https://github.com/sbwml/default-settings package/default-settings
 
