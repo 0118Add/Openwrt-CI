@@ -122,7 +122,7 @@ rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multip
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
-#git_sparse_clone main https://github.com/Openwrt-Passwall/openwrt-passwall-packages sing-box
+git_sparse_clone main https://github.com/Openwrt-Passwall/openwrt-passwall-packages v2ray-geodata
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
