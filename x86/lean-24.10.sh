@@ -167,7 +167,6 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 #sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
 
-
 git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
