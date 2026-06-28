@@ -286,7 +286,7 @@ sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/roo
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # Realtek Ethernet driver - R8168 & R8125 & R8126 & R8152 & R8101 & r8127
-rm -rf package/kernel/{r8168,r8101,r8125,r8126,r8127}
+rm -rf package/kernel/{r8168,r8101,r8125,r8126,r8127,r8152}
 git clone https://github.com/sbwml/package_kernel_r8168 package/kernel/r8168
 git clone https://github.com/sbwml/package_kernel_r8152 package/kernel/r8152
 git clone https://github.com/sbwml/package_kernel_r8101 package/kernel/r8101
