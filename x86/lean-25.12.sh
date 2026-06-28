@@ -129,8 +129,8 @@ ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/l
 git clone --depth=1 -b openwrt-25.12 https://github.com/immortalwrt/packages immortalwrt-packages
 cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
-cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
-ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
+#cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
+#ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
 
 # 添加额外软件包
 #merge_package https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore-arm
@@ -142,6 +142,7 @@ ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
 #git clone -b main --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/v2ray-geodata
+merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 merge_package https://github.com/Openwrt-Passwall/openwrt-passwall-packages openwrt-passwall-packages/xray-core
 #merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-ssr-plus
 #merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
@@ -171,10 +172,10 @@ git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscal
 git clone https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
 
-
 git clone -b dev --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+wget -O package/luci-app-homeproxy/root/etc/init.d/homeproxy https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/homeproxy
 
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
