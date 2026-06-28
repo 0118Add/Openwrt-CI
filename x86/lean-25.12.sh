@@ -285,6 +285,38 @@ sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/roo
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
+# Realtek Ethernet driver - R8168 & R8125 & R8126 & R8152 & R8101 & r8127
+rm -rf package/kernel/{r8168,r8101,r8125,r8126,r8127}
+git clone https://github.com/sbwml/package_kernel_r8168 package/kernel/r8168
+git clone https://github.com/sbwml/package_kernel_r8152 package/kernel/r8152
+git clone https://github.com/sbwml/package_kernel_r8101 package/kernel/r8101
+git clone https://github.com/sbwml/package_kernel_r8125 package/kernel/r8125
+git clone https://github.com/sbwml/package_kernel_r8126 package/kernel/r8126
+git clone https://github.com/sbwml/package_kernel_r8127 package/kernel/r8127
+
+# mt76
+rm -rf package/kernel/mt76
+mkdir -p package/kernel/mt76/patches package/kernel/mt76/src/firmware/mt7927
+curl -s $mirror/openwrt/patch/mt76/Makefile > package/kernel/mt76/Makefile
+pushd package/kernel/mt76/patches
+    curl -Os $mirror/openwrt/patch/mt76/patches/003-pass-LED-define-via-ccflags-y.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/100-fix-build-with-linux-6.12rc2.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/102-use-hrtimer_setup-in-mt76x02u-beacon-init.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/201-mt76-mt7925-fix-stale-pointer-comparisons-in-change_.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/202-mt76-mt7925-add-320MHz-bandwidth-to-bss_rlm_tlv.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/203-mt76-mt7925-handle-320MHz-bandwidth-in-RXV-and-TXS.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/204-mt76-mt7925-populate-EHT-320MHz-MCS-map-in-sta_rec.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/205-mt76-mt7925-advertise-EHT-320MHz-capabilities-for-6G.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/206-mt76-mt7925-add-MT7927-chip-ID-helpers.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/207-mt76-mt7925-add-MT7927-firmware-paths.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/208-mt76-mt7925-use-irq_map-for-chip-specific-interrupt-.patch
+    curl -Os $mirror/openwrt/patch/mt76/patches/209-mt76-mt7925-disable-ASPM-and-runtime-PM-for-MT7927.patch
+popd
+pushd package/kernel/mt76/src/firmware/mt7927
+    curl -Os $mirror/openwrt/patch/mt76/src/firmware/mt7927/WIFI_MT6639_PATCH_MCU_2_1_hdr.bin
+    curl -Os $mirror/openwrt/patch/mt76/src/firmware/mt7927/WIFI_RAM_CODE_MT6639_2_1.bin
+popd
+
 # 修改系统文件
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86_64-Test/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
