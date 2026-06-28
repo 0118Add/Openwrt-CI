@@ -297,6 +297,10 @@ sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/roo
 #git clone https://github.com/sbwml/package_kernel_r8126 package/kernel/r8126
 #git clone https://github.com/sbwml/package_kernel_r8127 package/kernel/r8127
 
+# mac80211 - linux 7.x
+rm -rf package/kernel/mac80211
+git clone https://github.com/sbwml/package_kernel_mac80211 package/kernel/mac80211 -b v7.0.13
+
 # mt76
 rm -rf package/kernel/mt76
 mkdir -p package/kernel/mt76/patches package/kernel/mt76/src/firmware/mt7927
