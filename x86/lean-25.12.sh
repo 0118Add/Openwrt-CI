@@ -300,10 +300,13 @@ sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/roo
 #git clone https://github.com/sbwml/package_kernel_r8125 package/kernel/r8125
 #git clone https://github.com/sbwml/package_kernel_r8126 package/kernel/r8126
 #git clone https://github.com/sbwml/package_kernel_r8127 package/kernel/r8127
+# Realtek Wireless driver - RTL8822CS & RTL8852AU
+git clone https://github.com/sbwml/package_kernel_rtl8822cs package/kernel/rtl8822cs
+git clone https://github.com/sbwml/package_kernel_rtl8852au package/kernel/rtl8852au
 
 # mac80211 - linux 7.x
 rm -rf package/kernel/mac80211
-git clone https://github.com/sbwml/package_kernel_mac80211 package/kernel/mac80211 -b v7.0.13
+git clone https://github.com/sbwml/package_kernel_mac80211 package/kernel/mac80211 -b v6.18
 
 # mt76
 rm -rf package/kernel/mt76
