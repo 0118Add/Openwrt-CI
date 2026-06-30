@@ -62,11 +62,17 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
-# mihomo
+# mihomo momo
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-
-# momo
 #git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
+
+# daed
+git clone -b kix --depth 1 https://github.com/QiuSimons/luci-app-daed package/daed
+git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+
+# bpf-headers - 6.18
+sed -ri "s/(PKG_PATCHVER:=)[^\"]*/\16.18/" package/kernel/bpf-headers/Makefile
+curl -s $mirror/openwrt/patch/packages-patches/bpf-headers/900-fix-build.patch > package/kernel/bpf-headers/patches/900-fix-build.patch
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
