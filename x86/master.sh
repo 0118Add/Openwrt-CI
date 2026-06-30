@@ -50,9 +50,9 @@ rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # passwall核心库
-rm -rf feeds/luci/applications/luci-app-passwall
-#rm -rf feeds/packages/net/{xray-core,sing-box}
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+rm -rf feeds/luci/applications/{luci-app-daed,luci-app-passwall}
+rm -rf feeds/packages/net/{daed,xray-core,v2ray-geodata}
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #merge_package main https://github.com/kiddin9/op-packages package/op-packages luci-app-passwall
 
