@@ -65,7 +65,7 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
 
 # dae daed
-git_sparse_clone kix https://github.com/QiuSimons/luci-app-daed luci-app-daed daed
+git clone --depth=1 -b kix https://github.com/QiuSimons/luci-app-daed package/daed
 git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
 
 # partexp
