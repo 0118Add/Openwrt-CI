@@ -162,7 +162,7 @@ if [ "$version" = "dev" ] || [ "$version" = "rc2" ]; then
 fi
 
 # FullCone module
-git clone https://github.com/gitbruc/nft-fullcone.git package/new/nft-fullcone
+#git clone https://github.com/gitbruc/nft-fullcone.git package/new/nft-fullcone
 
 # IPv6 NAT
 git clone https://$github/gitbruc/package_new_nat6 package/new/nat6 -b openwrt-25.12
