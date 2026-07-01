@@ -60,11 +60,13 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenCl
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
-# mihomo
+# mihomo momo
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-
-# momo
 #git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
+
+# dae daed
+git_sparse_clone kix https://github.com/QiuSimons/luci-app-daed luci-app-daed daed
+git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
