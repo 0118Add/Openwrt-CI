@@ -46,7 +46,7 @@ git clone --depth=1 -b openwrt-25.12 https://github.com/sbwml/autocore-arm packa
 git clone https://github.com/sbwml/default-settings package/default-settings
 
 # passwall核心库
-rm -rf feeds/luci/applications/{luci-app-daed,luci-app-homeproxy,luci-app-openclash}
+rm -rf feeds/luci/applications/{luci-app-daed,luci-app-openclash}
 rm -rf feeds/packages/net/{daed,v2ray-geodata,xray-core}
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 merge_package main https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall-packages v2ray-geodata xray-core
