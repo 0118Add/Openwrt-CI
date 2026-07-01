@@ -46,16 +46,15 @@ git clone --depth=1 -b openwrt-25.12 https://github.com/sbwml/autocore-arm packa
 git clone https://github.com/sbwml/default-settings package/default-settings
 
 # passwall核心库
-rm -rf feeds/packages/net/{v2ray-geodata,xray-core}
+rm -rf feeds/luci/applications/{luci-app-daed,luci-app-homeproxy,luci-app-openclash}
+rm -rf feeds/packages/net/{daed,v2ray-geodata,xray-core}
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 merge_package main https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall-packages v2ray-geodata xray-core
 
 # openclash
-rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # homeproxy
-#rm -rf feeds/luci/applications/luci-app-homeproxy
 #git clone --depth=1 -b dev https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
@@ -133,7 +132,7 @@ rm -rf feeds/luci/applications/luci-app-mjpg-streamer
 rm -rf feeds/packages/net/onionshare-cli
 
 # Shortcut Forwarding Engine
-git clone https://github.com/gitbruc/shortcut-fe package/new/shortcut-fe
+git clone https://github.com/gitbruc/shortcut-fe package/shortcut-fe
 
 # Patch FireWall 4
 if [ "$version" = "dev" ] || [ "$version" = "rc2" ]; then
@@ -165,10 +164,10 @@ fi
 #git clone https://github.com/gitbruc/nft-fullcone.git package/new/nft-fullcone
 
 # IPv6 NAT
-git clone https://$github/gitbruc/package_new_nat6 package/new/nat6 -b openwrt-25.12
+git clone https://$github/gitbruc/package_new_nat6 package/nat6 -b openwrt-25.12
 
 # natflow
-git clone https://$github/gitbruc/package_new_natflow package/new/natflow
+git clone https://$github/gitbruc/package_new_natflow package/natflow
 
 # Patch Luci add nft_fullcone/bcm_fullcone & shortcut-fe & natflow & ipv6-nat & custom nft command option
 pushd feeds/luci
