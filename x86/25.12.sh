@@ -133,7 +133,8 @@ rm -rf feeds/luci/applications/luci-app-mjpg-streamer
 rm -rf feeds/packages/net/onionshare-cli
 
 # Shortcut Forwarding Engine
-git clone https://github.com/gitbruc/shortcut-fe package/new/shortcut-fe
+#git clone https://github.com/gitbruc/shortcut-fe package/new/shortcut-fe
+git clone https://github.com/xianren78/shortcut-fe package/emortal/shortcut-fe
 
 # Patch FireWall 4
 if [ "$version" = "dev" ] || [ "$version" = "rc2" ]; then
