@@ -131,65 +131,56 @@ sed -i "/attendedsysupgrade/d" $(find ./feeds/luci/collections/ -type f -name "M
 rm -rf feeds/luci/applications/luci-app-mjpg-streamer
 rm -rf feeds/packages/net/onionshare-cli
 
-# Shortcut Forwarding Engine
-git clone https://github.com/gitbruc/shortcut-fe package/shortcut-fe
-
-# Patch FireWall 4
-if [ "$version" = "dev" ] || [ "$version" = "rc2" ]; then
-    # firewall4
-    mkdir -p package/network/config/firewall4/patches
-    # fullcone
-    curl -s $mirror/openwrt/patch/firewall4/firewall4_patches/999-01-firewall4-add-fullcone-support.patch > package/network/config/firewall4/patches/999-01-firewall4-add-fullcone-support.patch
-    # bcm fullcone
-    curl -s $mirror/openwrt/patch/firewall4/firewall4_patches/999-02-firewall4-add-bcm-fullconenat-support.patch > package/network/config/firewall4/patches/999-02-firewall4-add-bcm-fullconenat-support.patch
-    # fix flow offload
-    curl -s $mirror/openwrt/patch/firewall4/firewall4_patches/001-fix-fw4-flow-offload.patch > package/network/config/firewall4/patches/001-fix-fw4-flow-offload.patch
-    # add custom nft command support
-    curl -s $mirror/openwrt/patch/firewall4/100-openwrt-firewall4-add-custom-nft-command-support.patch | patch -p1
-    # fw4 - github mirror
-    sed -i 's|$(PROJECT_GIT)/project|https://github.com/openwrt|g' package/network/config/firewall4/Makefile
-    # libnftnl
-    mkdir -p package/libs/libnftnl/patches
-    curl -s $mirror/openwrt/patch/firewall4/libnftnl/0001-libnftnl-add-fullcone-expression-support.patch > package/libs/libnftnl/patches/0001-libnftnl-add-fullcone-expression-support.patch
-    curl -s $mirror/openwrt/patch/firewall4/libnftnl/0002-libnftnl-add-brcm-fullcone-support.patch > package/libs/libnftnl/patches/0002-libnftnl-add-brcm-fullcone-support.patch
-    # fix build on rhel9
-    sed -i '/^PKG_BUILD_FLAGS[[:space:]]*:/aPKG_FIXUP:=autoreconf' package/libs/libnftnl/Makefile
-    # nftables
-    mkdir -p package/network/utils/nftables/patches
-    curl -s $mirror/openwrt/patch/firewall4/nftables/0001-nftables-add-fullcone-expression-support.patch > package/network/utils/nftables/patches/0001-nftables-add-fullcone-expression-support.patch
-    curl -s $mirror/openwrt/patch/firewall4/nftables/0002-nftables-add-brcm-fullconenat-support.patch > package/network/utils/nftables/patches/0002-nftables-add-brcm-fullconenat-support.patch
-fi
-
-# FullCone module
-#git clone https://github.com/gitbruc/nft-fullcone.git package/new/nft-fullcone
-
-# IPv6 NAT
-git clone https://$github/gitbruc/package_new_nat6 package/nat6 -b openwrt-25.12
-
-# natflow
-git clone https://$github/gitbruc/package_new_natflow package/natflow
-
-# Patch Luci add nft_fullcone/bcm_fullcone & shortcut-fe & natflow & ipv6-nat & custom nft command option
+### Fullcone-NAT 部分 ###
+# bcmfullcone
+cp -rf ../PATCH/kernel/bcmfullcone/* ./target/linux/generic/hack-${KERNEL_VERSION}/
+# set nf_conntrack_expect_max for fullcone
+wget -qO - https://github.com/openwrt/openwrt/commit/bbf39d07.patch | patch -p1
+echo "net.netfilter.nf_conntrack_helper = 1" >>./package/kernel/linux/files/sysctl-nf-conntrack.conf
+# FW4
+mkdir -p package/network/config/firewall4/patches
+#cp -f ../PATCH/pkgs/firewall/firewall4_patches/*.patch ./package/network/config/firewall4/patches/
+mkdir -p package/libs/libnftnl/patches
+cp -f ../PATCH/pkgs/firewall/libnftnl/*.patch ./package/libs/libnftnl/patches/
+sed -i '/PKG_INSTALL:=/iPKG_FIXUP:=autoreconf' package/libs/libnftnl/Makefile
+mkdir -p package/network/utils/nftables/patches
+cp -f ../PATCH/pkgs/firewall/nftables/*.patch ./package/network/utils/nftables/patches/
+# Patch LuCI 以增添 FullCone 开关
 pushd feeds/luci
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0001-luci-app-firewall-add-nft-fullcone-and-bcm-fullcone-.patch | patch -p1
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0002-luci-app-firewall-add-shortcut-fe-option.patch | patch -p1
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0003-luci-app-firewall-add-ipv6-nat-option.patch | patch -p1
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0004-luci-add-firewall-add-custom-nft-rule-support.patch | patch -p1
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0005-luci-app-firewall-add-natflow-offload-support.patch | patch -p1
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0006-luci-app-firewall-enable-hardware-offload-only-on-de.patch | patch -p1
-    curl -s $mirror/openwrt/patch/firewall4/luci-25.12/0007-luci-app-firewall-add-fullcone6-option-for-nftables-.patch | patch -p1
+patch -p1 <../../../PATCH/pkgs/firewall/luci/0001-luci-app-firewall-add-nft-fullcone-and-bcm-fullcone-.patch
 popd
 
-# kernel patch
-# btf: silence btf module warning messages
-curl -s $mirror/openwrt/patch/kernel-6.12/btf/990-btf-silence-btf-module-warning-messages.patch > target/linux/generic/hack-6.12/990-btf-silence-btf-module-warning-messages.patch
-# cpu model
-curl -s $mirror/openwrt/patch/kernel-6.12/arm64/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch > target/linux/generic/hack-6.12/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
-# fullcone
-curl -s $mirror/openwrt/patch/kernel-6.12/net/952-net-conntrack-events-support-multiple-registrant.patch > target/linux/generic/hack-6.12/952-net-conntrack-events-support-multiple-registrant.patch
-# bcm-fullcone
-curl -s $mirror/openwrt/patch/kernel-6.12/net/982-add-bcm-fullcone-support.patch > target/linux/generic/hack-6.12/982-add-bcm-fullcone-support.patch
-curl -s $mirror/openwrt/patch/kernel-6.12/net/983-add-bcm-fullcone-nft_masq-support.patch > target/linux/generic/hack-6.12/983-add-bcm-fullcone-nft_masq-support.patch
+### Shortcut-FE 部分 ###
+# Patch Kernel 以支持 Shortcut-FE
+cp -rf ../PATCH/kernel/sfe/* ./target/linux/generic/hack-${KERNEL_VERSION}/
+cp -rf ../lede/target/linux/generic/pending-${KERNEL_VERSION}/613-netfilter_optional_tcp_window_check.patch ./target/linux/generic/pending-${KERNEL_VERSION}/613-netfilter_optional_tcp_window_check.patch
+# Patch LuCI 以增添 Shortcut-FE 开关
+pushd feeds/luci
+patch -p1 <../../../PATCH/pkgs/firewall/luci/0002-luci-app-firewall-add-shortcut-fe-option.patch
+popd
+
+### NAT6 部分 ###
+# custom nft command
+patch -p1 < ../PATCH/pkgs/firewall/100-openwrt-firewall4-add-custom-nft-command-support.patch
+cp -f ../PATCH/pkgs/firewall/firewall4_patches/*.patch ./package/network/config/firewall4/patches/
+# Patch LuCI 以增添 NAT6 开关
+pushd feeds/luci
+patch -p1 <../../../PATCH/pkgs/firewall/luci/0003-luci-app-firewall-add-ipv6-nat-option.patch
+popd
+# Patch LuCI 以支持自定义 nft 规则
+pushd feeds/luci
+patch -p1 <../../../PATCH/pkgs/firewall/luci/0004-luci-add-firewall-add-custom-nft-rule-support.patch
+popd
+
+### natflow 部分 ###
+pushd feeds/luci
+patch -p1 <../../../PATCH/pkgs/firewall/luci/0005-luci-app-firewall-add-natflow-offload-support.patch
+popd
+
+### fullcone6 ###
+pushd feeds/luci
+patch -p1 <../../../PATCH/pkgs/firewall/luci/0007-luci-app-firewall-add-fullcone6-option-for-nftables-.patch
+popd
 
 # 拷贝自定义文件
 if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
