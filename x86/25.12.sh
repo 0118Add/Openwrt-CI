@@ -146,7 +146,7 @@ mkdir -p package/network/utils/nftables/patches
 curl -s PATCH/pkgs/firewall/nftables/*.patch ./package/network/utils/nftables/patches/
 # Patch LuCI 以增添 FullCone 开关
 pushd feeds/luci
-patch -p1 <../Openwrt-CI/PATCH/pkgs/firewall/luci/0001-luci-app-firewall-add-nft-fullcone-and-bcm-fullcone-.patch
+curl -s $mirror/Openwrt-CI/PATCH/pkgs/firewall/luci/0001-luci-app-firewall-add-nft-fullcone-and-bcm-fullcone-.patch | patch -p1
 popd
 
 ### NAT6 部分 ###
@@ -155,21 +155,21 @@ patch -p1 < Openwrt-CI/PATCH/pkgs/firewall/100-openwrt-firewall4-add-custom-nft-
 curl -s PATCH/pkgs/firewall/firewall4_patches/*.patch ./package/network/config/firewall4/patches/
 # Patch LuCI 以增添 NAT6 开关
 pushd feeds/luci
-patch -p1 <../Openwrt-CI/PATCH/pkgs/firewall/luci/0003-luci-app-firewall-add-ipv6-nat-option.patch
+curl -s $mirror/Openwrt-CI/PATCH/pkgs/firewall/luci/0003-luci-app-firewall-add-ipv6-nat-option.patch | patch -p1
 popd
 # Patch LuCI 以支持自定义 nft 规则
 pushd feeds/luci
-patch -p1 <../Openwrt-CI/PATCH/pkgs/firewall/luci/0004-luci-add-firewall-add-custom-nft-rule-support.patch
+curl -s $mirror/Openwrt-CI/PATCH/pkgs/firewall/luci/0004-luci-add-firewall-add-custom-nft-rule-support.patch | patch -p1
 popd
 
 ### natflow 部分 ###
 pushd feeds/luci
-patch -p1 <../Openwrt-CI/PATCH/pkgs/firewall/luci/0005-luci-app-firewall-add-natflow-offload-support.patch
+curl -s $mirror/Openwrt-CI/PATCH/pkgs/firewall/luci/0005-luci-app-firewall-add-natflow-offload-support.patch | patch -p1
 popd
 
 ### fullcone6 ###
 pushd feeds/luci
-patch -p1 <../Openwrt-CI/PATCH/pkgs/firewall/luci/0007-luci-app-firewall-add-fullcone6-option-for-nftables-.patch
+curl -s $mirror/Openwrt-CI/PATCH/pkgs/firewall/luci/0007-luci-app-firewall-add-fullcone6-option-for-nftables-.patch | patch -p1
 popd
 
 # 拷贝自定义文件
