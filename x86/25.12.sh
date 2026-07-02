@@ -191,6 +191,15 @@ curl -s $mirror/openwrt/patch/kernel-6.12/net/952-net-conntrack-events-support-m
 curl -s $mirror/openwrt/patch/kernel-6.12/net/982-add-bcm-fullcone-support.patch > target/linux/generic/hack-6.12/982-add-bcm-fullcone-support.patch
 curl -s $mirror/openwrt/patch/kernel-6.12/net/983-add-bcm-fullcone-nft_masq-support.patch > target/linux/generic/hack-6.12/983-add-bcm-fullcone-nft_masq-support.patch
 
+# fix gcc-16.1.0
+# elfutils lto
+curl -s $mirror/openwrt/patch/packages-patches_gcc16/elfutils/900-fix-gcc16-null-dereference-with-lto.patch > package/libs/elfutils/patches/900-fix-gcc16-null-dereference-with-lto.patch
+# bash
+sed -i "/PKG_INSTALL:=/i\PKG_BUILD_FLAGS:=no-lto" feeds/packages/utils/bash/Makefile
+# quectel-cm
+mkdir -p feeds/packages/net/quectel-cm/patches
+cp -f $GITHUB_WORKSPACE/data/patches/quectel-cm/030-gcc16.patch feeds/packages/net/quectel-cm/patches/030-gcc16.patch
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
