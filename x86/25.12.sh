@@ -198,7 +198,7 @@ curl -s $mirror/openwrt/patch/packages-patches_gcc16/elfutils/900-fix-gcc16-null
 sed -i "/PKG_INSTALL:=/i\PKG_BUILD_FLAGS:=no-lto" feeds/packages/utils/bash/Makefile
 # quectel-cm
 mkdir -p feeds/packages/net/quectel-cm/patches
-cp -f $GITHUB_WORKSPACE/data/patches/quectel-cm/030-gcc16.patch feeds/packages/net/quectel-cm/patches/030-gcc16.patch
+cp -f $GITHUB_WORKSPACE/patch/patches/quectel-cm/030-gcc16.patch feeds/packages/net/quectel-cm/patches/030-gcc16.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
