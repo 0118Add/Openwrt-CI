@@ -169,6 +169,11 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b kix --depth 1 https://github.com/QiuSimons/luci-app-dae package/dae
 git clone -b kix --depth 1 https://github.com/QiuSimons/luci-app-daed package/daed
 git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.06.14/g' package/daed/daed/Makefile
+sed -i 's/DAED_VERSION:=.*/DAED_VERSION:=daed-4d6a433/g' package/daed/daed/Makefile
+sed -i 's/WING_VERSION:=.*/WING_VERSION:=wing-dc50308/g' package/daed/daed/Makefile
+sed -i 's/CORE_VERSION:=.*/CORE_VERSION:=core-5a51cc7/g' package/daed/daed/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4d6a43331f2f6e25961935b9e7ac09a7568bb2b4/g' package/daed/daed/Makefile
 
 # bpf-headers - 6.18
 sed -ri "s/(PKG_PATCHVER:=)[^\"]*/\16.18/" package/kernel/bpf-headers/Makefile
