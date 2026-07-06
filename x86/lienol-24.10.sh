@@ -168,6 +168,8 @@ wget -O package/luci-app-homeproxy/root/etc/init.d/homeproxy https://raw.githubu
 #git clone -b kix --depth 1 https://github.com/QiuSimons/luci-app-dae package/dae
 git clone -b kix --depth 1 https://github.com/QiuSimons/luci-app-daed package/daed
 git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.06.14/g' package/daed/Makefile
+sed -i 's/CORE_VERSION:=.*/CORE_VERSION:=core-5a51cc7/g' package/daed/Makefile
 
 # turboacc
 #git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
