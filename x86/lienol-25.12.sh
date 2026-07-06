@@ -104,6 +104,7 @@ rm -rf feeds/packages/net/{sing-box,v2ray-geodata,xray-core,zerotier}
 rm -rf feeds/lienol/other/luci-app-diskman
 #rm -rf feeds/lienol/other/luci-app-dockerman
 rm -rf feeds/lienol/other/lean/luci-app-autoreboot
+rm -rf feeds/lienol/other/lean/mt/luci-app-mtwifi
 rm -rf feeds/lienol/other/lean/luci-app-mwan3helper
 rm -rf feeds/lienol/other/lean/luci-app-turboacc
 rm -rf feeds/lienol/other/lean/luci-app-zerotier
