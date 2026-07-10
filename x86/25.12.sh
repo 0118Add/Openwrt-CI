@@ -16,7 +16,7 @@ echo "========================="
 chmod +x ${GITHUB_WORKSPACE}/immortalwrt/function.sh
 source ${GITHUB_WORKSPACE}/immortalwrt/function.sh
 
-mirror="https://raw.githubusercontent.com/gitbruc/myopenwrt/refs/heads/new"
+mirror="https://raw.githubusercontent.com/sbwml/r4s_build_script/refs/heads/master"
 github="github.com"
 gitea="git.cooluc.com"
 
