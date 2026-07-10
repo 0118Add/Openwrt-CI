@@ -62,6 +62,7 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 wget -O feeds/luci/applications/luci-app-homeproxy/root/etc/init.d/homeproxy https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/homeproxy
+#wget -O feeds/luci/applications/luci-app-homeproxy/root/etc/homeproxy/scripts/generate_client.uc https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/generate_client.uc
 
 # mihomo momo
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
