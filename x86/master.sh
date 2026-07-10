@@ -51,7 +51,7 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenCl
 
 # passwall核心库
 rm -rf feeds/luci/applications/{luci-app-daed,luci-app-passwall}
-rm -rf feeds/packages/net/{daed,xray-core,v2ray-geodata}
+rm -rf feeds/packages/net/{daed,sing-box,xray-core,v2ray-geodata}
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #merge_package main https://github.com/kiddin9/op-packages package/op-packages luci-app-passwall
@@ -61,6 +61,7 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/
 #git clone --depth=1 -b dev https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+wget -O feeds/luci/applications/luci-app-homeproxy/root/etc/init.d/homeproxy https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/homeproxy
 
 # mihomo momo
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
