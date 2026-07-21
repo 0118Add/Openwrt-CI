@@ -19,6 +19,10 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
+mirror="https://raw.githubusercontent.com/sbwml/r4s_build_script/refs/heads/master"
+github="github.com"
+gitea="git.cooluc.com"
+
 # 修改主机名字（不能纯数字或者使用中文）
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 #sed -i "s/OpenWrt /OPWRT/g" package/lean/default-settings/files/zzz-default-settings
